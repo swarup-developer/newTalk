@@ -1,0 +1,26 @@
+plugins {
+    id("newtalk.android.library")
+}
+
+android {
+    namespace = "com.google.android.accessibility.braille.brailledisplay"
+    buildFeatures {
+        aidl = true
+    }
+}
+
+dependencies {
+    implementation(project(":proguard"))
+    implementation(project(":utils"))
+    implementation(project(":braillebrltty"))
+    implementation(project(":brailledisplayanalytics"))
+    implementation(project(":brailleinterfaces"))
+    implementation(project(":brailletranslate"))
+    implementation(project(":braillecommon"))
+
+    implementation(libs.commons.text)
+
+    // AutoValue
+    compileOnly(libs.auto.value.annotations)
+    annotationProcessor(libs.auto.value)
+}

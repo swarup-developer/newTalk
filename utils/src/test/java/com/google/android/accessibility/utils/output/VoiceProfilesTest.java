@@ -246,7 +246,7 @@ public class VoiceProfilesTest {
     String fast = create("Fast", "e");
     assertTrue(VoiceProfiles.isNameTaken(prefs, fast, " reading ", DEFAULT));
     assertTrue(VoiceProfiles.isNameTaken(prefs, "", "READING", DEFAULT));
-    assertTrue(VoiceProfiles.isNameTaken(prefs, fast, "backtalk default", DEFAULT));
+    assertTrue(VoiceProfiles.isNameTaken(prefs, fast, "newtalk default", DEFAULT));
     assertFalse(VoiceProfiles.isNameTaken(prefs, reading, "Reading", DEFAULT));
     assertFalse(VoiceProfiles.isNameTaken(prefs, "", "Books", DEFAULT));
 

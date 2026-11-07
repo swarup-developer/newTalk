@@ -1,13 +1,11 @@
 plugins {
-    id 'com.android.library'
+    id("newtalk.android.library")
 }
-
-apply from: "../../shared.gradle"
 
 android {
     namespace = "com.google.android.accessibility.braille.brailledisplay.analytics"
 }
 
 dependencies {
-    implementation project(':braillecommon')
+    implementation(project(":braillecommon"))
 }

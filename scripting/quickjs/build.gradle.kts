@@ -1,23 +1,21 @@
 plugins {
-    id 'com.android.library'
+    id("newtalk.android.library")
 }
-
-apply from: "../../shared.gradle"
 
 android {
     namespace = "com.google.android.accessibility.scripting.quickjs"
-    ndkVersion = "27.3.13750724"
+    ndkVersion = libs.versions.ndk.get()
     defaultConfig {
         externalNativeBuild {
             cmake {
-                targets "backtalkquickjs"
-                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+                targets.add("backtalkquickjs")
+                arguments.add("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON")
             }
         }
     }
     externalNativeBuild {
         cmake {
-            path = file('src/main/cpp/CMakeLists.txt')
+            path = file("src/main/cpp/CMakeLists.txt")
             version = "3.22.1"
         }
     }

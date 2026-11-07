@@ -5,6 +5,8 @@ autoValue = "1.11.1"
 compose = "1.12.1"
 wearCompose = "1.7.1"
 activity = "1.13.0"
+ndk = "27.3.13750724"
+androidxTestRunner = "1.6.2"
 
 [libraries]
 # Google common
@@ -17,6 +19,7 @@ material = "com.google.android.material:material:1.14.0"
 junit = "junit:junit:4.13.2"
 robolectric = "org.robolectric:robolectric:4.17"
 json = "org.json:json:20250517"
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestRunner" }
 
 # AndroidX
 androidx-annotation = "androidx.annotation:annotation:1.11.0"
