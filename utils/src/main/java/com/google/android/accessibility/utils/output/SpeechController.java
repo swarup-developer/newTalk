@@ -141,7 +141,7 @@ public interface SpeechController {
   int UTTERANCE_GROUP_SCREEN_MAGNIFICATION = 4;
   int UTTERANCE_GROUP_CONTENT_CHANGE = 5;
   int UTTERANCE_GROUP_CONTENT_HINTS = 6;
-  // Backtalk: speech that other apps ask for, so that it can be replaced or stopped on its own.
+  // newTalk: speech that other apps ask for, so that it can be replaced or stopped on its own.
   int UTTERANCE_GROUP_OTHER_APPS = 7;
 
   /** Enumeration of utterance-group values. */

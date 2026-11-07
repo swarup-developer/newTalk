@@ -197,7 +197,7 @@ public class InputFocusInterpreter
     if (isFromSavedFocusAction(event)) {
       clearFocusActionRecord();
     } else if (isInSwipeScrolledList(event, sourceNode)) {
-      // Backtalk focuses the next item before a swipe's scroll ends. Some lists move input focus
+      // newTalk focuses the next item before a swipe's scroll ends. Some lists move input focus
       // when their scroll ends, such as Recents, which focuses the centered task. Following it
       // would undo the swipe.
       LogUtils.d(TAG, "Ignore TYPE_VIEW_FOCUSED event from a list a swipe has just scrolled.");

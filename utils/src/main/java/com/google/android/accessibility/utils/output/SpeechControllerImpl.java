@@ -110,8 +110,8 @@ public class SpeechControllerImpl implements SpeechController {
   }
 
   /**
-   * Backtalk: marks speech from a script or another app, which sets its own rate and pitch and is
-   * said as given, without Backtalk's speech filter.
+   * newTalk: marks speech from a script or another app, which sets its own rate and pitch and is
+   * said as given, without newTalk's speech filter.
    */
   public static final String SPEECH_PARAM_FROM_SCRIPT = "backtalk.fromScript";
 
@@ -182,7 +182,7 @@ public class SpeechControllerImpl implements SpeechController {
   /** Talkback speech deliberately saved by a caller of saveLastUtterance() */
   private @Nullable FeedbackItem savedUtterance;
 
-  /** Backtalk: the text Backtalk last put on the clipboard, which appending adds to. */
+  /** newTalk: the text newTalk last put on the clipboard, which appending adds to. */
   private @Nullable CharSequence textCopied;
 
   private final Context mContext;
@@ -772,12 +772,12 @@ public class SpeechControllerImpl implements SpeechController {
     return copyUtteranceToClipboard(getLastUtterance(), eventId);
   }
 
-  /** Backtalk: adds the saved speech to what was copied, on a line of its own. */
+  /** newTalk: adds the saved speech to what was copied, on a line of its own. */
   public boolean appendSavedUtteranceToClipboard(EventId eventId) {
     return copyUtteranceToClipboard(savedUtterance, eventId, /* append= */ true);
   }
 
-  /** Backtalk: adds the last phrase spoken to what was copied, on a line of its own. */
+  /** newTalk: adds the last phrase spoken to what was copied, on a line of its own. */
   public boolean appendLastUtteranceToClipboard(EventId eventId) {
     return copyUtteranceToClipboard(getLastUtterance(), eventId, /* append= */ true);
   }
@@ -790,7 +790,7 @@ public class SpeechControllerImpl implements SpeechController {
   /**
    * Copies a phrase spoken by TalkBack to clipboard, or with {@code append}, adds it after what
    * was copied. From Android 10, only the app in front can read the clipboard, so what was copied
-   * is the text Backtalk last put there.
+   * is the text newTalk last put there.
    */
   private boolean copyUtteranceToClipboard(
       @Nullable FeedbackItem item, EventId eventId, boolean append) {
@@ -1800,9 +1800,9 @@ public class SpeechControllerImpl implements SpeechController {
   }
 
   /**
-   * Backtalk: stops the speech in {@code utteranceGroup}, whether queued or speaking, and leaves
+   * newTalk: stops the speech in {@code utteranceGroup}, whether queued or speaking, and leaves
    * all other speech as it is, so that speech another app asked for can be stopped without
-   * stopping Backtalk's own.
+   * stopping newTalk's own.
    */
   public void stopUtteranceGroup(@UtteranceGroup int utteranceGroup) {
     if (!mHandler.getLooper().isCurrentThread()) {

@@ -40,7 +40,7 @@ object SpeakerphoneSettings {
     "adb shell appops set ${context.packageName} MANAGE_ONGOING_CALLS allow"
 
   /**
-   * Whether Android lets Backtalk change where call audio goes. The permission exists from Android
+   * Whether Android lets newTalk change where call audio goes. The permission exists from Android
    * 12, and Android only binds [SpeakerphoneInCallService] while it is granted.
    */
   fun canControlCalls(context: Context): Boolean {

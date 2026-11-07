@@ -26,8 +26,8 @@ class MigrationFilesTest {
   @Test
   fun preferenceFilesAreAllowed() {
     assertEquals(
-      "shared_prefs" to "com.android.talkback_preferences.xml",
-      MigrationFiles.parse("shared_prefs/com.android.talkback_preferences.xml"),
+      "shared_prefs" to "fyi.quin.backtalk_preferences.xml",
+      MigrationFiles.parse("shared_prefs/fyi.quin.backtalk_preferences.xml"),
     )
     assertEquals(
       "shared_prefs" to "braille_keyboard.xml",
@@ -73,11 +73,11 @@ class MigrationFilesTest {
   @Test
   fun defaultPreferencesTakeTheNewAppId() {
     assertEquals(
-      "fyi.quin.backtalk_preferences.xml",
+      "io.github.swarupdeveloper.newtalk_preferences.xml",
       MigrationFiles.importedPrefsName(
-        "com.android.talkback_preferences.xml",
-        "com.android.talkback",
+        "fyi.quin.backtalk_preferences.xml",
         "fyi.quin.backtalk",
+        "io.github.swarupdeveloper.newtalk",
       ),
     )
   }

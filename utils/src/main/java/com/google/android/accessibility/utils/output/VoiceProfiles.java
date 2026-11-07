@@ -30,7 +30,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Voice profiles: speech settings the user can switch to from the reading controls, each with its
- * own engine, language, voice, volume, rate, pitch, and sentence sending. Backtalk's default is no
+ * own engine, language, voice, volume, rate, pitch, and sentence sending. newTalk's default is no
  * profile, and uses the text-to-speech settings. While a profile is in use, all speech uses its
  * engine and voice, so speech never changes language.
  *
@@ -39,7 +39,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public final class VoiceProfiles {
 
-  /** The ID of the profile in use, or empty for Backtalk's default. */
+  /** The ID of the profile in use, or empty for newTalk's default. */
   public static final String PREF_ACTIVE = "pref_voice_profile";
 
   /** The IDs of the profiles, in order, separated by commas. */
@@ -105,17 +105,17 @@ public final class VoiceProfiles {
     }
   }
 
-  /** The profile in use, or null for Backtalk's default. */
+  /** The profile in use, or null for newTalk's default. */
   private static volatile @Nullable VoiceProfile active;
 
   private VoiceProfiles() {}
 
-  /** Returns the profile in use, or null for Backtalk's default. */
+  /** Returns the profile in use, or null for newTalk's default. */
   public static @Nullable VoiceProfile active() {
     return active;
   }
 
-  /** Whether a profile other than Backtalk's default is in use. */
+  /** Whether a profile other than newTalk's default is in use. */
   public static boolean isProfileActive() {
     return active != null;
   }
@@ -132,7 +132,7 @@ public final class VoiceProfiles {
   /**
    * Whether {@code key} is one of the voice profile preferences: the profile in use, the list of
    * profiles, or one of a profile's settings. Other settings that start the same way, such as the
-   * Backtalk menu's voice profile item, are not.
+   * newTalk menu's voice profile item, are not.
    */
   public static boolean isProfileKey(@Nullable String key) {
     return key != null
@@ -155,14 +155,14 @@ public final class VoiceProfiles {
     return ids;
   }
 
-  /** Returns the ID of the profile in use, or empty for Backtalk's default. */
+  /** Returns the ID of the profile in use, or empty for newTalk's default. */
   public static String activeId(SharedPreferences prefs) {
     String id = getString(prefs, PREF_ACTIVE, "");
     return ids(prefs).contains(id) ? id : "";
   }
 
   /**
-   * Returns the ID of the profile before or after the one in use, with Backtalk's default (empty)
+   * Returns the ID of the profile before or after the one in use, with newTalk's default (empty)
    * first, wrapping around at either end.
    */
   public static String adjacentId(SharedPreferences prefs, boolean isNext) {
@@ -173,7 +173,7 @@ public final class VoiceProfiles {
     return ids.get(Math.floorMod(currentIndex + (isNext ? 1 : -1), ids.size()));
   }
 
-  /** Returns the profile in use, or null for Backtalk's default. */
+  /** Returns the profile in use, or null for newTalk's default. */
   public static @Nullable VoiceProfile readActive(SharedPreferences prefs) {
     String id = activeId(prefs);
     return id.isEmpty() ? null : read(prefs, id);
@@ -202,7 +202,7 @@ public final class VoiceProfiles {
 
   /**
    * Adds a profile called {@code name}, which must not be blank or another profile's (see {@link
-   * #isNameTaken}), speaking with {@code engine} and otherwise like Backtalk's default, and returns
+   * #isNameTaken}), speaking with {@code engine} and otherwise like newTalk's default, and returns
    * its ID.
    */
   public static String create(
@@ -259,11 +259,11 @@ public final class VoiceProfiles {
   /**
    * Returns each profile's name by ID, in order. Names can't be saved blank or the same as another
    * profile's, but a damaged setting, such as one restored from a backup, can leave them so. A
-   * profile with a blank name, or the name of a profile above it or of Backtalk default, gets the
+   * profile with a blank name, or the name of a profile above it or of newTalk default, gets the
    * first numbered name, such as "Voice profile 2", that no other profile has, as a new profile
    * would. {@link #saveNames} saves those names, so that they stay the same from then on.
    *
-   * @param defaultName Backtalk default's name, which no profile can have
+   * @param defaultName newTalk default's name, which no profile can have
    * @param numberedName gives the numbered name for a number
    */
   public static Map<String, String> names(
@@ -333,7 +333,7 @@ public final class VoiceProfiles {
   }
 
   /**
-   * Whether a profile other than {@code id} is called {@code name}, or it is Backtalk default's
+   * Whether a profile other than {@code id} is called {@code name}, or it is newTalk default's
    * name. Use an empty {@code id} for a new profile.
    */
   public static boolean isNameTaken(
@@ -378,7 +378,7 @@ public final class VoiceProfiles {
   }
 
   /**
-   * Removes profile {@code id}, going back to Backtalk's default if it is in use. The list of
+   * Removes profile {@code id}, going back to newTalk's default if it is in use. The list of
    * profiles is saved without any duplicates a damaged setting left in it.
    */
   public static void delete(SharedPreferences prefs, String id) {

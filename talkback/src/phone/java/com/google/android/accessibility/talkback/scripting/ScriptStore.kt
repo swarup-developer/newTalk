@@ -233,7 +233,7 @@ class ScriptStore private constructor(private val context: Context) {
     command.bindings.forEach { remove(bindingKey(command.id, it)) }
   }
 
-  /** The example script that comes with Backtalk, for the Scripts screen to offer. */
+  /** The example script that comes with newTalk, for the Scripts screen to offer. */
   @Throws(IOException::class)
   fun exampleBytes(): ByteArray = context.assets.open(EXAMPLE_ASSET).use { it.readBytes() }
 

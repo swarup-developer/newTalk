@@ -51,7 +51,7 @@ object ScriptFetch {
       } catch (e: MalformedURLException) {
         apiError("Not a URL: $text")
       }
-    // Android blocks cleartext requests from Backtalk, and what a script sends may be on screen.
+    // Android blocks cleartext requests from newTalk, and what a script sends may be on screen.
     apiCheck(url.protocol == "https") { "fetch only takes https URLs: $text" }
     val method = args.optString("method", "GET").uppercase()
     apiCheck(method in METHODS) { "Unknown method $method. Methods: ${METHODS.joinToString()}" }

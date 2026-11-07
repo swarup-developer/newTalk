@@ -51,7 +51,7 @@ class SoundThemeSettingsFragment : TalkbackBaseFragment() {
     prefs = SharedPreferencesUtils.getSharedPreferences(context)
     themeId = arguments?.getString(ARG_THEME_ID).orEmpty()
     actions.restore(savedInstanceState)
-    // Like every settings screen, so that nothing is ever saved outside Backtalk's settings.
+    // Like every settings screen, so that nothing is ever saved outside newTalk's settings.
     preferenceManager.setStorageDeviceProtected()
     preferenceScreen = preferenceManager.createPreferenceScreen(context)
   }

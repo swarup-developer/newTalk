@@ -29,7 +29,7 @@ class SoundVibrationsTest {
   private val patterns: Map<String, Pattern> = loadPatterns()
   private val vibrationNames = IndividualFeedbackSettings.VIBRATIONS.flatMap { it.resourceNames }
 
-  // Switches of vibrations that only themes give, which Backtalk has no pattern for, and of the
+  // Switches of vibrations that only themes give, which newTalk has no pattern for, and of the
   // braille keyboard's, which the keyboard defines itself.
   private val patternNames =
     vibrationNames -

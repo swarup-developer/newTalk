@@ -183,7 +183,7 @@ public class EditingAndSelectingMenu implements NodeMenu {
       items.add(paste);
     }
 
-    // Backtalk: clears the whole field at once, which takes a long time with delete otherwise.
+    // newTalk: clears the whole field at once, which takes a long time with delete otherwise.
     if (Role.getRole(node) == Role.ROLE_EDIT_TEXT
         && AccessibilityNodeInfoUtils.supportsAnyAction(
             node, AccessibilityNodeInfoCompat.ACTION_SET_TEXT)

@@ -20,7 +20,7 @@ import android.content.SharedPreferences
 import androidx.annotation.StringRes
 import com.google.android.accessibility.talkback.R
 
-/** A part of a notification that Backtalk's notification list speaks. */
+/** A part of a notification that newTalk's notification list speaks. */
 enum class NotificationPart(@StringRes val title: Int) {
   TITLE(R.string.notification_part_title),
   TEXT(R.string.notification_part_text),

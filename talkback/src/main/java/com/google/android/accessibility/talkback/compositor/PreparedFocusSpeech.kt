@@ -118,7 +118,7 @@ object PreparedFocusSpeech {
         eventWindowId == NO_WINDOW_ID ||
         eventWindowId == preparedWindowId)
 
-  /** Forgets all announcements before Backtalk performs [actionId], if it can change the nodes. */
+  /** Forgets all announcements before newTalk performs [actionId], if it can change the nodes. */
   @JvmStatic
   fun onNodeAction(actionId: Int) {
     if (TraversalTreeCache.changesNodes(actionId)) clear()

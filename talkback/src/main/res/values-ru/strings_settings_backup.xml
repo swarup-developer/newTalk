@@ -9,6 +9,6 @@
   <string name="settings_backup_export_done">Настройки экспортированы</string>
   <string name="settings_backup_export_failed">Не удалось экспортировать настройки</string>
   <string name="settings_backup_import_done">Настройки импортированы</string>
-  <string name="settings_backup_import_restart">Чтобы некоторые импортированные настройки вступили в силу, нужно выключить и снова включить Backtalk.</string>
+  <string name="settings_backup_import_restart">Чтобы некоторые импортированные настройки вступили в силу, нужно выключить и снова включить newTalk.</string>
   <string name="settings_backup_import_failed">Не удалось прочитать файл</string>
 </resources>

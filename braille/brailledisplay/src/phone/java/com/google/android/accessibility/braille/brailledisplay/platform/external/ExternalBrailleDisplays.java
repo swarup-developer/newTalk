@@ -40,8 +40,8 @@ import com.google.android.accessibility.braille.brailledisplay.platform.Controll
 import com.google.android.accessibility.braille.brailledisplay.platform.DisplayerInterface;
 import com.google.android.accessibility.braille.brailledisplay.platform.external.ExternalDisplayApps.State;
 import com.google.android.accessibility.braille.brltty.BrailleInputEvent;
-import fyi.quin.backtalk.braille.IBrailleDisplay;
-import fyi.quin.backtalk.braille.IBrailleDisplayHost;
+import io.github.swarupdeveloper.newtalk.braille.IBrailleDisplay;
+import io.github.swarupdeveloper.newtalk.braille.IBrailleDisplayHost;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -51,8 +51,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Braille displays that other apps provide. Backtalk binds the display service of each app that the
- * user has allowed in Backtalk, and asks about apps it hasn't been told about. One display at a time
+ * Braille displays that other apps provide. newTalk binds the display service of each app that the
+ * user has allowed in newTalk, and asks about apps it hasn't been told about. One display at a time
  * drives the braille controller. A display connected through BRLTTY comes first: while one is, the
  * others wait, and one that is in use steps aside when it connects. See
  * docs/braille-display-api.md.
@@ -60,9 +60,9 @@ import java.util.Set;
 public final class ExternalBrailleDisplays {
   private static final String TAG = "ExternalBrailleDisplays";
 
-  /** A display app sends this to Backtalk to have it look for displays again. */
+  /** A display app sends this to newTalk to have it look for displays again. */
   public static final String ACTION_BRAILLE_DISPLAYS_CHANGED =
-      "fyi.quin.backtalk.action.BRAILLE_DISPLAYS_CHANGED";
+      "io.github.swarupdeveloper.newtalk.action.BRAILLE_DISPLAYS_CHANGED";
 
   private static final long UNLOCK_CHECK_MS = 1000;
 
@@ -230,7 +230,7 @@ public final class ExternalBrailleDisplays {
     }
     mainHandler.removeCallbacks(refreshWhenUnlocked);
     if (!context.getSystemService(UserManager.class).isUserUnlocked()) {
-      // After a reboot, Backtalk starts before the user is unlocked, and a display app that can't
+      // After a reboot, newTalk starts before the user is unlocked, and a display app that can't
       // run until then isn't found. The broadcast that says the user is unlocked can come many
       // seconds later, behind the rest of the boot, so if such a display is waiting, check every
       // second.

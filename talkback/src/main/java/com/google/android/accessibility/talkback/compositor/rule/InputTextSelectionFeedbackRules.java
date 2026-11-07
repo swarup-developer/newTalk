@@ -249,7 +249,7 @@ public final class InputTextSelectionFeedbackRules {
     CharSequence eventTraversedText =
         refineInputText(context, traversedText, globalVariables.getCountRepeatedSymbols());
     // The user can choose to hear the phonetic word with or in place of a letter they move over.
-    // Traversal that Backtalk does itself has no event, and GranularityTraversal puts it in for that.
+    // Traversal that newTalk does itself has no event, and GranularityTraversal puts it in for that.
     AccessibilityEvent event = eventOptions.eventObject;
     Optional<CharSequence> phoneticInPlaceOfLetter =
         (event != null && AccessibilityEventUtils.isCharacterTraversalEvent(event))

@@ -2,10 +2,10 @@ export const manifest = {
   id: 'example-plugin',
   name: 'Example plugin',
   version: '1.0',
-  author: 'Backtalk',
-  homepage: 'https://github.com/trypsynth/backtalk/blob/master/docs/scripting/examples/example-plugin.js',
+  author: 'newTalk',
+  homepage: 'https://github.com/swarup-developer/newTalk/blob/master/docs/scripting/examples/example-plugin.js',
   description: 'Says the name of each app you switch to, and counts how often you open each one.',
-  // screen: a script for all apps is told which app is in front. speech: backtalk.speak.
+  // screen: a script for all apps is told which app is in front. speech: newtalk.speak.
   permissions: ['screen', 'speech'],
   settings: [
     {
@@ -23,19 +23,19 @@ export const manifest = {
   ],
 };
 
-backtalk.onAppEnter((app) => {
+newtalk.onAppEnter((app) => {
   if (!app.package) return;
-  const counts = backtalk.storage.get('counts', {});
+  const counts = newtalk.storage.get('counts', {});
   counts[app.package] = (counts[app.package] || 0) + 1;
-  backtalk.storage.set('counts', counts);
+  newtalk.storage.set('counts', counts);
 
-  if (!backtalk.settings.get('sayApp')) return;
+  if (!newtalk.settings.get('sayApp')) return;
   const name = app.package.split('.').pop();
   const opened = counts[app.package];
-  const count = backtalk.settings.get('sayCount')
+  const count = newtalk.settings.get('sayCount')
     ? `, opened ${opened} ${opened === 1 ? 'time' : 'times'}`
     : '';
-  backtalk.speak(`${name}${count}`);
+  newtalk.speak(`${name}${count}`);
 });
 
 console.log('Example plugin loaded');

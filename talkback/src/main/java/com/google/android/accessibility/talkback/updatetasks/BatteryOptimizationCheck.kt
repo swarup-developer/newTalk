@@ -32,9 +32,9 @@ import com.google.android.accessibility.utils.FormFactorUtils
 import java.util.Locale
 
 /**
- * Tells the user, once, when battery optimization could stop Backtalk. Android leaves accessibility
- * services running, but some phone makers' own battery savers stop them anyway, so Backtalk falls
- * silent after the phone sleeps until it's restarted. Only on those phones, and only while Backtalk
+ * Tells the user, once, when battery optimization could stop newTalk. Android leaves accessibility
+ * services running, but some phone makers' own battery savers stop them anyway, so newTalk falls
+ * silent after the phone sleeps until it's restarted. Only on those phones, and only while newTalk
  * isn't exempt, a notification opens the system list where the user can exempt it.
  */
 object BatteryOptimizationCheck {

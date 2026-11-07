@@ -22,11 +22,11 @@ import android.os.Binder
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
-import fyi.quin.backtalk.speech.ISpeechControl
+import io.github.swarupdeveloper.newtalk.speech.ISpeechControl
 
 /**
  * Takes speech requests from apps that bind to it. Each call is checked against the app that made
- * it, which Android tells Backtalk, so it works on every version.
+ * it, which Android tells newTalk, so it works on every version.
  */
 class SpeechControlService : Service() {
   private val mainHandler = Handler(Looper.getMainLooper())

@@ -72,11 +72,11 @@ jobs:
       # the usual phone APK is kept aside while it is built in the same place.
       - name: Build the APK without Play services
         run: |
-          cp build/outputs/apk/phone/debug/backtalk-phone-debug.apk "$RUNNER_TEMP/"
+          cp build/outputs/apk/phone/debug/newtalk-phone-debug.apk "$RUNNER_TEMP/"
           ./gradlew :assemblePhoneDebug -PbundledOcr --console=plain
           mkdir -p build/outputs/apk/nogms
-          mv build/outputs/apk/phone/debug/backtalk-phone-debug.apk build/outputs/apk/nogms/backtalk-nogms-debug.apk
-          cp "$RUNNER_TEMP/backtalk-phone-debug.apk" build/outputs/apk/phone/debug/
+          mv build/outputs/apk/phone/debug/newtalk-phone-debug.apk build/outputs/apk/nogms/newtalk-nogms-debug.apk
+          cp "$RUNNER_TEMP/newtalk-phone-debug.apk" build/outputs/apk/phone/debug/
 
       - uses: actions/upload-artifact@v7
         with:
@@ -121,11 +121,11 @@ jobs:
               echo "- ${line:0:7} ${line:41}"
             done
           } > release-notes.md
-          # The phone build is backtalk.apk, which the updater on phones looks for, the watch build
-          # is backtalk-wear.apk, which the updater on watches looks for, and the phone build
-          # without Play services is backtalk-nogms.apk, which its own updater looks for.
-          for build in phone:backtalk.apk wear:backtalk-wear.apk nogms:backtalk-nogms.apk; do
-            apk=$(find apks -name "backtalk-${build%%:*}-debug.apk" | head -n 1)
+          # The phone build is newtalk.apk, which the updater on phones looks for, the watch build
+          # is newtalk-wear.apk, which the updater on watches looks for, and the phone build
+          # without Play services is newtalk-nogms.apk, which its own updater looks for.
+          for build in phone:newtalk.apk wear:newtalk-wear.apk nogms:newtalk-nogms.apk; do
+            apk=$(find apks -name "newtalk-${build%%:*}-debug.apk" | head -n 1)
             if [ -z "$apk" ]; then
               echo "The ${build%%:*} APK was not found." >&2
               exit 1
@@ -139,8 +139,8 @@ jobs:
             # which notifies everyone watching the repository.
             git tag -f "$tag" "$GITHUB_SHA"
             git push -f origin "refs/tags/$tag"
-            gh release upload "$tag" backtalk.apk backtalk-wear.apk backtalk-nogms.apk --clobber
+            gh release upload "$tag" newtalk.apk newtalk-wear.apk newtalk-nogms.apk --clobber
             gh release edit "$tag" --title "$title" --notes-file release-notes.md --prerelease
           else
-            gh release create "$tag" backtalk.apk backtalk-wear.apk backtalk-nogms.apk --prerelease --target "$GITHUB_SHA" --title "$title" --notes-file release-notes.md
+            gh release create "$tag" newtalk.apk newtalk-wear.apk newtalk-nogms.apk --prerelease --target "$GITHUB_SHA" --title "$title" --notes-file release-notes.md
           fi

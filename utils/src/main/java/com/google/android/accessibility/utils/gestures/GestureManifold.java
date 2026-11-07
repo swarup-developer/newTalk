@@ -53,7 +53,7 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
   // are still down, by TalkBack's TouchInteractionMonitor rather than by a gesture matcher.
   public static final int GESTURE_2_FINGER_ROTATE_CLOCKWISE = -9;
   public static final int GESTURE_2_FINGER_ROTATE_COUNTERCLOCKWISE = -10;
-  // Android has no gestures beyond triple taps, so Backtalk's own detection adds this one.
+  // Android has no gestures beyond triple taps, so newTalk's own detection adds this one.
   public static final int GESTURE_3_FINGER_QUADRUPLE_TAP = -11;
   // One-finger swipes that end with the finger resting on the screen instead of lifting.
   public static final int GESTURE_SWIPE_UP_THEN_HOLD = -12;

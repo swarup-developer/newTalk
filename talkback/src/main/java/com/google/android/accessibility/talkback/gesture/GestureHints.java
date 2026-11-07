@@ -75,9 +75,9 @@ public final class GestureHints {
   }
 
   /**
-   * Returns a line such as "Open Backtalk menu: Tap with 3 fingers", naming the action saved as
+   * Returns a line such as "Open newTalk menu: Tap with 3 fingers", naming the action saved as
    * {@code actionRes} and the gesture assigned to it. If no gesture is, it names the settings screen
-   * where gestures are assigned, such as "Open Backtalk menu: Backtalk settings > Gestures".
+   * where gestures are assigned, such as "Open newTalk menu: newTalk settings > Gestures".
    */
   public static String actionLine(
       Context context, GestureShortcutMapping mapping, @StringRes int actionRes) {
@@ -118,7 +118,7 @@ public final class GestureHints {
     return actionLine(context, mapping, R.string.shortcut_value_screen_search);
   }
 
-  /** The path to the gesture settings, such as "Backtalk settings > Gestures". */
+  /** The path to the gesture settings, such as "newTalk settings > Gestures". */
   public static String gestureSettingsPath(Context context) {
     return context.getString(
         R.string.template_settings_path,

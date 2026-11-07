@@ -83,7 +83,7 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
           if (isHeadphoneOn()) {
             return;
           }
-          // A recording usually starts because the user pressed record, so what Backtalk says about
+          // A recording usually starts because the user pressed record, so what newTalk says about
           // that is left to finish.
           if (isListeningForVoice()) {
             interruptTalkBackAudio(MEDIA_RECORDER);
@@ -166,7 +166,7 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
    * microphone without a headset: during voice input, such as dictation or voice commands, and
    * during a recording if the user chose to keep it quiet. Speech within a moment of something the
    * user did still counts as answering them, such as the home screen after the gesture that goes
-   * home, or a deletion on the braille keyboard, which the app reports rather than Backtalk.
+   * home, or a deletion on the braille keyboard, which the app reports rather than newTalk.
    */
   public boolean isMicrophoneActiveAndHeadphoneOff() {
     if (isHeadphoneOn()) {

@@ -1,6 +1,6 @@
 # Control sounds
 
-Backtalk has no control sounds of its own. Each kind of control plays the sound the sound theme in
+newTalk has no control sounds of its own. Each kind of control plays the sound the sound theme in
 use gives it, and a control without one plays the usual focus sound. See [themes.md](../../themes.md)
 for sound themes.
 

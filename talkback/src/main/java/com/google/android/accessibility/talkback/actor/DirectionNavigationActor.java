@@ -791,7 +791,7 @@ public class DirectionNavigationActor implements UserInputEventListener {
     if (node != null
         && !AccessibilityNodeInfoUtils.keepsAppSelection(node)
         && !node.isPassword()) {
-      // The app keeps no selection in this text, so Backtalk keeps it.
+      // The app keeps no selection in this text, so newTalk keeps it.
       cursorGranularityManager.getCopySelection().start();
     }
   }

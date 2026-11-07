@@ -17,10 +17,10 @@
 package com.google.android.accessibility.talkback.actor.gemini.local
 
 /**
- * A vision model that Backtalk can run on the phone. The files come from the LiteRT community on
- * Hugging Face, and Backtalk checks each download against the hash recorded here.
+ * A vision model that newTalk can run on the phone. The files come from the LiteRT community on
+ * Hugging Face, and newTalk checks each download against the hash recorded here.
  *
- * Only Gemma 4 E2B and E4B have been tried by the Backtalk developers. The others are community
+ * Only Gemma 4 E2B and E4B have been tried by the newTalk developers. The others are community
  * conversions that are listed so that people can try them, and are marked [experimental].
  */
 data class LocalModel(

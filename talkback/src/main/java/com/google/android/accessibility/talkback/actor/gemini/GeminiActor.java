@@ -821,7 +821,7 @@ public class GeminiActor {
 
   /**
    * Says a result or error of something the user asked for. It is forced, so that it isn't
-   * silenced while other audio plays, as Backtalk's own speech can be.
+   * silenced while other audio plays, as newTalk's own speech can be.
    */
   private void speak(CharSequence text) {
     pipeline.returnFeedback(

@@ -22,7 +22,7 @@ import org.json.JSONObject
 
 class ManifestParser(private val strict: Boolean) {
   /**
-   * Fields this Backtalk doesn't know, from a script written for a newer one. What holds them is
+   * Fields this newTalk doesn't know, from a script written for a newer one. What holds them is
    * left out: an unknown field of a rule or navigation item is ignored, and a match with one drops
    * its rule, action or navigation item, since ignoring the field would match more items.
    */
@@ -123,7 +123,7 @@ class ManifestParser(private val strict: Boolean) {
       (obj.opt("minBuild") as? Number)
         ?.takeIf { it.toDouble() == it.toInt().toDouble() && it.toInt() >= 1 }
         ?.toInt()
-        ?: manifestError("minBuild is a Backtalk build number, such as ${ScriptManifest.BUILD}")
+        ?: manifestError("minBuild is a newTalk build number, such as ${ScriptManifest.BUILD}")
     }
 
   private fun apps(value: Any?): List<AppMatcher> =

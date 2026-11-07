@@ -215,7 +215,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         SINGLE_FINGER,
         R.string.pref_shortcut_left_and_up_key,
         R.string.pref_shortcut_left_and_up_default),
-    // Only recognized when Backtalk detects gestures itself.
+    // Only recognized when newTalk detects gestures itself.
     SWIPE_UP_THEN_HOLD(
         GESTURE_SWIPE_UP_THEN_HOLD,
         SINGLE_FINGER,
@@ -371,7 +371,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         MULTI_FINGER,
         R.string.pref_shortcut_3finger_3tap_key,
         R.string.pref_shortcut_3finger_3tap_default),
-    // Only recognized when Backtalk detects gestures itself.
+    // Only recognized when newTalk detects gestures itself.
     THREE_FINGER_QUADRUPLE_TAP(
         GESTURE_3_FINGER_QUADRUPLE_TAP,
         MULTI_FINGER,

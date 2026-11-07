@@ -27,15 +27,15 @@ class ScriptSourcesTest {
 
   @Test
   fun aRepositoryAddressIsTheWholeRepository() {
-    val source = source("github.com/trypsynth/backtalk-scripts")
+    val source = source("github.com/swarup-developer/newtalk-scripts")
 
     assertEquals(
-      ScriptSource(SourceHost.GITHUB, "trypsynth", "backtalk-scripts", null, emptyList()),
+      ScriptSource(SourceHost.GITHUB, "swarup-developer", "newtalk-scripts", null, emptyList()),
       source,
     )
-    assertEquals("https://github.com/trypsynth/backtalk-scripts", source.address)
+    assertEquals("https://github.com/swarup-developer/newtalk-scripts", source.address)
     assertEquals(
-      "https://api.github.com/repos/trypsynth/backtalk-scripts/contents",
+      "https://api.github.com/repos/swarup-developer/newtalk-scripts/contents",
       source.listUrl,
     )
     assertEquals("GitHub", source.where)

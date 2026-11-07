@@ -167,7 +167,7 @@ public class VoiceCommandActor implements SpeechRecognizerRequester {
 
   public void startListeningIfScreenNotLocked(boolean checkDialog, String nodeMenuShortcut) {
     if (ScreenMonitor.isDeviceLocked(talkbackContext)) {
-      // Names where to assign a gesture when none opens the Backtalk menu.
+      // Names where to assign a gesture when none opens the newTalk menu.
       String menuGesture =
           TextUtils.isEmpty(nodeMenuShortcut)
               ? GestureHints.gestureSettingsPath(talkbackContext)

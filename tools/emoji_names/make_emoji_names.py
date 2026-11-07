@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Writes the emoji names Backtalk speaks into utils/src/main/assets/emoji_names.
+"""Writes the emoji names newTalk speaks into utils/src/main/assets/emoji_names.
 
 Download the Unicode emoji list, the CLDR emoji names and CLDR's locale data first, at the
 versions pinned here, so that the files come out the same each time:
@@ -30,7 +30,7 @@ with the line
 
     @parent\t<locale>
 
-and holds only the names that differ from that locale's. Backtalk loads the parent first.
+and holds only the names that differ from that locale's. newTalk loads the parent first.
 Parents are CLDR's parentLocales, or the locale with its last part dropped. Names CLDR lacks for
 a language fall back to its parent, then to English.
 """

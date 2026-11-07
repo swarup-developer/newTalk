@@ -1230,7 +1230,7 @@ public class FocusProcessorForLogicalNavigation {
       if (trace) {
         Trace.endSection();
         Log.d(
-            "BacktalkTreeCache",
+            "NewTalkTreeCache",
             "Built order in " + (SystemClock.uptimeMillis() - buildStart) + " ms");
       }
       if (traversalStrategy instanceof OrderedTraversalStrategy orderedStrategy) {

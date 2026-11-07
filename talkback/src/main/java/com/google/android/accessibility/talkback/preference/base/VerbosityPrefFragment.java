@@ -83,7 +83,7 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
     updatePreferences();
   }
 
-  /** Counting repeated emoji only applies while Backtalk names emoji. */
+  /** Counting repeated emoji only applies while newTalk names emoji. */
   private void setupEmojiRepeatCountPreference() {
     Preference emoji = findPreference(R.string.pref_emoji_speech_key);
     Preference repeatCount = findPreference(R.string.pref_emoji_repeat_count_key);

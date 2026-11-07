@@ -358,7 +358,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
   /** Execute feedback returned by feedback-mappers. Returns success flag. */
   boolean execute(Feedback feedback) {
     if (PauseController.isPaused()) {
-      // Paused Backtalk gives no feedback and takes no actions.
+      // Paused newTalk gives no feedback and takes no actions.
       return false;
     }
 

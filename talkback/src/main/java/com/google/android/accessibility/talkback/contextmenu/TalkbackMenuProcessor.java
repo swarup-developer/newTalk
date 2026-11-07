@@ -164,7 +164,7 @@ public class TalkbackMenuProcessor {
 
     // Show/hide screen
     addDimOrBrightenScreen(menu);
-    // Pause Backtalk
+    // Pause newTalk
     addPauseBacktalk(menu);
     // Tell time
     addTellingTimeActionMenu(menu, prefs);
@@ -489,7 +489,7 @@ public class TalkbackMenuProcessor {
             /* itemId= */ R.id.voice_profile_menu,
             ORDER_VOICE_PROFILES,
             service.getString(R.string.title_selector_voice_profile));
-    // Shown only once there is a profile to choose besides Backtalk default.
+    // Shown only once there is a profile to choose besides newTalk default.
     if (!VoiceProfileMenuProcessor.prepareVoiceProfileSubMenu(service, pipeline, subMenu)) {
       menu.removeItem(R.id.voice_profile_menu);
     }

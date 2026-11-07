@@ -50,9 +50,9 @@ class AppIdMoveTest {
 
   @Test
   fun authorityAndServiceFollowThePackage() {
-    assertEquals("com.android.talkback.migration", AppIdMove.authority(old))
+    assertEquals("fyi.quin.backtalk.migration", AppIdMove.authority(old))
     assertEquals(
-      "fyi.quin.backtalk/com.google.android.marvin.talkback.TalkBackService",
+      "io.github.swarupdeveloper.newtalk/com.google.android.marvin.talkback.TalkBackService",
       AppIdMove.serviceName(new),
     )
   }

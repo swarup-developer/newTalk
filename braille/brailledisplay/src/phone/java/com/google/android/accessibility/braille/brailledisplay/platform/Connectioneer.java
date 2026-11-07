@@ -290,7 +290,7 @@ public class Connectioneer {
         && !userDeniedDevices.contains(device.address());
   }
 
-  /** A display whose name Backtalk knows, or one that may connect through HID braille. */
+  /** A display whose name newTalk knows, or one that may connect through HID braille. */
   private boolean allowDevice(ConnectableDevice device) {
     return allowDevice(device.name()) || connectManagerProxy.mayBeHidBrailleDisplay(device);
   }

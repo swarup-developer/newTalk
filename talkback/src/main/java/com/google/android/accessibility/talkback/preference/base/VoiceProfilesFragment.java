@@ -59,11 +59,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.android.accessibility.utils.widget.KeyboardSafeEditText;
 
 /**
- * The voice profiles: the one in use, then Backtalk default and each profile in the order the
+ * The voice profiles: the one in use, then newTalk default and each profile in the order the
  * reading control goes through them, then a way to add one. A profile opens its settings when
  * tapped. It can be moved, renamed and deleted with actions from a screen reader, or renamed and
  * deleted from the menu that a long press shows. Holding a profile and dragging it moves it.
- * Nothing moves above Backtalk default, which uses the text-to-speech settings.
+ * Nothing moves above newTalk default, which uses the text-to-speech settings.
  *
  * <p>Watches draw settings rows with Compose, so there the rows are ordinary preferences, without
  * dragging or actions, and a profile moves up and down from its own settings.
@@ -75,7 +75,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
   private Map<String, String> names = Map.of();
   private AccessibilitySuiteListPreference inUse;
 
-  /** Shows the profile in use when a gesture, keyboard shortcut or the Backtalk menu switches it. */
+  /** Shows the profile in use when a gesture, keyboard shortcut or the newTalk menu switches it. */
   private final SharedPreferences.OnSharedPreferenceChangeListener activeListener =
       (sharedPrefs, key) -> {
         if (VoiceProfiles.PREF_ACTIVE.equals(key) && inUse != null) {
@@ -94,7 +94,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     Context context = requireContext();
     prefs = SharedPreferencesUtils.getSharedPreferences(context);
-    // Backtalk's settings are in device protected storage. Without this, the profile in use would
+    // newTalk's settings are in device protected storage. Without this, the profile in use would
     // be saved to a second settings file, which the service moves over the real one when it
     // starts, losing every other setting.
     getPreferenceManager().setStorageDeviceProtected();
@@ -161,7 +161,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
     }
   }
 
-  /** Lists Backtalk default, the profiles and the add row as preferences, on a watch. */
+  /** Lists newTalk default, the profiles and the add row as preferences, on a watch. */
   private void addWatchRows() {
     Context context = requireContext();
     PreferenceScreen screen = getPreferenceScreen();
@@ -171,7 +171,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
         screen.removePreference(preference);
       }
     }
-    // Backtalk default's settings are the text-to-speech settings this screen came from.
+    // newTalk default's settings are the text-to-speech settings this screen came from.
     screen.addPreference(
         watchRow(
             context,
@@ -207,7 +207,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
     return row;
   }
 
-  /** Lists Backtalk default and the profiles, in order, as the profiles to choose from. */
+  /** Lists newTalk default and the profiles, in order, as the profiles to choose from. */
   private void updateInUse() {
     List<String> ids = VoiceProfiles.ids(prefs);
     CharSequence[] entries = new CharSequence[ids.size() + 1];
@@ -224,7 +224,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
     inUse.setValue(VoiceProfiles.activeId(prefs));
   }
 
-  /** Returns the name of profile {@code id}, or Backtalk default's for an empty ID. */
+  /** Returns the name of profile {@code id}, or newTalk default's for an empty ID. */
   private String nameOf(String id) {
     if (id.isEmpty()) {
       return getString(R.string.voice_profile_default);
@@ -348,7 +348,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
     return entered.isEmpty() && adding ? suggested : entered;
   }
 
-  /** Adds a profile that sounds like Backtalk's default to begin with, and opens its settings. */
+  /** Adds a profile that sounds like newTalk's default to begin with, and opens its settings. */
   private void add(String name) {
     Context context = requireContext();
     String engine = FailoverTextToSpeech.getSelectedEngine(context);
@@ -449,15 +449,15 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
       }
     }
 
-    /** Whether this row is a profile, rather than Backtalk default or the add row. */
+    /** Whether this row is a profile, rather than newTalk default or the add row. */
     boolean isProfile() {
       return id != null && !id.isEmpty();
     }
   }
 
-  /** Backtalk default, then the profiles, then the add row. */
+  /** newTalk default, then the profiles, then the add row. */
   private final class ProfilesAdapter extends RecyclerView.Adapter<RowHolder> {
-    /** Backtalk default's ID, which is empty, then the profiles' IDs. */
+    /** newTalk default's ID, which is empty, then the profiles' IDs. */
     private final List<String> rows = new ArrayList<>();
 
     void reload() {
@@ -520,7 +520,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
             if (position == rows.size()) {
               askForNewName();
             } else if (position == 0) {
-              // Backtalk default's settings are the text-to-speech settings this screen came from.
+              // newTalk default's settings are the text-to-speech settings this screen came from.
               requireActivity().getOnBackPressedDispatcher().onBackPressed();
             } else {
               open(rows.get(position));
@@ -559,7 +559,7 @@ public class VoiceProfilesFragment extends TalkbackBaseFragment {
       if (!holder.isProfile() || position == RecyclerView.NO_POSITION) {
         return;
       }
-      // Nothing moves above Backtalk default.
+      // Nothing moves above newTalk default.
       if (position > 1) {
         holder.actionIds.add(
             ViewCompat.addAccessibilityAction(

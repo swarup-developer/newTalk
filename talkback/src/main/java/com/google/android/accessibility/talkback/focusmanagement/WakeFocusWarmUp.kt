@@ -29,7 +29,7 @@ import java.util.concurrent.RejectedExecutionException
  * Lets the app answer once, off the main thread, before focus is restored when the screen turns on
  * (#152).
  *
- * When the screen turns on, the app in front is busy drawing again, and the first request Backtalk
+ * When the screen turns on, the app in front is busy drawing again, and the first request newTalk
  * sends it waits until that's done. Restoring focus sent that request from the main thread, which
  * then stopped for 100 to 300 ms on a watch. Now the last focused item is fetched on a background
  * thread first, and the restore runs once the app has answered, when its requests are quick. If the

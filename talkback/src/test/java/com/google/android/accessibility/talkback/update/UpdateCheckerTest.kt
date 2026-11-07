@@ -34,8 +34,8 @@ class UpdateCheckerTest {
         JSONArray()
           .put(
             JSONObject()
-              .put("name", "backtalk.apk")
-              .put("browser_download_url", "https://example.com/backtalk.apk")
+              .put("name", "newtalk.apk")
+              .put("browser_download_url", "https://example.com/newtalk.apk")
           ),
       )
       .toString()
@@ -74,8 +74,8 @@ class UpdateCheckerTest {
       .getJSONArray("assets")
       .put(
         JSONObject()
-          .put("name", "backtalk-wear.apk")
-          .put("browser_download_url", "https://example.com/backtalk-wear.apk")
+          .put("name", "newtalk-wear.apk")
+          .put("browser_download_url", "https://example.com/newtalk-wear.apk")
       )
     return release.toString()
   }
@@ -84,11 +84,11 @@ class UpdateCheckerTest {
   fun eachDeviceGetsItsOwnBuild() {
     val json = releaseWithBothBuilds(11)
     assertEquals(
-      "https://example.com/backtalk.apk",
+      "https://example.com/newtalk.apk",
       UpdateChecker.parseRelease(json, 10, "", UpdateChecker.PHONE_APK_NAME)!!.downloadUrl,
     )
     assertEquals(
-      "https://example.com/backtalk-wear.apk",
+      "https://example.com/newtalk-wear.apk",
       UpdateChecker.parseRelease(json, 10, "", UpdateChecker.WATCH_APK_NAME)!!.downloadUrl,
     )
   }
@@ -105,11 +105,11 @@ class UpdateCheckerTest {
       .getJSONArray("assets")
       .put(
         JSONObject()
-          .put("name", "backtalk-nogms.apk")
-          .put("browser_download_url", "https://example.com/backtalk-nogms.apk")
+          .put("name", "newtalk-nogms.apk")
+          .put("browser_download_url", "https://example.com/newtalk-nogms.apk")
       )
     assertEquals(
-      "https://example.com/backtalk-nogms.apk",
+      "https://example.com/newtalk-nogms.apk",
       UpdateChecker.parseRelease(release.toString(), 10, "", UpdateChecker.NO_PLAY_SERVICES_APK_NAME)!!
         .downloadUrl,
     )

@@ -88,7 +88,7 @@ class ScriptSpeechHooks(
     const val WAIT_MS = 30L
     val PERMISSIONS: Map<String, ScriptPermission?> =
       mapOf(
-        // The focus hook is given the item and what Backtalk will say for it, in every app.
+        // The focus hook is given the item and what newTalk will say for it, in every app.
         "focus" to ScriptPermission.SCREEN,
         "speech" to ScriptPermission.SPEECH,
         "notification" to ScriptPermission.NOTIFICATIONS,

@@ -31,7 +31,7 @@ import com.google.android.accessibility.talkback.preference.base.setMoveActions
 import com.google.android.accessibility.utils.SharedPreferencesUtils
 
 /**
- * Chooses which parts of a notification Backtalk's notification list speaks, and their order. Each
+ * Chooses which parts of a notification newTalk's notification list speaks, and their order. Each
  * part has Move up and Move down accessibility actions, which screen reader users reach from the
  * actions menu.
  */

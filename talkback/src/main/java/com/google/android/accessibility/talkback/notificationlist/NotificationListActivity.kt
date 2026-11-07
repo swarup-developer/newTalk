@@ -54,8 +54,8 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils
 import com.google.android.accessibility.utils.widget.KeyboardSafeEditText
 
 /**
- * Backtalk's own list of notifications, opened by the Notifications action instead of the
- * system's shade. The list is Backtalk's, so moving through it does not wait for the system's
+ * newTalk's own list of notifications, opened by the Notifications action instead of the
+ * system's shade. The list is newTalk's, so moving through it does not wait for the system's
  * notification shade, which on some phones redraws all the time.
  *
  * Double tapping a notification opens it. Dismissing one is an accessibility action.

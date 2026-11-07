@@ -554,7 +554,7 @@
   const binding = (method) => (command, { gesture, keys } = {}) =>
     send(method, { command: String(command), gesture, keys });
 
-  const backtalk = Object.freeze({
+  const newtalk = Object.freeze({
     apiVersion: call('apiVersion'),
     build: call('build'),
     get manifest() {
@@ -619,5 +619,5 @@
     ui,
   });
 
-  Object.defineProperty(globalThis, 'backtalk', { value: backtalk, enumerable: true });
+  Object.defineProperty(globalThis, 'newtalk', { value: newtalk, enumerable: true });
 })();

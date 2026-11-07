@@ -21,7 +21,7 @@ import android.os.SystemClock;
 /**
  * When the user last did something: a touch, a gesture, a key, or input on the braille keyboard or
  * a braille display. Speech that soon after answers what the user did, such as the home screen
- * after the gesture that goes home, even when the app reports it rather than Backtalk.
+ * after the gesture that goes home, even when the app reports it rather than newTalk.
  */
 public final class RecentUserInput {
   /**

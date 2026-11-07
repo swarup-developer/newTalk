@@ -76,7 +76,7 @@ class ModelDownloadService : Service() {
   override fun onBind(intent: Intent?): IBinder? = null
 
   /**
-   * Android 15 and later give a dataSync service 6 hours from when the user last had Backtalk open,
+   * Android 15 and later give a dataSync service 6 hours from when the user last had newTalk open,
    * then call this. The service must leave the foreground within seconds, or Android crashes the
    * whole process, screen reader included. The download can take longer to stop, at its next read
    * or after checking the file, so the service does not wait for it.
@@ -184,8 +184,8 @@ class ModelDownloadService : Service() {
     private const val RESULT_NOTIFICATION_ID = 0x0DA2
     private const val ACTION_CANCEL = "com.google.android.accessibility.talkback.CANCEL_MODEL_DOWNLOAD"
 
-    // Call this only from Backtalk's own screens. Once Android has ended the download's time, it
-    // lets the service into the foreground again only after the user has had Backtalk open. Started
+    // Call this only from newTalk's own screens. Once Android has ended the download's time, it
+    // lets the service into the foreground again only after the user has had newTalk open. Started
     // from anywhere else, like a button in a notification, startForeground crashes the process.
     fun start(context: Context) {
       ContextCompat.startForegroundService(context, Intent(context, ModelDownloadService::class.java))

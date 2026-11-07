@@ -46,7 +46,7 @@ object ThemeVibrations {
     val pattern = patterns[name] ?: return false
     if (pattern.isEmpty()) return true
     // Starting a vibration waits for the system, so it is done off the caller's thread, in order
-    // with Backtalk's other vibrations.
+    // with newTalk's other vibrations.
     FeedbackController.VIBRATION_EXECUTOR.execute {
       try {
         if (!vibrator.hasVibrator()) return@execute

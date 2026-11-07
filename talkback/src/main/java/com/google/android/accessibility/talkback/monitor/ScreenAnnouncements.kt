@@ -20,8 +20,8 @@ import android.content.SharedPreferences
 import com.google.android.accessibility.talkback.status.StatusItem
 
 /**
- * What Backtalk says when the screen turns off or on and when the phone is unlocked. The time
- * when the screen turns on keeps its own older setting, which the Backtalk menu and gestures also
+ * What newTalk says when the screen turns off or on and when the phone is unlocked. The time
+ * when the screen turns on keeps its own older setting, which the newTalk menu and gestures also
  * change. The keys are also in res/xml/screen_announcement_preferences.xml.
  */
 object ScreenAnnouncementSettings {
@@ -44,7 +44,7 @@ object ScreenAnnouncementSettings {
       StatusItem.AIRPLANE_MODE to "pref_screen_on_airplane_mode",
     )
 
-  /** Each setting's default, which is what Backtalk said before these settings existed. */
+  /** Each setting's default, which is what newTalk said before these settings existed. */
   val DEFAULTS: Map<String, Boolean> =
     mapOf(
       SAY_SCREEN_OFF to true,

@@ -34,8 +34,8 @@ class VoiceCommandFuzzyMatcherTest {
   @Test
   fun normalizeStripsPolitePrefixes() {
     assertEquals("go home", VoiceCommandFuzzyMatcher.normalize("please go home"))
-    assertEquals("open chrome", VoiceCommandFuzzyMatcher.normalize("hey backtalk open chrome"))
-    assertEquals("open settings", VoiceCommandFuzzyMatcher.normalize("backtalk open settings"))
+    assertEquals("open chrome", VoiceCommandFuzzyMatcher.normalize("hey newtalk open chrome"))
+    assertEquals("open settings", VoiceCommandFuzzyMatcher.normalize("newtalk open settings"))
     assertEquals("turn off dnd", VoiceCommandFuzzyMatcher.normalize("could you please turn off dnd"))
   }
 
@@ -47,16 +47,16 @@ class VoiceCommandFuzzyMatcherTest {
 
   @Test
   fun matchesPhraseExactAndFuzzy() {
-    assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("backtalk settings", "backtalk settings"))
-    assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("open backtalk settings", "backtalk settings"))
-    assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("please open backtalk settings", "open backtalk settings"))
+    assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("newtalk settings", "newtalk settings"))
+    assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("open newtalk settings", "newtalk settings"))
+    assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("please open newtalk settings", "open newtalk settings"))
     assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("turn on the hotspot", "turn on hotspot"))
     assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("turn of dnd", "turn off dnd"))
     assertTrue(VoiceCommandFuzzyMatcher.matchesPhrase("read from the cursor", "read from cursor"))
-    assertFalse(VoiceCommandFuzzyMatcher.matchesPhrase("open settings", "backtalk settings"))
-    assertFalse(VoiceCommandFuzzyMatcher.matchesPhrase("open settings", "open backtalk settings"))
-    assertFalse(VoiceCommandFuzzyMatcher.matchesPhrase("settings", "backtalk settings"))
-    assertFalse(VoiceCommandFuzzyMatcher.matchesPhrase("settings", "open backtalk settings"))
+    assertFalse(VoiceCommandFuzzyMatcher.matchesPhrase("open settings", "newtalk settings"))
+    assertFalse(VoiceCommandFuzzyMatcher.matchesPhrase("open settings", "open newtalk settings"))
+    assertFalse(VoiceCommandFuzzyMatcher.matchesPhrase("settings", "newtalk settings"))
+    assertFalse(VoiceCommandFuzzyMatcher.matchesPhrase("settings", "open newtalk settings"))
   }
 
   @Test

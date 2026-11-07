@@ -157,7 +157,7 @@ public class RingerModeAndScreenMonitor extends SameThreadBroadcastReceiver
     televisionNavigationController = service.getTelevisionNavigationController();
 
     audioManager = (AudioManager) service.getSystemService(Service.AUDIO_SERVICE);
-    // Otherwise the ringer mode stays normal until it changes after Backtalk starts.
+    // Otherwise the ringer mode stays normal until it changes after newTalk starts.
     ringerMode = audioManager.getRingerMode();
     this.statusReader = statusReader;
     // noinspection deprecation
@@ -314,7 +314,7 @@ public class RingerModeAndScreenMonitor extends SameThreadBroadcastReceiver
               .setFlags(FeedbackItem.FLAG_NO_HISTORY);
       final float volume;
       if (ringerMode == AudioManager.RINGER_MODE_NORMAL) {
-        // Gets the volume of Backtalk's sounds, which use the speech volume.
+        // Gets the volume of newTalk's sounds, which use the speech volume.
         final float talkbackVolume =
             getStreamVolume(FailoverTextToSpeech.getSpeechAudioStream(service));
         if ((talkbackVolume > 0)

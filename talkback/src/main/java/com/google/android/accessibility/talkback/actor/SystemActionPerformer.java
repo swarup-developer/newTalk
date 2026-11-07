@@ -27,7 +27,7 @@ public final class SystemActionPerformer {
   private static final int GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS_LEGACY = 100;
 
   /**
-   * Opens the system's notification shade even when Backtalk's notification list takes the place
+   * Opens the system's notification shade even when newTalk's notification list takes the place
    * of {@link AccessibilityService#GLOBAL_ACTION_NOTIFICATIONS}. Not an Android action.
    */
   public static final int GLOBAL_ACTION_SYSTEM_NOTIFICATIONS = -4;

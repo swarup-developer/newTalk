@@ -113,7 +113,7 @@ public enum TalkBackPhysicalKeyboardShortcut {
       /* KeyboardShortcut.KEYBOARD_SHORTCUT_SHOW_LANGUAGES_AVAILABLE */ 24,
       R.string.keycombo_shortcut_other_language_options,
       R.string.keycombo_menu_other_language_options),
-  // Backtalk: ordinals well past Google's, which only analytics and performance logs use.
+  // newTalk: ordinals well past Google's, which only analytics and performance logs use.
   SHOW_VOICE_PROFILES(
       /* KEYBOARD_SHORTCUT_SHOW_VOICE_PROFILES */ 1002,
       R.string.keycombo_shortcut_other_voice_profiles,
@@ -337,7 +337,7 @@ public enum TalkBackPhysicalKeyboardShortcut {
       /* KEYBOARD_SHORTCUT_HIDE_OR_SHOW_SCREEN */ 77,
       R.string.keycombo_shortcut_global_hide_or_show_screen,
       R.string.keycombo_menu_global_hide_or_show_screen),
-  // Backtalk: an ordinal well past Google's, which only analytics and performance logs use.
+  // newTalk: an ordinal well past Google's, which only analytics and performance logs use.
   PAUSE_OR_RESUME_BACKTALK(
       /* KEYBOARD_SHORTCUT_PAUSE_OR_RESUME_BACKTALK */ 1001,
       R.string.keycombo_shortcut_global_pause_backtalk,

@@ -484,7 +484,7 @@ public class Compositor {
   }
 
   /**
-   * Gives the cues and new state of {@code target}, which Backtalk clicked, as soon as the app has
+   * Gives the cues and new state of {@code target}, which newTalk clicked, as soon as the app has
    * carried out the click. {@code changed} is the target or the child whose state changed. The
    * click event's cues and speech, which would say the same, are then skipped.
    */
@@ -507,7 +507,7 @@ public class Compositor {
   }
 
   /**
-   * Handles an event made inside Backtalk for {@code sourceNode}, which the event cannot hold. If
+   * Handles an event made inside newTalk for {@code sourceNode}, which the event cannot hold. If
    * {@code preparedFeedback} is not null, it is the feedback that {@link #getFeedback} returned for
    * the same event earlier, and is used instead of working it out again.
    */
@@ -524,7 +524,7 @@ public class Compositor {
   }
 
   /**
-   * Returns the feedback for an event made inside Backtalk for {@code sourceNode}, without giving
+   * Returns the feedback for an event made inside newTalk for {@code sourceNode}, without giving
    * it, so that it can be given later by {@link #handleEvent}.
    */
   public EventFeedback getFeedback(

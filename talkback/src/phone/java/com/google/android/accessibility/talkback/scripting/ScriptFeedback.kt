@@ -52,7 +52,7 @@ class ScriptFeedback(
   private val resumeBacktalk: Runnable,
 ) {
   private val mainHandler = Handler(Looper.getMainLooper())
-  // Sounds scripts are playing now. Android gives an app only so many audio tracks, and Backtalk's
+  // Sounds scripts are playing now. Android gives an app only so many audio tracks, and newTalk's
   // own sounds come out of the same allowance.
   private val playing = AtomicInteger()
 

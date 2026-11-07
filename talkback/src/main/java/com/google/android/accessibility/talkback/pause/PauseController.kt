@@ -49,14 +49,14 @@ import com.google.android.accessibility.utils.output.SpeechController.SpeakOptio
 import com.google.android.libraries.accessibility.utils.log.LogUtils
 
 /**
- * Pauses Backtalk, like TalkBack's suspend before Android 8. While paused, explore by touch is off,
- * so the screen works as if no screen reader is on, and Backtalk drops accessibility events,
+ * Pauses newTalk, like TalkBack's suspend before Android 8. While paused, explore by touch is off,
+ * so the screen works as if no screen reader is on, and newTalk drops accessibility events,
  * gestures and all its feedback. The service stays bound, so resuming is instant.
  *
- * Backtalk resumes from the ongoing notification, the pause keyboard shortcut, three quick presses
+ * newTalk resumes from the ongoing notification, the pause keyboard shortcut, three quick presses
  * of volume down, or, depending on a setting, when the screen turns on or the lock screen shows.
  *
- * The pause lives only in memory. If the service restarts while paused, Backtalk starts unpaused,
+ * The pause lives only in memory. If the service restarts while paused, newTalk starts unpaused,
  * because a screen reader stuck paused after a crash would leave the user with no way back.
  *
  * Everything runs on the main thread.
@@ -68,10 +68,10 @@ class PauseController(
   private val host: Host,
 ) {
 
-  /** What the service does when Backtalk pauses or resumes. */
+  /** What the service does when newTalk pauses or resumes. */
   interface Host {
     /**
-     * Stops reading, menus, queued feedback and image captions, before Backtalk says it is pausing.
+     * Stops reading, menus, queued feedback and image captions, before newTalk says it is pausing.
      */
     fun stopForPause()
 
@@ -87,8 +87,8 @@ class PauseController(
   private var receiverRegistered = false
 
   // A key-up goes where its key-down went, even when the pause changes in between. Keys held when
-  // Backtalk paused get their key-ups sent to the key combo manager, which saw their key-downs.
-  // Keys held when Backtalk resumed pass to the app, which saw theirs.
+  // newTalk paused get their key-ups sent to the key combo manager, which saw their key-downs.
+  // Keys held when newTalk resumed pass to the app, which saw theirs.
   private val heldKeys = mutableSetOf<Int>()
   private val keyUpsForKeyCombos = mutableSetOf<Int>()
   private val keyUpsToPass = mutableSetOf<Int>()
@@ -132,7 +132,7 @@ class PauseController(
     if (pausedNow || !TalkBackService.isServiceActive()) {
       return
     }
-    LogUtils.i(TAG, "Pausing Backtalk")
+    LogUtils.i(TAG, "Pausing newTalk")
     host.stopForPause()
     // The focus highlight would stay on screen while nothing can move it.
     service
@@ -155,7 +155,7 @@ class PauseController(
     if (!pausedNow) {
       return
     }
-    LogUtils.i(TAG, "Resuming Backtalk")
+    LogUtils.i(TAG, "Resuming newTalk")
     pausedNow = false
     keyUpsForKeyCombos.clear()
     keyUpsToPass.clear()
@@ -163,7 +163,7 @@ class PauseController(
     keyUpsToPass.remove(keyUpToConsume)
     unregisterReceiver()
     notificationManager?.cancel(R.id.notification_backtalk_paused)
-    // The screen changed without Backtalk seeing it.
+    // The screen changed without newTalk seeing it.
     TraversalTreeCache.clear("resume")
     host.onPausedChanged(false)
     announce(R.raw.chime_up, R.string.backtalk_resumed)
@@ -178,11 +178,11 @@ class PauseController(
   }
 
   /**
-   * Sees every key event before the rest of Backtalk. Returns true to consume the event, false to
-   * pass it to the app, or null to let Backtalk handle it as usual.
+   * Sees every key event before the rest of newTalk. Returns true to consume the event, false to
+   * pass it to the app, or null to let newTalk handle it as usual.
    *
    * While paused, keys pass to the app, so volume keys still change the volume. Three quick
-   * presses of volume down, or the pause keyboard shortcut, resume Backtalk.
+   * presses of volume down, or the pause keyboard shortcut, resume newTalk.
    */
   fun onKeyEvent(event: KeyEvent): Boolean? {
     val keyCode = event.keyCode
@@ -343,9 +343,9 @@ class PauseController(
         intent,
         PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
       )
-    // A channel of its own, of low importance, puts it in the Silent section, apart from Backtalk's
+    // A channel of its own, of low importance, puts it in the Silent section, apart from newTalk's
     // other notifications. Android groups notifications from one app in a section, and a tap on
-    // this one in a collapsed group does nothing, while paused Backtalk can't help find the group.
+    // this one in a collapsed group does nothing, while paused newTalk can't help find the group.
     notificationManager?.createNotificationChannel(
       NotificationChannel(
         NOTIFICATION_CHANNEL,
@@ -380,7 +380,7 @@ class PauseController(
 
     @Volatile private var pausedNow = false
 
-    /** Whether Backtalk is paused. Backtalk drops events, gestures and feedback while it is. */
+    /** Whether newTalk is paused. newTalk drops events, gestures and feedback while it is. */
     @JvmStatic fun isPaused(): Boolean = pausedNow
   }
 }

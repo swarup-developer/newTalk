@@ -2129,7 +2129,7 @@
     <item>@string/shortcut_value_column_right</item>
   </string-array>
 
-  <!-- Pause Backtalk. -->
+  <!-- Pause newTalk. -->
   <string name="keycombo_shortcut_global_pause_backtalk">keycombo_shortcut_global_pause_backtalk</string>
   <string name="shortcut_value_pause_backtalk" translatable="false">PAUSE_BACKTALK</string>
   <string name="pref_show_pause_confirmation_dialog">pref_show_pause_confirmation_dialog</string>

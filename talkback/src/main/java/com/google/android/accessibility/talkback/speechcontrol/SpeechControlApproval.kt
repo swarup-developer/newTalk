@@ -28,25 +28,25 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils
 import com.google.android.libraries.accessibility.utils.log.LogUtils
 
 /**
- * Asks the user, with a notification, whether an app may speak through Backtalk, the first time
+ * Asks the user, with a notification, whether an app may speak through newTalk, the first time
  * it tries. Nothing the app sends is said until the user allows it, so that an app the user never
- * chose can't speak in Backtalk's voice.
+ * chose can't speak in newTalk's voice.
  */
 object SpeechControlApproval {
   private const val TAG = "SpeechControlApproval"
-  private const val ACTION_ALLOW = "fyi.quin.backtalk.action.ALLOW_APP_SPEECH"
-  private const val ACTION_DENY = "fyi.quin.backtalk.action.DENY_APP_SPEECH"
+  private const val ACTION_ALLOW = "io.github.swarupdeveloper.newtalk.action.ALLOW_APP_SPEECH"
+  private const val ACTION_DENY = "io.github.swarupdeveloper.newtalk.action.DENY_APP_SPEECH"
   private const val EXTRA_APP = "app"
   private const val NOTIFICATION_ID_BASE = 0x5ec0
 
-  // Apps already asked about since Backtalk started, so that each is asked once at a time.
+  // Apps already asked about since newTalk started, so that each is asked once at a time.
   private val asked = HashSet<String>()
 
   /** Asks whether [app] may speak, unless it was asked already. Called on the main thread. */
   fun ask(context: Context, app: String) {
     if (!asked.add(app)) return
     if (!NotificationUtils.hasPostNotificationPermission(context)) {
-      LogUtils.w(TAG, "Can't ask about %s, since Backtalk can't post notifications", app)
+      LogUtils.w(TAG, "Can't ask about %s, since newTalk can't post notifications", app)
       return
     }
     val label = label(context, app)

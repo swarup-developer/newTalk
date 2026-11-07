@@ -130,49 +130,49 @@
   <string name="title_pref_advanced_settings">高级设置</string>
   <string name="title_pref_show_exit_watermark">显示 TalkBack 关闭说明</string>
   <string name="summary_pref_show_exit_watermark">当 TalkBack 处于开启状态时，系统会显示一条消息，帮助您快速关闭该功能</string>
-  <!-- Title of the switch that makes the Notifications action open Backtalk's own list of notifications instead of the system's notification shade. [CHAR_LIMIT=NONE] -->
-  <string name="title_pref_notification_list">使用 Backtalk 通知列表</string>
-  <!-- Title of the screen that chooses which parts of a notification Backtalk's notification list speaks, and their order. [CHAR_LIMIT=NONE] -->
+  <!-- Title of the switch that makes the Notifications action open newTalk's own list of notifications instead of the system's notification shade. [CHAR_LIMIT=NONE] -->
+  <string name="title_pref_notification_list">使用 newTalk 通知列表</string>
+  <!-- Title of the screen that chooses which parts of a notification newTalk's notification list speaks, and their order. [CHAR_LIMIT=NONE] -->
   <string name="title_pref_notification_parts">通知详情</string>
-  <!-- A part of a notification that Backtalk's notification list can speak: its title. [CHAR_LIMIT=NONE] -->
+  <!-- A part of a notification that newTalk's notification list can speak: its title. [CHAR_LIMIT=NONE] -->
   <string name="notification_part_title">标题</string>
-  <!-- A part of a notification that Backtalk's notification list can speak: its text. [CHAR_LIMIT=NONE] -->
+  <!-- A part of a notification that newTalk's notification list can speak: its text. [CHAR_LIMIT=NONE] -->
   <string name="notification_part_text">正文</string>
-  <!-- A part of a notification that Backtalk's notification list can speak: the name of the app that posted it. [CHAR_LIMIT=NONE] -->
+  <!-- A part of a notification that newTalk's notification list can speak: the name of the app that posted it. [CHAR_LIMIT=NONE] -->
   <string name="notification_part_app">应用名称</string>
-  <!-- A part of a notification that Backtalk's notification list can speak: when it was posted. [CHAR_LIMIT=NONE] -->
+  <!-- A part of a notification that newTalk's notification list can speak: when it was posted. [CHAR_LIMIT=NONE] -->
   <string name="notification_part_time">时间</string>
-  <!-- A part of a media notification that Backtalk's notification list can speak: whether its media is playing or paused. [CHAR_LIMIT=NONE] -->
+  <!-- A part of a media notification that newTalk's notification list can speak: whether its media is playing or paused. [CHAR_LIMIT=NONE] -->
   <string name="notification_part_playback">播放或暂停</string>
-  <!-- Title of Backtalk's own list of notifications. [CHAR_LIMIT=NONE] -->
+  <!-- Title of newTalk's own list of notifications. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_title">通知</string>
-  <!-- Shown in Backtalk's notification list when there are no notifications. [CHAR_LIMIT=NONE] -->
+  <!-- Shown in newTalk's notification list when there are no notifications. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_empty">无通知</string>
-  <!-- Shown in Backtalk's notification list when Backtalk does not have notification access. [CHAR_LIMIT=NONE] -->
+  <!-- Shown in newTalk's notification list when newTalk does not have notification access. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_no_access">通知使用权未开启</string>
-  <!-- Button that opens the system setting for Backtalk's notification access. [CHAR_LIMIT=NONE] -->
+  <!-- Button that opens the system setting for newTalk's notification access. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_grant_access">开启通知使用权</string>
-  <!-- Button in Backtalk's notification list that opens the system's quick settings. [CHAR_LIMIT=NONE] -->
+  <!-- Button in newTalk's notification list that opens the system's quick settings. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_quick_settings">快捷设置</string>
-  <!-- Accessibility action that removes a notification from Backtalk's notification list. [CHAR_LIMIT=NONE] -->
+  <!-- Accessibility action that removes a notification from newTalk's notification list. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_dismiss">关闭</string>
-  <!-- Button in Backtalk's notification list that removes every notification that can be removed. [CHAR_LIMIT=NONE] -->
+  <!-- Button in newTalk's notification list that removes every notification that can be removed. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_clear_all">清空</string>
-  <!-- Button that sends a reply typed in Backtalk's notification list. [CHAR_LIMIT=NONE] -->
+  <!-- Button that sends a reply typed in newTalk's notification list. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_send">发送</string>
-  <!-- State of a media notification in Backtalk's notification list whose media is playing. [CHAR_LIMIT=NONE] -->
+  <!-- State of a media notification in newTalk's notification list whose media is playing. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_playing">播放中</string>
-  <!-- State of a media notification in Backtalk's notification list whose media is paused. [CHAR_LIMIT=NONE] -->
+  <!-- State of a media notification in newTalk's notification list whose media is paused. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_paused">已暂停</string>
-  <!-- Action on a media notification in Backtalk's notification list that starts playback. [CHAR_LIMIT=NONE] -->
+  <!-- Action on a media notification in newTalk's notification list that starts playback. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_play">播放</string>
-  <!-- Action on a media notification in Backtalk's notification list that pauses playback. [CHAR_LIMIT=NONE] -->
+  <!-- Action on a media notification in newTalk's notification list that pauses playback. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_pause">暂停</string>
-  <!-- Action on a media notification in Backtalk's notification list that skips to the previous item. [CHAR_LIMIT=NONE] -->
+  <!-- Action on a media notification in newTalk's notification list that skips to the previous item. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_previous">上一曲</string>
-  <!-- Action on a media notification in Backtalk's notification list that skips to the next item. [CHAR_LIMIT=NONE] -->
+  <!-- Action on a media notification in newTalk's notification list that skips to the next item. [CHAR_LIMIT=NONE] -->
   <string name="notification_list_next">下一曲</string>
-  <!-- Number of notifications in a group in Backtalk's notification list. [CHAR_LIMIT=NONE] -->
+  <!-- Number of notifications in a group in newTalk's notification list. [CHAR_LIMIT=NONE] -->
   <plurals name="notification_list_group_count">
     <item quantity="other">%d 条通知</item>
   </plurals>
@@ -495,7 +495,7 @@
   <string name="shortcut_home">主屏幕</string>
   <string name="shortcut_overview">概览</string>
   <string name="shortcut_notifications">通知</string>
-  <!-- Label for the shortcut that opens the system's notification shade, even when the Notifications shortcut opens Backtalk's own notification list. [CHAR_LIMIT=40] -->
+  <!-- Label for the shortcut that opens the system's notification shade, even when the Notifications shortcut opens newTalk's own notification list. [CHAR_LIMIT=40] -->
   <string name="shortcut_system_notifications">系统通知栏</string>
   <string name="shortcut_quick_settings">快捷设置</string>
   <string name="shortcut_show_custom_actions">显示自定义操作</string>
@@ -599,7 +599,7 @@
   <string name="title_granularity">导航</string>
   <string name="title_read_from_top">从顶部开始朗读</string>
   <string name="title_copy_last_spoken_phrase">复制最后说出的词组</string>
-  <!-- Backtalk menu item and gesture action that adds the last phrase Backtalk said to the text it copied, on a new line, so that several phrases can be copied together. [CHAR LIMIT=NONE] -->
+  <!-- newTalk menu item and gesture action that adds the last phrase newTalk said to the text it copied, on a new line, so that several phrases can be copied together. [CHAR LIMIT=NONE] -->
   <string name="title_append_last_spoken_phrase">追加最后说出的词组到剪贴板</string>
   <!-- Edit options menu item that deletes all the text in the focused text field. [CHAR LIMIT=40] -->
   <string name="title_edittext_clear">清空</string>
@@ -633,8 +633,8 @@
   <string name="summary_granularity">按字符、字词或行等单位朗读</string>
   <string name="summary_read_from_top">从顶部开始，朗读屏幕上的所有项</string>
   <string name="summary_read_from_current">从聚焦的项开始，朗读屏幕上的所有项。</string>
-  <!-- Summary of the setting that shows Add last spoken phrase to clipboard in the Backtalk menu. [CHAR LIMIT=NONE] -->
-  <string name="summary_append_last_spoken_phrase">将 Backtalk 最后说出的词组另起一行追加到你复制的文本中，即可将多个词组一起复制</string>
+  <!-- Summary of the setting that shows Add last spoken phrase to clipboard in the newTalk menu. [CHAR LIMIT=NONE] -->
+  <string name="summary_append_last_spoken_phrase">将 newTalk 最后说出的词组另起一行追加到你复制的文本中，即可将多个词组一起复制</string>
   <string name="summary_copy_last_spoken_phrase">将 TalkBack 最后朗读的词组复制到剪贴板，以便您粘贴相应文字</string>
   <string name="summary_spell_last_spoken_phrase">逐字拼写 TalkBack 最后朗读的词组</string>
   <string name="summary_repeat_last_spoken_phrase">再听一遍 TalkBack 最后朗读的词组</string>
@@ -1620,7 +1620,7 @@
     <string name="title_pref_voice_profiles">语音配置</string>
 
     <!-- Name of the voice profile that uses the text-to-speech settings. It can't be removed. [CHAR LIMIT=NONE] -->
-    <string name="voice_profile_default">Backtalk 默认</string>
+    <string name="voice_profile_default">newTalk 默认</string>
 
     <!--
       Summary under Voice profiles in the text-to-speech settings, naming the voice profile in use.
@@ -1642,7 +1642,7 @@
     <string name="speech_engine_unavailable_with_profile">使用语音配置时语音引擎不可用</string>
 
     <!--
-      Item in the menu of voice profiles for the profile in use, opened from the Backtalk menu, a
+      Item in the menu of voice profiles for the profile in use, opened from the newTalk menu, a
       gesture or a keyboard shortcut. [CHAR LIMIT=NONE]
     -->
     <string name="voice_profile_menu_item_in_use"><xliff:g id="name" example="Reading">%1$s</xliff:g>，正在使用</string>
@@ -1669,7 +1669,7 @@
     <string name="voice_profile_new_name">语音配置 <xliff:g id="number" example="2">%1$d</xliff:g></string>
 
     <!--
-      Error on the name field when the name entered is already another voice profile's, or Backtalk
+      Error on the name field when the name entered is already another voice profile's, or newTalk
       default's. [CHAR LIMIT=NONE]
     -->
     <string name="voice_profile_name_taken">已有语音配置名为 <xliff:g id="name" example="Reading">%1$s</xliff:g></string>
@@ -1752,7 +1752,7 @@
 
     <!--
       Source: Title for the "speak long text in phrases" toggle.
-      Description: When on, Backtalk sends long text to the speech engine as separate phrases. [CHAR LIMIT=NONE]
+      Description: When on, newTalk sends long text to the speech engine as separate phrases. [CHAR LIMIT=NONE]
     -->
     <string name="title_pref_speak_in_phrases">长文本按句子逐句发送</string>
 
@@ -1762,17 +1762,17 @@
     -->
     <string name="summary_pref_speak_in_phrases">适用于停止较慢的语音引擎，例如 Gryphon，这样滑走时能立即停止长文本。许多引擎在分别发送的句子之间停顿更久，如果你的引擎能立即停止，请保持关闭。</string>
 
-    <!-- Title of the notification shown once on phones whose battery saver can stop Backtalk, when battery optimization is on for it. [CHAR LIMIT=NONE] -->
-    <string name="battery_optimization_notification_title">电池优化可能会停掉 Backtalk</string>
+    <!-- Title of the notification shown once on phones whose battery saver can stop newTalk, when battery optimization is on for it. [CHAR LIMIT=NONE] -->
+    <string name="battery_optimization_notification_title">电池优化可能会停掉 newTalk</string>
 
-    <!-- Text of the notification shown once on phones whose battery saver can stop Backtalk. Tapping it opens the system list of battery optimization. [CHAR LIMIT=NONE] -->
-    <string name="battery_optimization_notification_text">在这台手机上，省电模式可能在屏幕关闭后停掉 Backtalk，使其保持静默直到重新启动。点按以打开电池优化，选择所有应用，找到 Backtalk 并选择不优化。</string>
+    <!-- Text of the notification shown once on phones whose battery saver can stop newTalk. Tapping it opens the system list of battery optimization. [CHAR LIMIT=NONE] -->
+    <string name="battery_optimization_notification_text">在这台手机上，省电模式可能在屏幕关闭后停掉 newTalk，使其保持静默直到重新启动。点按以打开电池优化，选择所有应用，找到 newTalk 并选择不优化。</string>
 
     <!-- Title of the setting that keeps speech the user did not ask for, such as notifications, quiet while another app records with the microphone. [CHAR LIMIT=NONE] -->
     <string name="title_pref_mute_speech_while_recording">录音时保持安静</string>
 
     <!-- Summary of the setting that keeps speech the user did not ask for quiet while another app records with the microphone. [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_mute_speech_while_recording">当应用在未连接耳机的情况下录音时，Backtalk 只对你的手势、按键和输入作出语音回应，并对通知等内容保持静默，以免被录入。</string>
+    <string name="summary_pref_mute_speech_while_recording">当应用在未连接耳机的情况下录音时，newTalk 只对你的手势、按键和输入作出语音回应，并对通知等内容保持静默，以免被录入。</string>
 
     <!--
       Source: Title for the "switch languages" toggle.
@@ -1802,11 +1802,11 @@
     <!-- Spoken before the battery level while the device is plugged in to charge. [CHAR LIMIT=NONE] -->
     <string name="value_charger_connected">充电器已连接</string>
 
-    <!-- Settings for what Backtalk says when the screen turns off or on and when the phone is unlocked. [CHAR LIMIT=NONE] -->
+    <!-- Settings for what newTalk says when the screen turns off or on and when the phone is unlocked. [CHAR LIMIT=NONE] -->
     <string name="title_pref_screen_announcements">屏幕开启和关闭</string>
 
     <!-- [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_screen_announcements">选择屏幕关闭、亮起以及手机解锁时 Backtalk 说什么</string>
+    <string name="summary_pref_screen_announcements">选择屏幕关闭、亮起以及手机解锁时 newTalk 说什么</string>
 
     <!-- Heading for the settings used when the screen turns off. [CHAR LIMIT=NONE] -->
     <string name="title_screen_announcements_screen_off">屏幕关闭时</string>
@@ -1842,7 +1842,7 @@
     <!-- Settings category for keyboards and braille. [CHAR LIMIT=40] -->
     <string name="title_pref_category_typing_and_braille">输入与盲文</string>
 
-    <!-- Settings category for scripts, custom labels and other apps that speak through Backtalk, which change how other apps work with Backtalk. [CHAR LIMIT=40] -->
+    <!-- Settings category for scripts, custom labels and other apps that speak through newTalk, which change how other apps work with newTalk. [CHAR LIMIT=40] -->
     <string name="title_pref_category_apps">应用</string>
 
     <!-- Title of the settings screen for how touches focus and activate items: focus delay, lift to activate, single tap and the like. [CHAR LIMIT=40] -->
@@ -1857,10 +1857,10 @@
     <!-- Title of a switch in Advanced Settings on Wear OS watches. Reserves two-finger single and double taps for Samsung's Vibration Watch feature, which tells the time through vibrations. [CHAR LIMIT=NONE] -->
     <string name="title_pref_reserve_vibration_watch_gestures">为 Vibration Watch 保留手势</string>
 
-    <!-- Summary of the Vibration Watch gesture switch. Backtalk stops handling the two gestures; the user must separately enable Samsung's Vibration Watch feature in the watch's accessibility settings. [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_reserve_vibration_watch_gestures">停止 Backtalk 处理两指单击和双击，以便三星 Vibration Watch 使用它们。请先在手表的无障碍设置中启用 Vibration Watch。</string>
+    <!-- Summary of the Vibration Watch gesture switch. newTalk stops handling the two gestures; the user must separately enable Samsung's Vibration Watch feature in the watch's accessibility settings. [CHAR LIMIT=NONE] -->
+    <string name="summary_pref_reserve_vibration_watch_gestures">停止 newTalk 处理两指单击和双击，以便三星 Vibration Watch 使用它们。请先在手表的无障碍设置中启用 Vibration Watch。</string>
 
-    <!-- Explanation shown instead of a gesture's assigned action when the Vibration Watch switch in Advanced Settings makes its two-finger single or double tap unavailable to Backtalk. [CHAR LIMIT=NONE] -->
+    <!-- Explanation shown instead of a gesture's assigned action when the Vibration Watch switch in Advanced Settings makes its two-finger single or double tap unavailable to newTalk. [CHAR LIMIT=NONE] -->
     <string name="shortcut_reserved_for_vibration_watch">已在高级设置中为 Vibration Watch 保留</string>
 
     <!-- Title of the setting that moves calls to the speaker when the phone is away from the ear. [CHAR LIMIT=NONE] -->
@@ -1869,7 +1869,7 @@
     <!-- Summary of that setting. [CHAR LIMIT=NONE] -->
     <string name="summary_pref_speakerphone_away_from_ear">通话期间，当你把手机拿离耳边时切换到扬声器，举回耳边时切回听筒。</string>
 
-    <!-- Summary of that setting when Backtalk does not have the permission. %1$s is the adb command that grants it. [CHAR LIMIT=NONE] -->
+    <!-- Summary of that setting when newTalk does not have the permission. %1$s is the adb command that grants it. [CHAR LIMIT=NONE] -->
     <string name="summary_pref_speakerphone_needs_permission">需要一项 Android 不授予屏幕阅读器的权限。要授予它，请用 adb 或 Shizuku 运行以下命令，然后返回此屏幕：%1$s</string>
 
     <!-- Action on a setting that needs a permission granted with adb. Copies the adb command to the clipboard. [CHAR LIMIT=NONE] -->
@@ -1878,24 +1878,24 @@
     <!-- Shown after the adb command was copied to the clipboard. [CHAR LIMIT=NONE] -->
     <string name="command_copied">命令已复制</string>
 
-    <!-- Title of the setting that lets other apps speak through Backtalk. [CHAR LIMIT=NONE] -->
+    <!-- Title of the setting that lets other apps speak through newTalk. [CHAR LIMIT=NONE] -->
     <string name="title_pref_speech_control">允许其他应用说话</string>
 
     <!-- Summary of that setting. [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_speech_control">你允许的应用可以用你的 Backtalk 声音朗读文本。设备锁定时不朗读任何内容。</string>
+    <string name="summary_pref_speech_control">你允许的应用可以用你的 newTalk 声音朗读文本。设备锁定时不朗读任何内容。</string>
 
 
-    <!-- Heading of the list of apps that asked to speak through Backtalk. [CHAR LIMIT=NONE] -->
+    <!-- Heading of the list of apps that asked to speak through newTalk. [CHAR LIMIT=NONE] -->
     <string name="speech_control_apps_category">应用</string>
 
     <!-- Shown in that list before any app has asked to speak. [CHAR LIMIT=NONE] -->
     <string name="speech_control_no_apps">还没有应用请求朗读。</string>
 
-    <!-- Title of the notification that asks whether an app may speak through Backtalk. The app's name is filled in. [CHAR LIMIT=NONE] -->
-    <string name="speech_control_ask_title">允许 <xliff:g id="app" example="Tasker">%1$s</xliff:g> 通过 Backtalk 朗读吗？</string>
+    <!-- Title of the notification that asks whether an app may speak through newTalk. The app's name is filled in. [CHAR LIMIT=NONE] -->
+    <string name="speech_control_ask_title">允许 <xliff:g id="app" example="Tasker">%1$s</xliff:g> 通过 newTalk 朗读吗？</string>
 
     <!-- Text of that notification. [CHAR LIMIT=NONE] -->
-    <string name="speech_control_ask_text">它可以用你的 Backtalk 声音朗读文本。你可以在高级设置中更改此项。</string>
+    <string name="speech_control_ask_text">它可以用你的 newTalk 声音朗读文本。你可以在高级设置中更改此项。</string>
 
     <!-- Button in that notification that lets the app speak. [CHAR LIMIT=30] -->
     <string name="speech_control_allow">允许</string>
@@ -1903,17 +1903,17 @@
     <!-- Button in that notification that stops the app from speaking. [CHAR LIMIT=30] -->
     <string name="speech_control_deny">不允许</string>
 
-    <!-- Name of the permission that apps ask for to speak through Backtalk, shown in the app's permission list. [CHAR LIMIT=NONE] -->
-    <string name="permission_speak_label">通过 Backtalk 朗读</string>
+    <!-- Name of the permission that apps ask for to speak through newTalk, shown in the app's permission list. [CHAR LIMIT=NONE] -->
+    <string name="permission_speak_label">通过 newTalk 朗读</string>
 
     <!-- Description of that permission. [CHAR LIMIT=NONE] -->
-    <string name="permission_speak_description">允许应用请求用你的 Backtalk 声音朗读文本。应用朗读前 Backtalk 会先询问你。</string>
+    <string name="permission_speak_description">允许应用请求用你的 newTalk 声音朗读文本。应用朗读前 newTalk 会先询问你。</string>
 
-    <!-- Name of the permission that an app needs to ask to be a braille display for Backtalk, shown in the app's permission list. [CHAR LIMIT=NONE] -->
-    <string name="permission_braille_display_label">请求成为 Backtalk 的盲文显示器</string>
+    <!-- Name of the permission that an app needs to ask to be a braille display for newTalk, shown in the app's permission list. [CHAR LIMIT=NONE] -->
+    <string name="permission_braille_display_label">请求成为 newTalk 的盲文显示器</string>
 
     <!-- Description of that permission. [CHAR LIMIT=NONE] -->
-    <string name="permission_braille_display_description">允许应用请求成为 Backtalk 的盲文显示器。如果你在 Backtalk 中允许，它就能读取屏幕上的全部内容并控制你的设备。Backtalk 会先询问你。</string>
+    <string name="permission_braille_display_description">允许应用请求成为 newTalk 的盲文显示器。如果你在 newTalk 中允许，它就能读取屏幕上的全部内容并控制你的设备。newTalk 会先询问你。</string>
 
     <!-- Title of the setting for saying a word from a spelling alphabet, such as "hotel" for h, for letters such as keyboard keys and letters moved over by character. [CHAR LIMIT=40] -->
     <string name="title_pref_phonetic_letters_mode">用音标朗读字母</string>
@@ -1941,9 +1941,9 @@
     <string name="emoji_speech_engine">由语音引擎朗读</string>
 
     <!--
-      Source: Emoji preference choice: Backtalk sends the speech engine each emoji's name. [CHAR LIMIT=45]
+      Source: Emoji preference choice: newTalk sends the speech engine each emoji's name. [CHAR LIMIT=45]
     -->
-    <string name="emoji_speech_names">由 Backtalk 朗读</string>
+    <string name="emoji_speech_names">由 newTalk 朗读</string>
 
     <!--
       Source: Emoji preference choice: emoji are left out of speech. [CHAR LIMIT=45]
@@ -1951,14 +1951,14 @@
     <string name="emoji_speech_none">不朗读</string>
 
     <!--
-      Source: Summary of the Emoji reading control, and of the Emoji item in the list of Backtalk menu items. [CHAR LIMIT=NONE]
+      Source: Summary of the Emoji reading control, and of the Emoji item in the list of newTalk menu items. [CHAR LIMIT=NONE]
     -->
     <string name="summary_selector_menu_emoji">更改表情符号的朗读方式</string>
 
     <!--
-      Source: Spoken when the Emoji reading control or menu changes how emoji are read, like "Emoji: Read by Backtalk". [CHAR LIMIT=NONE]
+      Source: Spoken when the Emoji reading control or menu changes how emoji are read, like "Emoji: Read by newTalk". [CHAR LIMIT=NONE]
     -->
-    <string name="emoji_speech_state">表情符号：<xliff:g example="Read by Backtalk" id="state">%1$s</xliff:g></string>
+    <string name="emoji_speech_state">表情符号：<xliff:g example="Read by newTalk" id="state">%1$s</xliff:g></string>
 
     <!--
       Source: Preference for saying how many times an emoji repeats, like "3 grinning face", instead of naming it each time. [CHAR LIMIT=45]
@@ -2028,8 +2028,8 @@
     -->
     <string name="summary_pref_speak_notifications">新通知到达时朗读。来电始终朗读。</string>
 
-    <!-- The text of the Backtalk-on banner when no 3-finger tap opens the Backtalk menu. [CHAR_LIMIT=NONE]-->
-    <string name="talkback_exit_watermark_text_no_menu_gesture">Backtalk 已开启。用两根手指按住屏幕 5 秒可关闭。要停止显示此消息，请关闭 Backtalk 设置 > 高级设置 > 显示关闭 Backtalk 的说明。</string>
+    <!-- The text of the newTalk-on banner when no 3-finger tap opens the newTalk menu. [CHAR_LIMIT=NONE]-->
+    <string name="talkback_exit_watermark_text_no_menu_gesture">newTalk 已开启。用两根手指按住屏幕 5 秒可关闭。要停止显示此消息，请关闭 newTalk 设置 > 高级设置 > 显示关闭 newTalk 的说明。</string>
 
 
 
@@ -2056,13 +2056,13 @@
     -->
     <string name="title_pref_audio_output_device">音频输出设备</string>
     <!-- Summary for the reading control that changes the audio output device. [CHAR LIMIT=70] -->
-    <string name="summary_selector_audio_output_device">更改 Backtalk 的语音输出位置，例如手机扬声器或耳机</string>
+    <string name="summary_selector_audio_output_device">更改 newTalk 的语音输出位置，例如手机扬声器或耳机</string>
 
     <!--
       Source: Dialog title when choosing the audio output device.
       Description: Dialog title for selecting audio output target. [CHAR LIMIT=45]
     -->
-    <string name="dialog_title_audio_output_device">选择 Backtalk 声音的播放位置</string>
+    <string name="dialog_title_audio_output_device">选择 newTalk 声音的播放位置</string>
 
     <!--
       Source: Entry in the audio output device list for using system default.
@@ -2118,14 +2118,14 @@
     -->
     <string name="value_audio_output_device_usb_device">USB 音频设备</string>
 
-    <!-- Summary of the setting that turns off animations so that Backtalk reads new screens faster. [CHAR LIMIT=NONE] -->
-    <string name="pref_reduce_window_delay_summary">关闭动画后 Backtalk 读取新屏幕更快。这会关闭整台手机的动画。</string>
+    <!-- Summary of the setting that turns off animations so that newTalk reads new screens faster. [CHAR LIMIT=NONE] -->
+    <string name="pref_reduce_window_delay_summary">关闭动画后 newTalk 读取新屏幕更快。这会关闭整台手机的动画。</string>
 
     <!-- Message for dialog shown when a user wants to enable detailed image description. [CHAR LIMIT=NONE]  -->
     <string name="dialog_message_detailed_ai_description">所选图片会被发送到 Google 的 Gemini API 进行描述。开启端侧 AI 后，改为在本机上描述，不会上传。\n\n使用免费 API 密钥时，Google 可能会保留其收到的内容、用于改进其产品，并安排人员审阅。生成式 AI 属于实验性功能，因此会出错。适用 <xliff:g id="Gemini API terms" example="Gemini API Additional Terms of Service">%1$s</xliff:g>。</string>
 
     <!-- Message for dialog shown when a user wants to enable detailed image description. [CHAR LIMIT=NONE]  -->
-    <string name="dialog_message_detailed_ai_promotion">详细图像描述由生成式 AI 提供支持。所选图片会被发送到 Google 的 Gemini API 进行描述。开启端侧 AI 后，改为在本机上描述，不会上传。\n\n使用免费 API 密钥时，Google 可能会保留其收到的内容、用于改进其产品，并安排人员审阅。生成式 AI 属于实验性功能，因此会出错。你可以随时在 Backtalk 设置中关闭详细图像描述。\n\n适用 <xliff:g id="Gemini API terms" example="Gemini API Additional Terms of Service">%1$s</xliff:g>。</string>
+    <string name="dialog_message_detailed_ai_promotion">详细图像描述由生成式 AI 提供支持。所选图片会被发送到 Google 的 Gemini API 进行描述。开启端侧 AI 后，改为在本机上描述，不会上传。\n\n使用免费 API 密钥时，Google 可能会保留其收到的内容、用于改进其产品，并安排人员审阅。生成式 AI 属于实验性功能，因此会出错。你可以随时在 newTalk 设置中关闭详细图像描述。\n\n适用 <xliff:g id="Gemini API terms" example="Gemini API Additional Terms of Service">%1$s</xliff:g>。</string>
 
     <!-- Message for dialog shown when a user wants to enable screen description. [CHAR LIMIT=NONE]  -->
     <string name="dialog_message_screen_overview_promotion">屏幕截图会被发送到 Google 的 Gemini API 进行描述，这需要几秒钟。开启端侧 AI 后，改为在本机上描述，不会上传。\n\n使用免费 API 密钥时，Google 可能会保留其收到的内容、用于改进其产品，并安排人员审阅。生成式 AI 属于实验性功能，因此会出错。适用 <xliff:g id="Gemini API terms" example="Gemini API Additional Terms of Service">%1$s</xliff:g>。</string>
@@ -2196,11 +2196,11 @@
     <string name="title_pref_low_latency_audio">低延迟音频</string>
 
     <!-- Reduce delays: summary of the low-latency audio switch. [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_low_latency_audio">通过手机最快的音频通路播放 Backtalk 的声音和语音，让你更快听到。如果语音或声音出现断裂或异常，请关闭此选项。</string>
+    <string name="summary_pref_low_latency_audio">通过手机最快的音频通路播放 newTalk 的声音和语音，让你更快听到。如果语音或声音出现断裂或异常，请关闭此选项。</string>
     <!-- Reduce delays: switch that moves to the next item as soon as a swipe starts. [CHAR LIMIT=50] -->
     <string name="title_pref_swipe_before_lift">抬起手指前移动焦点</string>
     <!-- Reduce delays: summary of the switch that moves to the next item as soon as a swipe starts. [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_swipe_before_lift">在手指开始滑动时，而非抬起时，即移动到下一项或上一项。如果滑动动作转变为先右再下之类的其他手势，在 Backtalk 回到原项之前，你可能会短暂听到下一项。</string>
+    <string name="summary_pref_swipe_before_lift">在手指开始滑动时，而非抬起时，即移动到下一项或上一项。如果滑动动作转变为先右再下之类的其他手势，在 newTalk 回到原项之前，你可能会短暂听到下一项。</string>
 
     <!-- Label for the default focus delay, 0.2 seconds. [CHAR LIMIT=NONE]-->
     <string name="value_focus_delay_200ms_default">0.2 秒（默认）</string>
@@ -2283,13 +2283,13 @@
     <!-- Title of the setting for whether Enter on a physical keyboard stops speech. [CHAR_LIMIT=NONE] -->
     <string name="title_pref_interrupt_enter">按 Enter 时打断语音</string>
 
-    <!-- Label for preference specifying that Backtalk should describe elements in order: name, state, type. -->
+    <!-- Label for preference specifying that newTalk should describe elements in order: name, state, type. -->
     <string name="pref_node_desc_order_entry_name_state_role_pos">名称、状态、类型</string>
 
-    <!-- Label for preference specifying that Backtalk should describe elements in order: type, state, name. -->
+    <!-- Label for preference specifying that newTalk should describe elements in order: type, state, name. -->
     <string name="pref_node_desc_order_entry_role_state_name_pos">类型、状态、名称</string>
 
-    <!-- Label for preference specifying that Backtalk should describe elements in order: state, type, name. -->
+    <!-- Label for preference specifying that newTalk should describe elements in order: state, type, name. -->
     <string name="pref_node_desc_order_entry_state_role_name_pos">状态、类型、名称</string>
 
     <!-- Order of item details settings: the item's name, such as the text of a button. [CHAR LIMIT=30] -->
@@ -2317,7 +2317,7 @@
     <string name="template_item_details_order_dropped">已放下 <xliff:g id="detail" example="Name">%1$s</xliff:g>。<xliff:g id="position" example="Position 2 of 3">%2$s</xliff:g></string>
 
     <!-- Order of item details settings: text below the list that explains how to reorder it. [CHAR LIMIT=NONE] -->
-    <string name="item_details_order_footer">Backtalk 按此顺序朗读项目的细节。要更改顺序，请触摸并按住某一项，然后上下拖动。开启 Backtalk 时，双击并按住再拖动。也可以使用上移和下移动作。</string>
+    <string name="item_details_order_footer">newTalk 按此顺序朗读项目的细节。要更改顺序，请触摸并按住某一项，然后上下拖动。开启 newTalk 时，双击并按住再拖动。也可以使用上移和下移动作。</string>
 
     <!-- Title of the switch that speaks a list item a swipe moves to before the list has scrolled it into view. [CHAR LIMIT=NONE] -->
     <string name="title_pref_speak_items_before_scroll">在滚动进视野前就朗读项目</string>

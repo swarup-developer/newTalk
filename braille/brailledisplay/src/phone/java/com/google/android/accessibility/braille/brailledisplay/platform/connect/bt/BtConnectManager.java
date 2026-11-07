@@ -230,7 +230,7 @@ public class BtConnectManager extends ConnectManager {
   /**
    * A device that offers HID, where Android can connect braille displays through HID. Any braille
    * display that follows the HID braille standard works this way, so it doesn't need a name that
-   * Backtalk knows. Only the services that Bluetooth already knows about are checked, so this
+   * newTalk knows. Only the services that Bluetooth already knows about are checked, so this
    * doesn't query each device, and connecting confirms that it's a braille display.
    */
   @Override

@@ -22,7 +22,7 @@ import com.google.android.accessibility.talkback.R
 import com.google.android.accessibility.talkback.dialog.FirstTimeUseDialog
 
 /**
- * Asks before pausing Backtalk and says how to resume. It has an "Always show this warning" check
+ * Asks before pausing newTalk and says how to resume. It has an "Always show this warning" check
  * box, like the dialog before hiding the screen.
  */
 class PauseDialog(context: Context, private val onConfirm: () -> Unit) :

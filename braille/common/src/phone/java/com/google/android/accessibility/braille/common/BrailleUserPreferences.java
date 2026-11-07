@@ -395,14 +395,14 @@ public class BrailleUserPreferences {
   }
 
   /**
-   * Returns the keyboard echo the braille keyboard reports to Backtalk, a {@code
+   * Returns the keyboard echo the braille keyboard reports to newTalk, a {@code
    * TextEventFilter.KeyboardEchoType}.
    *
    * <p>In contracted braille the keyboard holds the whole word and commits it in one go, and
    * announces each character itself as it is typed, so with the "characters" echo it reports
-   * "none" here. Backtalk would otherwise speak the committed word as well, making "characters"
+   * "none" here. newTalk would otherwise speak the committed word as well, making "characters"
    * sound the same as "characters and words". Uncontracted typing commits a character at a time
-   * and still relies on Backtalk's echo, so it is left unchanged.
+   * and still relies on newTalk's echo, so it is left unchanged.
    */
   @KeyboardEchoType
   public static int readKeyboardEchoForBacktalk(Context context) {

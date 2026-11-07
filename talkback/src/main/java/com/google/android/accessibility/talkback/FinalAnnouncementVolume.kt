@@ -23,9 +23,9 @@ import android.os.Build
 import kotlin.math.pow
 
 /**
- * Works out how loud to speak "Backtalk off".
+ * Works out how loud to speak "newTalk off".
  *
- * Android shuts the accessibility audio stream down before Backtalk speaks that last announcement,
+ * Android shuts the accessibility audio stream down before newTalk speaks that last announcement,
  * so it plays at the media volume. To keep it at the accessibility volume, the speech is made
  * quieter by the difference between the two. Android 9 and later report each volume step's real
  * loudness in decibels for the current output, which is exact. Before that, the difference is

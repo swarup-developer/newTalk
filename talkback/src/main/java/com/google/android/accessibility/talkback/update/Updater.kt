@@ -60,15 +60,14 @@ import java.util.concurrent.TimeUnit
  *
  * Automatic checks run when the service starts, and then about once a day while it runs.
  *
- * While this app has the old app ID, a build under the app ID fyi.quin.backtalk installs next to
- * it. The accessibility settings for the new app then open, so the user can turn it on.
+ * While this app has the old app ID, a build under newTalk's app ID installs next to it. The accessibility settings for the new app then open, so the user can turn it on.
  */
 object Updater {
   private const val TAG = "Updater"
   private const val NOTIFICATION_ID = 0x0BAC7A1C
   internal const val PREF_LAST_CHECK_TIME = "update_last_check_time"
   internal const val PREF_LAST_NOTIFIED_BUILD = "update_last_notified_build"
-  private const val APK_FILE_NAME = "backtalk.apk"
+  private const val APK_FILE_NAME = "newtalk.apk"
   private val CHECK_INTERVAL_MS = TimeUnit.DAYS.toMillis(1)
   private val POLL_INTERVAL_MS = TimeUnit.HOURS.toMillis(3)
   // Gives the network time to come up when the service starts at boot.
@@ -271,7 +270,7 @@ object Updater {
 
   /**
    * Downloads the APK and opens the system install prompt. A build of this app updates it, and
-   * Backtalk under its new app ID installs as a new app. Anything else is refused.
+   * newTalk under its new app ID installs as a new app. Anything else is refused.
    *
    * A watch downloads over Wi-Fi when a saved network is in range, rather than through its phone
    * over Bluetooth.
@@ -382,7 +381,7 @@ object Updater {
       AppIdMove.InstallKind.REFUSE ->
         throw WrongPackageException("The APK is $apkPackage, and this app is ${context.packageName}")
       AppIdMove.InstallKind.MOVE -> {
-        LogUtils.i(TAG, "Installing Backtalk under its new app ID %s", apkPackage)
+        LogUtils.i(TAG, "Installing newTalk under its new app ID %s", apkPackage)
         mainHandler.post { toast(context, R.string.update_move_installing, Toast.LENGTH_LONG) }
       }
       AppIdMove.InstallKind.UPDATE -> {}
@@ -470,7 +469,7 @@ object Updater {
           toast(appContext, R.string.update_install_failed)
         }
       }
-      // For an update, the system stops Backtalk to replace it, and restarts the service if it
+      // For an update, the system stops newTalk to replace it, and restarts the service if it
       // was on. A move installs a new app, and this one keeps running until that one is on.
       PackageInstaller.STATUS_SUCCESS -> {
         val installed = intent.getStringExtra(UpdateReceiver.EXTRA_INSTALLED_PACKAGE)
@@ -491,9 +490,9 @@ object Updater {
     }
   }
 
-  /** Opens the accessibility settings for the newly installed Backtalk, so the user turns it on. */
+  /** Opens the accessibility settings for the newly installed newTalk, so the user turns it on. */
   private fun onMoved(context: Context, packageName: String) {
-    LogUtils.i(TAG, "Installed Backtalk under its new app ID %s", packageName)
+    LogUtils.i(TAG, "Installed newTalk under its new app ID %s", packageName)
     val component = ComponentName(packageName, AppIdMove.SERVICE_CLASS)
     val intents = buildList {
       // The screen for a single service is on Android 12 and later, but Android lets only the

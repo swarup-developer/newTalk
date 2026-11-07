@@ -95,8 +95,8 @@ class ScriptActivation(private val service: AccessibilityService) {
   }
 
   /**
-   * Whether a Backtalk screen is in front. Scripts change nothing there: one that silences speech,
-   * hides items or takes over gestures would otherwise leave no way to reach Scripts in Backtalk's
+   * Whether a newTalk screen is in front. Scripts change nothing there: one that silences speech,
+   * hides items or takes over gestures would otherwise leave no way to reach Scripts in newTalk's
    * settings and turn it off. Scripts for all apps stay loaded, so that their settings still reach
    * them.
    */
@@ -125,10 +125,10 @@ class ScriptActivation(private val service: AccessibilityService) {
   }
 
   private companion object {
-    // An activity is only known from the app's window changes. Turning Backtalk off and on starts a
+    // An activity is only known from the app's window changes. Turning newTalk off and on starts a
     // new service in the same process, with the app often still open and sending no window change,
     // so what is known outlives the service. It can be out of date if the app changed activity while
-    // Backtalk was off, until the app's next window change.
+    // newTalk was off, until the app's next window change.
     val activityByPackage = ConcurrentHashMap<String, String>()
   }
 }

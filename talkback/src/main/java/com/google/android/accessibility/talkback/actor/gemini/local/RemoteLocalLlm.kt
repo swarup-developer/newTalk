@@ -40,7 +40,7 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 
 /**
- * Runs [model] in [LocalModelService]'s process, so that Backtalk keeps running when Android stops
+ * Runs [model] in [LocalModelService]'s process, so that newTalk keeps running when Android stops
  * the model for lack of memory. Then [generate] throws [LocalLlmMemoryException] with a message to
  * speak, as it does when there is not enough free memory to load the model.
  *
@@ -152,7 +152,7 @@ class RemoteLocalLlm(
     cancelRequested = true
     val id = currentId
     if (id == 0) return
-    // Let Backtalk go on at once. The service drops the answer when it comes.
+    // Let newTalk go on at once. The service drops the answer when it comes.
     pending.complete(id, Reply(LocalModelService.MSG_CANCELLED, null))
     val messenger = synchronized(lock) { service } ?: return
     try {
@@ -179,7 +179,7 @@ class RemoteLocalLlm(
         if (!bound) {
           binding++
           connected = CountDownLatch(1)
-          // Not perceptible: when memory runs out, Android stops the model before Backtalk.
+          // Not perceptible: when memory runs out, Android stops the model before newTalk.
           val flags =
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
               Context.BIND_AUTO_CREATE or Context.BIND_NOT_PERCEPTIBLE

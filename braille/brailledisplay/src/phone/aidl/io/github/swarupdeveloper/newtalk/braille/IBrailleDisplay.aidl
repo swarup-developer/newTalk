@@ -14,19 +14,18 @@
  * the License.
  */
 
-package fyi.quin.backtalk.speech;
+package io.github.swarupdeveloper.newtalk.braille;
+
+import io.github.swarupdeveloper.newtalk.braille.IBrailleDisplayHost;
 
 /**
- * Lets an app the user allowed speak through Backtalk. See docs/speech-api.md.
+ * A braille display that another app provides. newTalk binds the app's service and calls these.
+ * See docs/braille-display-api.md.
  */
-oneway interface ISpeechControl {
-    /**
-     * Says text in the user's Backtalk voice, after a short sound. Rate and pitch are multiples
-     * of the user's own, from 0.25 to 4, and volume is from 0 to 1. With interrupt, it replaces
-     * what other apps were saying, but never Backtalk's own speech.
-     */
-    void speak(String text, boolean interrupt, float rate, float pitch, float volume);
+oneway interface IBrailleDisplay {
+    /** newTalk is ready. The display uses host to start, to send its keys and to stop. */
+    void onHostConnected(IBrailleDisplayHost host);
 
-    /** Stops what other apps are saying. */
-    void stop();
+    /** Shows these cells, one byte each, with bit 0 for dot 1 up to bit 7 for dot 8. */
+    void showCells(in byte[] cells);
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="title_pref_scripts">Скрипты</string>
-  <string name="summary_pref_scripts">Изменить поведение Backtalk в приложениях</string>
+  <string name="summary_pref_scripts">Изменить поведение newTalk в приложениях</string>
   <string name="script_import">Импортировать скрипт</string>
-  <string name="script_install_label">Установить скрипт Backtalk</string>
+  <string name="script_install_label">Установить скрипт newTalk</string>
   <string name="script_import_nothing">Нет файла скрипта для установки.</string>
   <string name="script_import_cannot_open">Не удалось открыть файл.</string>
   <string name="script_import_repository">Эта ссылка ведёт на весь репозиторий. Откройте нужный скрипт и поделитесь ссылкой на него.</string>
@@ -40,7 +40,7 @@
   <string name="script_permission_sensitive"><xliff:g id="permission">%1$s</xliff:g>. Разрешайте только доверенным скриптам.</string>
   <string name="script_permission_screen">Читать содержимое экрана</string>
   <string name="script_permission_actions">Нажимать, прокручивать, вводить текст и перемещать фокус</string>
-  <string name="script_permission_speech">Получать, изменять и озвучивать текст через Backtalk</string>
+  <string name="script_permission_speech">Получать, изменять и озвучивать текст через newTalk</string>
   <string name="script_permission_passwords">Читать поля паролей</string>
   <string name="script_permission_input">Добавлять жесты, сочетания клавиш, пункты меню и элементы управления чтением</string>
   <string name="script_permission_network">Использовать интернет</string>
@@ -63,7 +63,7 @@
   <string name="script_move_down">Выполнять позже</string>
   <string name="script_order_summary">Порядок выполнения скриптов, изменяющих один и тот же озвучиваемый текст. Сначала выполняются скрипты для приложений.</string>
   <string name="script_log">Журнал</string>
-  <string name="script_log_summary">Вывод и ошибки с момента запуска Backtalk</string>
+  <string name="script_log_summary">Вывод и ошибки с момента запуска newTalk</string>
   <string name="script_clear_storage">Удалить сохранённые данные</string>
   <string name="script_storage_cleared">Сохранённые данные удалены</string>
   <string name="script_remove">Удалить</string>
@@ -75,7 +75,7 @@
   <string name="script_log_copy">Скопировать журнал</string>
   <string name="script_log_copied">Журнал скопирован</string>
   <string name="script_log_entry"><xliff:g id="time">%1$s</xliff:g>, <xliff:g id="level">%2$s</xliff:g></string>
-  <string name="script_state_incompatible">Может не работать с этой версией Backtalk</string>
+  <string name="script_state_incompatible">Может не работать с этой версией newTalk</string>
   <string name="script_compatibility_title">Совместимость</string>
   <string name="script_install_anyway">Всё равно установить</string>
   <string name="script_update_anyway">Всё равно обновить</string>
@@ -95,13 +95,13 @@
   <string name="summary_copy_screen_tree_menu">Скопировать все элементы экрана в формате JSON для написания скриптов</string>
   <string name="script_inspect_clip_label">Сведения об элементе</string>
   <string name="summary_inspect_item_menu">Озвучить и скопировать сведения об элементе, на котором находился фокус, для написания скриптов</string>
-  <string name="script_keys_backtalk_modifier">Клавиша-модификатор Backtalk</string>
+  <string name="script_keys_backtalk_modifier">Клавиша-модификатор newTalk</string>
   <string name="script_keys_then"><xliff:g id="first">%1$s</xliff:g>, затем <xliff:g id="second">%2$s</xliff:g></string>
   <string name="script_commands_category">Команды</string>
-  <string name="script_commands_summary">Жесты и сочетания клавиш работающего скрипта имеют приоритет перед назначениями Backtalk. Отключите назначение скрипта, чтобы использовать назначение Backtalk.</string>
+  <string name="script_commands_summary">Жесты и сочетания клавиш работающего скрипта имеют приоритет перед назначениями newTalk. Отключите назначение скрипта, чтобы использовать назначение newTalk.</string>
   <string name="script_binding_gesture">Жест: <xliff:g id="gesture">%1$s</xliff:g></string>
   <string name="script_binding_keys">Сочетание клавиш: <xliff:g id="keys">%1$s</xliff:g></string>
-  <string name="script_binding_menu">Меню Backtalk</string>
+  <string name="script_binding_menu">Меню newTalk</string>
   <string name="script_binding_control">Управление чтением</string>
   <string name="script_binding_none">Нет</string>
   <string name="script_binding_turn_on">Включить</string>
@@ -109,13 +109,13 @@
   <string name="script_binding_restore">Восстановить значения по умолчанию</string>
   <string name="script_binding_restored">Значения по умолчанию восстановлены</string>
   <string name="script_binding_perform">Выполнить жест или нажать сочетание клавиш</string>
-  <string name="script_binding_perform_summary">Назначить следующий выполненный жест или сочетание, нажатое с клавишей-модификатором Backtalk</string>
+  <string name="script_binding_perform_summary">Назначить следующий выполненный жест или сочетание, нажатое с клавишей-модификатором newTalk</string>
   <string name="script_binding_perform_message">Выполните жест или нажмите сочетание клавиш.</string>
   <string name="script_binding_assign_title">Назначить <xliff:g id="binding">%1$s</xliff:g> для <xliff:g id="command">%2$s</xliff:g>?</string>
   <string name="script_binding_assign">Назначить</string>
   <string name="script_binding_choose_gesture">Выбрать жест</string>
   <string name="script_binding_type_keys">Ввести сочетание клавиш</string>
-  <string name="script_binding_type_keys_summary">Например, backtalk+shift+n или backtalk+t, s</string>
+  <string name="script_binding_type_keys_summary">Например, newtalk+shift+n или newtalk+t, s</string>
   <string name="script_binding_bad_keys">Невозможно использовать это сочетание клавиш. <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="script_install_adds">Добавляемые возможности:</string>
   <string name="script_install_command"><xliff:g id="title">%1$s</xliff:g>: <xliff:g id="bindings">%2$s</xliff:g></string>

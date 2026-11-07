@@ -23,8 +23,8 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class ComponentListsTest {
-  private val old = "com.android.talkback/com.google.android.marvin.talkback.TalkBackService"
-  private val new = "fyi.quin.backtalk/com.google.android.marvin.talkback.TalkBackService"
+  private val old = "fyi.quin.backtalk/com.google.android.marvin.talkback.TalkBackService"
+  private val new = "io.github.swarupdeveloper.newtalk/com.google.android.marvin.talkback.TalkBackService"
   private val other = "com.example/.Reader"
 
   @Test
@@ -63,8 +63,8 @@ class ComponentListsTest {
 
   @Test
   fun replaceKeepsInputMethodSubtypes() {
-    val oldIme = "com.android.talkback/com.google.android.accessibility.brailleime.BrailleIme"
-    val newIme = "fyi.quin.backtalk/com.google.android.accessibility.brailleime.BrailleIme"
+    val oldIme = "fyi.quin.backtalk/com.google.android.accessibility.brailleime.BrailleIme"
+    val newIme = "io.github.swarupdeveloper.newtalk/com.google.android.accessibility.brailleime.BrailleIme"
     val latin = "com.android.inputmethod.latin/.LatinIME;123;456"
     assertEquals(
       "$latin:$newIme;-789",

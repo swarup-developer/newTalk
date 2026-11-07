@@ -23,7 +23,7 @@ import com.google.android.accessibility.talkback.TalkBackService
 import com.google.android.libraries.accessibility.utils.log.LogUtils
 
 /**
- * Turns this screen reader off when Backtalk under the new app ID says it is on, so two screen
+ * Turns this screen reader off when newTalk under the new app ID says it is on, so two screen
  * readers never talk at once.
  *
  * Only apps signed with the same key can send it, since it requires [AppIdMove.PERMISSION].
@@ -39,10 +39,10 @@ class HandOverReceiver : BroadcastReceiver() {
     }
     val service = TalkBackService.getInstance()
     if (service == null) {
-      LogUtils.i(TAG, "The new Backtalk is on, and this one is already off")
+      LogUtils.i(TAG, "newTalk is on, and this one is already off")
       return
     }
-    LogUtils.i(TAG, "The new Backtalk is on, so this one turns itself off")
+    LogUtils.i(TAG, "newTalk is on, so this one turns itself off")
     service.disableSelf()
   }
 

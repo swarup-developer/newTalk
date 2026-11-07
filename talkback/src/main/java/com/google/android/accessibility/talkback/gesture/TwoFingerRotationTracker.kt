@@ -374,7 +374,7 @@ class TwoFingerRotationTracker(
     /** Largest change of the distance from the midpoint, relative to the movement along the circle. */
     private const val MAX_RADIAL_RATIO = 0.75f
 
-    private const val DEBUG_TAG = "BacktalkGesture"
+    private const val DEBUG_TAG = "NewTalkGesture"
 
     /** The angle of the line from the first finger to the second. Y grows down the screen. */
     private fun angleDegrees(x0: Float, y0: Float, x1: Float, y1: Float): Float =

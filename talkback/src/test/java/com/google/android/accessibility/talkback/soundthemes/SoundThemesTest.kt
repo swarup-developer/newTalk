@@ -63,7 +63,7 @@ class SoundThemesTest {
     assertTrue(SoundThemes.SOUND_KEYS.containsAll(typing))
     val paths = mapOf("braille_keyboard_space" to "/a.wav", "focus" to "/b.wav")
     assertEquals(mapOf("braille_keyboard_space" to "/a.wav"), SoundThemes.brailleTypingSounds(paths))
-    // They are not Backtalk's own sounds, so they have no switches of their own.
+    // They are not newTalk's own sounds, so they have no switches of their own.
     assertTrue(IndividualFeedbackSettings.SOUNDS.none { it.key in typing })
   }
 
@@ -89,7 +89,7 @@ class SoundThemesTest {
     assertEquals("unspoken", SoundThemes.idFor("Unspoken"))
     assertEquals("my-sounds-2", SoundThemes.idFor("  My Sounds #2! "))
     assertEquals("theme", SoundThemes.idFor("!!!"))
-    // Never Backtalk's own.
+    // Never the built-in theme's own ID.
     assertEquals("backtalk-theme", SoundThemes.idFor("Backtalk"))
   }
 

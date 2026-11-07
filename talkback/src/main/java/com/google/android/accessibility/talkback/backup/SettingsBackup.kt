@@ -32,7 +32,7 @@ import org.json.JSONObject
  * without being registered anywhere.
  */
 object SettingsBackup {
-  const val FILE_NAME = "backtalk_settings.json"
+  const val FILE_NAME = "newtalk_settings.json"
 
   const val STORE_MAIN = "main"
   // These are the names of the braille preferences files, which only the phone build can reach.
@@ -46,17 +46,17 @@ object SettingsBackup {
     /** The file is not a backup, and nothing changed. */
     FAILED,
     RESTORED,
-    /** Restored, but a setting that is only read when Backtalk starts changed. */
+    /** Restored, but a setting that is only read when newTalk starts changed. */
     RESTORED_NEEDS_RESTART,
   }
 
   /**
-   * Settings that only take effect when Backtalk is turned off and on, with the value they have
+   * Settings that only take effect when newTalk is turned off and on, with the value they have
    * when nothing is stored. Add a setting here when the service reads it only as it starts.
    */
   private val RESTART_KEYS =
     mapOf(
-      // "Handle gestures in Backtalk": the service registers gesture detection as it starts.
+      // "Handle gestures in newTalk": the service registers gesture detection as it starts.
       "pref_talkback_gesture_detection_key" to true,
     )
 

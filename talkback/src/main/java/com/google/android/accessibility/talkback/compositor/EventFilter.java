@@ -255,7 +255,7 @@ public class EventFilter {
   }
 
   /**
-   * Told when Backtalk has set accessibility focus on {@code node}, before the app's focus event
+   * Told when newTalk has set accessibility focus on {@code node}, before the app's focus event
    * for it arrives. Speaks the focus at once if it can, see {@link #speakFocusEarly}; otherwise
    * makes sure the app's event for it is spoken.
    *
@@ -358,8 +358,8 @@ public class EventFilter {
       }
       compositor.handleEvent(event, node, eventId, eventInterpreted, feedback);
     } catch (RuntimeException e) {
-      // Something on the way to speech needed more than a Backtalk-made event has. Leave the
-      // focus to be spoken from the app's event rather than stop Backtalk.
+      // Something on the way to speech needed more than a newTalk-made event has. Leave the
+      // focus to be spoken from the app's event rather than stop newTalk.
       LogUtils.e(TAG, "Cannot speak focus early: %s", e);
       earlyFocusSpeech.addStateUpdated(node, actionTime);
       onFocusMoved(node);

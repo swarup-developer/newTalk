@@ -9,5 +9,5 @@
     <string name="speech_control_allow">Povolit</string>
     <string name="speech_control_deny">Nepovolit</string>
     <string name="permission_speak_label">mluvit prostřednictvím Backtalku</string>
-    <string name="permission_speak_description">Umožňuje aplikaci požádat o vyslovení textu hlasem Backtalku. Než bude aplikace moci mluvit, Backtalk vás požádá o svolení.</string>
+    <string name="permission_speak_description">Umožňuje aplikaci požádat o vyslovení textu hlasem Backtalku. Než bude aplikace moci mluvit, newTalk vás požádá o svolení.</string>
 </resources>

@@ -400,7 +400,7 @@ public class FullScreenReadActor {
     if (editingNode != null) {
       return editingNode;
     }
-    // Other text is selected for copying by Backtalk; it speaks if there is none.
+    // Other text is selected for copying by newTalk; it speaks if there is none.
     if (node != null) {
       return node;
     }

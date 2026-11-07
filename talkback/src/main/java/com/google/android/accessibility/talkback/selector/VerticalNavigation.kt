@@ -92,7 +92,7 @@ class VerticalNavigator(
     return AccessibilityNodeInfoUtils.supportsAction(list, action) &&
       pipeline.returnFeedback(
         eventId,
-        // Backtalk's own scroll, so focus doesn't follow it as it would the user's scrolling.
+        // newTalk's own scroll, so focus doesn't follow it as it would the user's scrolling.
         Feedback.scroll(
           list,
           ScrollActionRecord.ACTION_AUTO_SCROLL,
@@ -138,7 +138,7 @@ class VerticalNavigator(
     val list = VerticalNavigation.listOf(target)
     if (list != null &&
         hasPartOffScreen(target) &&
-        // Recorded as Backtalk's own scroll, so it isn't taken for the user's and focus stays.
+        // Recorded as newTalk's own scroll, so it isn't taken for the user's and focus stays.
         pipeline.returnFeedback(eventId, Feedback.scrollEnsureOnScreen(list, target))
     ) {
       handler.postDelayed(

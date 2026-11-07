@@ -21,7 +21,7 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils
 import com.google.android.accessibility.utils.Performance.EventId
 
 /**
- * Says the new state of an item that Backtalk clicks, such as "On" for a switch, as soon as the app
+ * Says the new state of an item that newTalk clicks, such as "On" for a switch, as soon as the app
  * has carried out the click, if the app changed the state while carrying it out, as most switches
  * and checkboxes do. Otherwise, as in apps that update the screen a frame later, the state is said
  * as before, from the app's click or state-change event, which comes about 100 ms later.

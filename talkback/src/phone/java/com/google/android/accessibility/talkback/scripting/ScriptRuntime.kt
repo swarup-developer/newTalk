@@ -163,12 +163,12 @@ class ScriptRuntime(
   }
 
   override fun call(method: String, json: String?): String? {
-    val call = calls[method] ?: apiError("Backtalk has no $method")
+    val call = calls[method] ?: apiError("newTalk has no $method")
     call.permission?.let(::requirePermission)
-    // Otherwise a script could keep Backtalk's settings from being used, or turn its own
+    // Otherwise a script could keep newTalk's settings from being used, or turn its own
     // permissions back on there.
     apiCheck(call.permission !in REFUSED_IN_BACKTALK || !manager.inBacktalk) {
-      "Scripts can't use ${call.permission?.key} on Backtalk's own screens"
+      "Scripts can't use ${call.permission?.key} on newTalk's own screens"
     }
     val result = call.handle(json?.let { JSONObject(it) } ?: JSONObject())
     return result.takeUnless { it == Unit }?.let(::jsonOf)
@@ -259,9 +259,9 @@ class ScriptRuntime(
       val rule = asApiError { parser.rule(json) }
       val unsupported = parser.unsupported.joinToString()
       if (unsupported.isNotEmpty()) {
-        ScriptLog.add(id, ScriptLog.Level.WARN, "This Backtalk doesn't know $unsupported in a rule")
+        ScriptLog.add(id, ScriptLog.Level.WARN, "This newTalk doesn't know $unsupported in a rule")
       }
-      if (rule == null) apiError("The rule has nothing this Backtalk can do: $unsupported")
+      if (rule == null) apiError("The rule has nothing this newTalk can do: $unsupported")
       nextRule++.also {
         addedRules[it] = rule
         manager.onRulesChanged()
@@ -448,7 +448,7 @@ class ScriptRuntime(
     start { ok, value ->
       handler.post {
         val outcome =
-          if (ok) "value" to value else "error" to (value as? String ?: "Backtalk could not do it")
+          if (ok) "value" to value else "error" to (value as? String ?: "newTalk could not do it")
         dispatch("settle", jsonObject("id" to promiseId, "ok" to ok, outcome))
       }
     }

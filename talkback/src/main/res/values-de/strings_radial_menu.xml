@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Title of the setting that shows the Backtalk menu as a circle instead of a list. [CHAR LIMIT=40] -->
+    <!-- Title of the setting that shows the newTalk menu as a circle instead of a list. [CHAR LIMIT=40] -->
     <string name="title_pref_radial_menu">Kreismenü</string>
-    <!-- Summary of the setting that shows the Backtalk menu as a circle instead of a list. [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_radial_menu">Zeigt das Backtalk-Menü als Kreis in der Bildschirmmitte. Wische zu einem Element und hebe den Finger an, um es auszuwählen.</string>
+    <!-- Summary of the setting that shows the newTalk menu as a circle instead of a list. [CHAR LIMIT=NONE] -->
+    <string name="summary_pref_radial_menu">Zeigt das newTalk-Menü als Kreis in der Bildschirmmitte. Wische zu einem Element und hebe den Finger an, um es auszuwählen.</string>
 
     <!-- Circle menu: spoken when the finger reaches an item that opens more items. [CHAR LIMIT=NONE] -->
     <string name="template_radial_menu_submenu">Menü <xliff:g id="title" example="Navigation">%1$s</xliff:g></string>

@@ -3,7 +3,7 @@
     <!-- Sound themes: switch that gives each kind of control its own sound, from where it is on the screen, and its own vibration, from the sound theme. [CHAR LIMIT=40] -->
     <string name="title_pref_control_sounds">控件声音与振动</string>
     <!-- Sound and vibration settings: summary of the control sounds switch. [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_control_sounds">为每种控件（如按钮、复选框、编辑框和列表项）赋予主题中各自的专属声音和振动，取代焦点音和振动，就像 Unspoken 为 NVDA 所做的那样。声音来自控件在屏幕上的位置，且 Backtalk 不再说出控件的种类。</string>
+    <string name="summary_pref_control_sounds">为每种控件（如按钮、复选框、编辑框和列表项）赋予主题中各自的专属声音和振动，取代焦点音和振动，就像 Unspoken 为 NVDA 所做的那样。声音来自控件在屏幕上的位置，且 newTalk 不再说出控件的种类。</string>
     <!-- Sound and vibration settings: switch that keeps saying the kind of control, like "button", when its control sound plays. [CHAR LIMIT=60] -->
     <string name="title_pref_control_sounds_speak_roles">仍然说出控件种类</string>
     <!-- Sound and vibration settings: summary of the switch that keeps saying the kind of control when its control sound plays. [CHAR LIMIT=NONE] -->

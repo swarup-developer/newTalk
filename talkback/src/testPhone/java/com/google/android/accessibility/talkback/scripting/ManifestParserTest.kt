@@ -335,12 +335,12 @@ class ManifestParserTest {
         rejects(""",$permission,"commands":[{"id":"go","title":"Go","gesture":"wiggle"}]""")
     )
     assertTrue(
-      "must start with backtalk" in
+      "must start with newtalk" in
         rejects(""",$permission,"commands":[{"id":"go","title":"Go","keys":"shift+n"}]""")
     )
 
     val keys =
-      parse(""",$permission,"commands":[{"id":"go","title":"Go","keys":"backtalk+shift+n"}]""")
+      parse(""",$permission,"commands":[{"id":"go","title":"Go","keys":"newtalk+shift+n"}]""")
         .commands[0]
         .keys
 

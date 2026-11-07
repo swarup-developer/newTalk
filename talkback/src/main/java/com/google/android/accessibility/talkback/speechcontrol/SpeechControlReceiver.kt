@@ -23,7 +23,7 @@ import android.os.Build
 import com.google.android.libraries.accessibility.utils.log.LogUtils
 
 /**
- * Takes speech requests sent as broadcasts. Backtalk has to know which app sent each one, to ask
+ * Takes speech requests sent as broadcasts. newTalk has to know which app sent each one, to ask
  * the user about it, so a broadcast is only taken from Android 14, and only when the app shares
  * its identity with BroadcastOptions.setShareIdentityEnabled. Apps that can't can bind to
  * [SpeechControlService] instead.

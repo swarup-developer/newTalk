@@ -17,7 +17,7 @@
 package com.google.android.accessibility.talkback.speechcontrol
 
 /**
- * The limits on what other apps can ask Backtalk to say, kept apart from Android so that they can
+ * The limits on what other apps can ask newTalk to say, kept apart from Android so that they can
  * be tested on their own.
  */
 object SpeechControlPolicy {
@@ -31,14 +31,14 @@ object SpeechControlPolicy {
   fun clampVolume(value: Float): Float = if (value.isNaN()) 1f else value.coerceIn(0f, 1f)
 
   /**
-   * The text to say, as plain text with no styling an app could use to change how Backtalk speaks
+   * The text to say, as plain text with no styling an app could use to change how newTalk speaks
    * it, and trimmed. Null if there is nothing to say.
    */
   fun textToSay(text: CharSequence?): String? = text?.toString()?.trim()?.ifEmpty { null }
 
   /**
    * Lets each app speak a few times at once, then about once a second, so that an app can't keep
-   * Backtalk talking over everything else.
+   * newTalk talking over everything else.
    */
   class RateLimiter(
     private val burst: Int = DEFAULT_BURST,

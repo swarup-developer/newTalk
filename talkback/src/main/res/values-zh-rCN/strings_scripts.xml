@@ -3,16 +3,16 @@
     <!-- Title of the settings screen that lists installed scripts. [CHAR LIMIT=40] -->
     <string name="title_pref_scripts">脚本</string>
     <!-- Summary of the Scripts settings entry. [CHAR LIMIT=NONE] -->
-    <string name="summary_pref_scripts">更改 Backtalk 在应用中的工作方式</string>
+    <string name="summary_pref_scripts">更改 newTalk 在应用中的工作方式</string>
     <!-- Action that imports a script file. [CHAR LIMIT=40] -->
     <string name="script_import">导入脚本</string>
-    <!-- Name of the action in other apps' share and open menus that installs a script in Backtalk. [CHAR LIMIT=40] -->
-    <string name="script_install_label">安装 Backtalk 脚本</string>
-    <!-- Shown when something was shared to Backtalk to install as a script, but it held no file. [CHAR LIMIT=NONE] -->
+    <!-- Name of the action in other apps' share and open menus that installs a script in newTalk. [CHAR LIMIT=40] -->
+    <string name="script_install_label">安装 newTalk 脚本</string>
+    <!-- Shown when something was shared to newTalk to install as a script, but it held no file. [CHAR LIMIT=NONE] -->
     <string name="script_import_nothing">没有可安装的脚本文件。</string>
     <!-- The reason a shared script couldn't be installed, when its file couldn't be opened. [CHAR LIMIT=NONE] -->
     <string name="script_import_cannot_open">无法打开该文件。</string>
-    <!-- Shown when a link to a whole GitHub repository was shared to Backtalk to install as a script. [CHAR LIMIT=NONE] -->
+    <!-- Shown when a link to a whole GitHub repository was shared to newTalk to install as a script. [CHAR LIMIT=NONE] -->
     <string name="script_import_repository">此链接指向整个仓库。请打开你需要的脚本，然后分享它的链接。</string>
     <!-- Summary of the import action. [CHAR LIMIT=NONE] -->
     <string name="script_import_summary">.js 文件，或含 main.js 的 .zip 文件</string>
@@ -34,7 +34,7 @@
     <string name="scripts_now_on">脚本已开启</string>
     <!-- Spoken when this device cannot run scripts. [CHAR LIMIT=NONE] -->
     <string name="scripts_unavailable">此设备不支持脚本</string>
-    <!-- Button that adds the example script that comes with Backtalk. [CHAR LIMIT=40] -->
+    <!-- Button that adds the example script that comes with newTalk. [CHAR LIMIT=40] -->
     <string name="script_add_example">添加示例脚本</string>
     <!-- Summary of the button that adds the example script. [CHAR LIMIT=NONE] -->
     <string name="script_add_example_summary">朗读你切换到的每个应用的名称。可作为起步的脚本。</string>
@@ -83,7 +83,7 @@
     <!-- What the actions permission lets a script do. [CHAR LIMIT=NONE] -->
     <string name="script_permission_actions">点击、滚动、输入和移动焦点</string>
     <!-- What the speech permission lets a script do. [CHAR LIMIT=NONE] -->
-    <string name="script_permission_speech">听取并更改 Backtalk 的语音</string>
+    <string name="script_permission_speech">听取并更改 newTalk 的语音</string>
     <!-- What the passwords permission lets a script do. [CHAR LIMIT=NONE] -->
     <string name="script_permission_passwords">读取密码框</string>
     <!-- What the input permission lets a script do. [CHAR LIMIT=NONE] -->
@@ -130,7 +130,7 @@
     <!-- Opens a script's log. [CHAR LIMIT=40] -->
     <string name="script_log">日志</string>
     <!-- Summary of the log entry. [CHAR LIMIT=NONE] -->
-    <string name="script_log_summary">自 Backtalk 启动以来的输出和错误</string>
+    <string name="script_log_summary">自 newTalk 启动以来的输出和错误</string>
     <!-- Deletes the data a script stored. [CHAR LIMIT=40] -->
     <string name="script_clear_storage">清除存储的数据</string>
     <!-- Shown after a script's data is deleted. [CHAR LIMIT=NONE] -->
@@ -153,20 +153,20 @@
     <string name="script_log_copied">日志已复制</string>
     <!-- One log entry: its time, level, and message. [CHAR LIMIT=NONE] -->
     <string name="script_log_entry"><xliff:g id="time">%1$s</xliff:g>，<xliff:g id="level">%2$s</xliff:g></string>
-    <!-- Warning for a script that needs a newer build of Backtalk. [CHAR LIMIT=NONE] -->
-    <string name="script_needs_build">需要 Backtalk <xliff:g id="needed" example="400">%1$d</xliff:g> 或更高版本，当前为 <xliff:g id="current" example="393">%2$d</xliff:g>，部分功能可能无法使用。</string>
-    <!-- Warning for a script with parts that this Backtalk doesn't know, followed by the names of their fields. [CHAR LIMIT=NONE] -->
-    <string name="script_unsupported">部分内容需较新的 Backtalk，因此已被省略：<xliff:g id="fields" example="liftToActivate, longPressAfter">%1$s</xliff:g></string>
+    <!-- Warning for a script that needs a newer build of newTalk. [CHAR LIMIT=NONE] -->
+    <string name="script_needs_build">需要 newTalk <xliff:g id="needed" example="400">%1$d</xliff:g> 或更高版本，当前为 <xliff:g id="current" example="393">%2$d</xliff:g>，部分功能可能无法使用。</string>
+    <!-- Warning for a script with parts that this newTalk doesn't know, followed by the names of their fields. [CHAR LIMIT=NONE] -->
+    <string name="script_unsupported">部分内容需较新的 newTalk，因此已被省略：<xliff:g id="fields" example="liftToActivate, longPressAfter">%1$s</xliff:g></string>
 
-    <!-- In the list of scripts, for a script that may not work with this Backtalk. [CHAR LIMIT=NONE] -->
-    <string name="script_state_incompatible">可能与此 Backtalk 不兼容</string>
-    <!-- On a script's page, the oldest build of Backtalk it works with. [CHAR LIMIT=NONE] -->
+    <!-- In the list of scripts, for a script that may not work with this newTalk. [CHAR LIMIT=NONE] -->
+    <string name="script_state_incompatible">可能与此 newTalk 不兼容</string>
+    <!-- On a script's page, the oldest build of newTalk it works with. [CHAR LIMIT=NONE] -->
     <string name="script_min_build">需要 <xliff:g id="build" example="400">%1$d</xliff:g> 或更高版本</string>
     <!-- Heading of the warning on a script's page that it may not work. [CHAR LIMIT=40] -->
     <string name="script_compatibility_title">兼容性</string>
-    <!-- Button that installs a script that may not work with this Backtalk. [CHAR LIMIT=20] -->
+    <!-- Button that installs a script that may not work with this newTalk. [CHAR LIMIT=20] -->
     <string name="script_install_anyway">仍然安装</string>
-    <!-- Button that updates a script that may not work with this Backtalk. [CHAR LIMIT=20] -->
+    <!-- Button that updates a script that may not work with this newTalk. [CHAR LIMIT=20] -->
     <string name="script_update_anyway">仍然更新</string>
     <!-- Opens a script's homepage. [CHAR LIMIT=40] -->
     <string name="script_homepage">打开主页</string>
@@ -196,27 +196,27 @@
     <string name="script_tree_none">没有可复制的窗口</string>
     <!-- Label of the clipboard entry with the screen tree. [CHAR LIMIT=40] -->
     <string name="script_tree_clip_label">屏幕树</string>
-    <!-- Summary of the option that shows Copy screen tree in the Backtalk menu. [CHAR LIMIT=NONE] -->
+    <!-- Summary of the option that shows Copy screen tree in the newTalk menu. [CHAR LIMIT=NONE] -->
     <string name="summary_copy_screen_tree_menu">把屏幕上的所有项目复制为 JSON，用于编写脚本</string>
     <!-- Label of the clipboard entry with the focused item's details. [CHAR LIMIT=40] -->
     <string name="script_inspect_clip_label">项目详情</string>
-    <!-- Summary of the option that shows Inspect focused item in the Backtalk menu. [CHAR LIMIT=NONE] -->
+    <!-- Summary of the option that shows Inspect focused item in the newTalk menu. [CHAR LIMIT=NONE] -->
     <string name="summary_inspect_item_menu">朗读并复制你所在项目的详情，用于编写脚本</string>
 
-    <!-- In a script's keyboard shortcut, the key Backtalk's shortcuts are pressed with. [CHAR LIMIT=40] -->
-    <string name="script_keys_backtalk_modifier">Backtalk 修饰键</string>
-    <!-- Keys pressed one after the other, such as "Backtalk modifier+T, then S". [CHAR LIMIT=NONE] -->
+    <!-- In a script's keyboard shortcut, the key newTalk's shortcuts are pressed with. [CHAR LIMIT=40] -->
+    <string name="script_keys_backtalk_modifier">newTalk 修饰键</string>
+    <!-- Keys pressed one after the other, such as "newTalk modifier+T, then S". [CHAR LIMIT=NONE] -->
     <string name="script_keys_then"><xliff:g id="first">%1$s</xliff:g>，然后 <xliff:g id="second">%2$s</xliff:g></string>
     <!-- Heading of the gestures, keys, menu items and reading controls a script adds. [CHAR LIMIT=40] -->
     <string name="script_commands_category">命令</string>
     <!-- Explains the switches under Commands on a script's page. [CHAR LIMIT=NONE] -->
-    <string name="script_commands_summary">运行中脚本的手势和按键优先于 Backtalk 的。关闭某项可保留 Backtalk 的。</string>
+    <string name="script_commands_summary">运行中脚本的手势和按键优先于 newTalk 的。关闭某项可保留 newTalk 的。</string>
     <!-- A gesture that runs a script's command. [CHAR LIMIT=NONE] -->
     <string name="script_binding_gesture">手势：<xliff:g id="gesture">%1$s</xliff:g></string>
     <!-- Keys that run a script's command. [CHAR LIMIT=NONE] -->
     <string name="script_binding_keys">按键：<xliff:g id="keys">%1$s</xliff:g></string>
-    <!-- A script's command is an item in the Backtalk menu. [CHAR LIMIT=NONE] -->
-    <string name="script_binding_menu">Backtalk 菜单</string>
+    <!-- A script's command is an item in the newTalk menu. [CHAR LIMIT=NONE] -->
+    <string name="script_binding_menu">newTalk 菜单</string>
     <!-- A script's command is a reading control. [CHAR LIMIT=NONE] -->
     <string name="script_binding_control">阅读控件</string>
     <!-- Summary of a command that has no way to run it. [CHAR LIMIT=NONE] -->
@@ -232,7 +232,7 @@
     <!-- Action that assigns the next gesture or keys the user performs to a command. [CHAR LIMIT=40] -->
     <string name="script_binding_perform">执行手势或按键</string>
     <!-- Summary of the action that assigns the next gesture or keys. [CHAR LIMIT=NONE] -->
-    <string name="script_binding_perform_summary">分配下一个手势，或配合 Backtalk 修饰键按下的按键</string>
+    <string name="script_binding_perform_summary">分配下一个手势，或配合 newTalk 修饰键按下的按键</string>
     <!-- Message while waiting for the gesture or keys to assign. [CHAR LIMIT=NONE] -->
     <string name="script_binding_perform_message">请做出手势或按下按键。</string>
     <!-- Title of the dialog that asks to assign a gesture or keys to a command. [CHAR LIMIT=NONE] -->
@@ -244,7 +244,7 @@
     <!-- Action that types keys for a command. [CHAR LIMIT=40] -->
     <string name="script_binding_type_keys">输入按键</string>
     <!-- How to type keys for a command. [CHAR LIMIT=NONE] -->
-    <string name="script_binding_type_keys_summary">例如 backtalk+shift+n，或 backtalk+t, s</string>
+    <string name="script_binding_type_keys_summary">例如 newtalk+shift+n，或 newtalk+t, s</string>
     <!-- Shown when typed keys cannot be used. [CHAR LIMIT=NONE] -->
     <string name="script_binding_bad_keys">无法使用这些按键。<xliff:g id="reason">%1$s</xliff:g></string>
     <!-- In the install dialog, before the commands a script adds. [CHAR LIMIT=NONE] -->

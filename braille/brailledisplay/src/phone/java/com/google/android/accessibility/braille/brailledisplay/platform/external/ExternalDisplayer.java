@@ -21,7 +21,7 @@ import com.google.android.accessibility.braille.brailledisplay.BrailleDisplayLog
 import com.google.android.accessibility.braille.brailledisplay.platform.DisplayerInterface;
 import com.google.android.accessibility.braille.brltty.BrailleDisplayProperties;
 import com.google.android.accessibility.braille.brltty.BrailleKeyBinding;
-import fyi.quin.backtalk.braille.IBrailleDisplay;
+import io.github.swarupdeveloper.newtalk.braille.IBrailleDisplay;
 import java.util.Collections;
 
 /**

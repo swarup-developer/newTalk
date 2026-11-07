@@ -23,12 +23,12 @@ import com.google.android.accessibility.utils.output.VoiceProfiles;
 import java.util.Map;
 import java.util.function.IntFunction;
 
-/** The names of voice profiles, with Backtalk default's and numbered names from resources. */
+/** The names of voice profiles, with newTalk default's and numbered names from resources. */
 public final class VoiceProfileNames {
 
   private VoiceProfileNames() {}
 
-  /** Returns Backtalk default's name, which no profile can have. */
+  /** Returns newTalk default's name, which no profile can have. */
   public static String defaultName(Context context) {
     return context.getString(R.string.voice_profile_default);
   }
@@ -41,7 +41,7 @@ public final class VoiceProfileNames {
     return VoiceProfiles.names(prefs, defaultName(context), numberedName(context));
   }
 
-  /** Returns the name of profile {@code id}, or Backtalk default's for an empty ID. */
+  /** Returns the name of profile {@code id}, or newTalk default's for an empty ID. */
   public static String nameOf(Context context, SharedPreferences prefs, String id) {
     if (id.isEmpty()) {
       return defaultName(context);

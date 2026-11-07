@@ -579,7 +579,7 @@ public class TextEditActor implements VoiceDictationDelegate {
     return moveCursor(node, selectionStart, eventId);
   }
 
-  /** Backtalk: deletes all the text in edit-text and announces it. */
+  /** newTalk: deletes all the text in edit-text and announces it. */
   public boolean clear(AccessibilityNodeInfoCompat node, EventId eventId) {
     if (node == null || Role.getRole(node) != Role.ROLE_EDIT_TEXT) {
       return false;

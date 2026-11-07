@@ -27,7 +27,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/** When a chosen output plays Backtalk's audio as media, without the call route (#316). */
+/** When a chosen output plays newTalk's audio as media, without the call route (#316). */
 class AudioMediaRouteTest {
   private val callProfile = Endpoint(TYPE_BLUETOOTH_SCO, "AA:BB:CC:DD:EE:FF", "Buds")
   private val mediaProfile = Endpoint(TYPE_BLUETOOTH_A2DP, "aa:bb:cc:dd:ee:ff", "Buds")

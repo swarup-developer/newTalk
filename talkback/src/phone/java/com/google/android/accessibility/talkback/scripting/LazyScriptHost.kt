@@ -32,7 +32,7 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils
 /**
  * Runs the script engine only while there is something for it to do. The native library, the
  * script thread and the work on every window change cost nothing for people who use no scripts,
- * and scripts do not run, keep timers or use the network while the screen is off or Backtalk is
+ * and scripts do not run, keep timers or use the network while the screen is off or newTalk is
  * paused.
  */
 class LazyScriptHost(

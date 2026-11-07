@@ -69,7 +69,7 @@ final class KeyboardTutorialKeys {
           .put(
               R.string.keyboard_tutorial_system_navigation_page_text,
               // Home, Recents, Back and Notifications are named by their system keys, which have no
-              // Backtalk shortcut on the default keymap.
+              // newTalk shortcut on the default keymap.
               ImmutableList.of(
                   R.string.keycombo_shortcut_navigate_previous_window,
                   R.string.keycombo_shortcut_navigate_next_window))

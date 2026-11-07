@@ -96,9 +96,9 @@ class ThemeFeedback(
 }
 
 /**
- * Sound themes: sets of sounds, vibrations and settings that replace Backtalk's own. Backtalk's
- * own sounds are the Backtalk theme, which is always there. Any theme can have sounds of the
- * person's own, so the Backtalk theme is where single sounds are replaced without installing
+ * Sound themes: sets of sounds, vibrations and settings that replace newTalk's own. newTalk's
+ * own sounds are the newTalk theme, which is always there. Any theme can have sounds of the
+ * person's own, so the newTalk theme is where single sounds are replaced without installing
  * anything.
  *
  * Each theme is a folder in the app's device protected storage, so it plays before the first
@@ -187,7 +187,7 @@ object SoundThemes {
   // ---------------------------------------------------------------------------------------------
   // Installed themes
 
-  /** The installed themes, Backtalk's first and then by name. */
+  /** The installed themes, newTalk's first and then by name. */
   @JvmStatic
   fun installed(context: Context): List<SoundTheme> {
     val themes =
@@ -212,7 +212,7 @@ object SoundThemes {
 
   @JvmStatic fun activeId(prefs: SharedPreferences): String = prefs.getString(PREF_ACTIVE, BACKTALK)!!
 
-  /** The theme in use, or Backtalk's if the one in use is gone. */
+  /** The theme in use, or newTalk's if the one in use is gone. */
   @JvmStatic
   fun active(context: Context, prefs: SharedPreferences): SoundTheme =
     theme(context, activeId(prefs)) ?: backtalk(context)
@@ -228,7 +228,7 @@ object SoundThemes {
   const val ROTOR_NEXT = "rotor_next"
   const val ROTOR_PREVIOUS = "rotor_previous"
 
-  /** The sounds that Backtalk has none of its own for, so that they play only from a theme. */
+  /** The sounds that newTalk has none of its own for, so that they play only from a theme. */
   @JvmField
   val THEME_ONLY: Set<String> =
     setOf(
@@ -255,7 +255,7 @@ object SoundThemes {
       .toMap()
   }
 
-  /** The custom sound of [item] in the theme in use, or null if it plays Backtalk's sound. */
+  /** The custom sound of [item] in the theme in use, or null if it plays newTalk's sound. */
   @JvmStatic
   fun soundFile(context: Context, prefs: SharedPreferences, item: FeedbackItem): File? =
     soundFiles(active(context, prefs))[item.key]
@@ -267,7 +267,7 @@ object SoundThemes {
 
   /**
    * Whether [item] plays no sound in [theme]: it is set to "none", or it is a sound that has none
-   * of Backtalk's own, like screen on, and so plays nothing without a file.
+   * of newTalk's own, like screen on, and so plays nothing without a file.
    */
   @JvmStatic
   fun isNone(theme: SoundTheme, item: FeedbackItem): Boolean =
@@ -343,7 +343,7 @@ object SoundThemes {
     if (manifest != theme.manifest) write(theme.copy(manifest = manifest))
   }
 
-  /** Removes the theme [id], and puts Backtalk's theme in use if it was in use. */
+  /** Removes the theme [id], and puts newTalk's theme in use if it was in use. */
   @JvmStatic
   fun delete(context: Context, prefs: SharedPreferences, id: String) {
     if (id == BACKTALK) return
@@ -440,7 +440,7 @@ object SoundThemes {
     changed(prefs)
   }
 
-  /** Makes [item] play Backtalk's sound again in the theme in use. */
+  /** Makes [item] play newTalk's sound again in the theme in use. */
   fun removeSound(context: Context, prefs: SharedPreferences, item: FeedbackItem) {
     val theme = active(context, prefs)
     soundFiles(theme)[item.key]?.delete()
@@ -450,7 +450,7 @@ object SoundThemes {
     changed(prefs)
   }
 
-  /** Makes every item play Backtalk's sound again in the theme in use. */
+  /** Makes every item play newTalk's sound again in the theme in use. */
   fun removeAllSounds(context: Context, prefs: SharedPreferences) {
     val theme = active(context, prefs)
     soundFiles(theme).values.forEach { it.delete() }
@@ -565,7 +565,7 @@ object SoundThemes {
         }
         if (layout.manifest == null && sounds.isEmpty()) {
           throw NotAThemeException(
-            "it has no theme.json and no sounds named after Backtalk's, such as focus.wav"
+            "it has no theme.json and no sounds named after newTalk's, such as focus.wav"
           )
         }
         File(staging, SoundThemeManifest.FILE_NAME).writeText(manifest.toJson())
@@ -647,7 +647,7 @@ object SoundThemes {
 
   /**
    * The folder name of a theme, from its name, so that a theme of the same name replaces it. It is
-   * never Backtalk's own.
+   * never newTalk's own.
    */
   @JvmStatic
   fun idFor(name: String): String {
@@ -772,8 +772,8 @@ object SoundThemes {
     return File(storage.filesDir, DIRECTORY).apply { mkdirs() }
   }
 
-  /** The name of Backtalk's theme in theme files, which the settings show translated. */
-  private const val BACKTALK_NAME = "Backtalk"
+  /** The name of newTalk's theme in theme files, which the settings show translated. */
+  private const val BACKTALK_NAME = "newTalk"
 }
 
 /**

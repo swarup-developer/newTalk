@@ -17,22 +17,21 @@
 package com.google.android.accessibility.talkback.migration
 
 /**
- * The move from the app ID com.android.talkback to fyi.quin.backtalk.
+ * The move from Backtalk, the app ID fyi.quin.backtalk, to newTalk, the app ID
+ * io.github.swarupdeveloper.newtalk.
  *
- * Some phones ship TalkBack as a system app named com.android.talkback, so Backtalk could not
- * install there. The old app installs the new one, shares its settings with it through
- * [SettingsExportProvider], and turns itself off when the new one tells it through
- * [HandOverReceiver]. Both apps are signed with the same key, so a signature permission guards
- * both.
+ * newTalk reads Backtalk's settings through Backtalk's [SettingsExportProvider], and tells it to
+ * turn itself off through its [HandOverReceiver]. Both are guarded by Backtalk's signature
+ * permission, so this works only when both apps are signed with the same key.
  */
 object AppIdMove {
-  /** The app ID that Backtalk used first. */
-  const val OLD_PACKAGE = "com.android.talkback"
+  /** The app ID of Backtalk, which newTalk takes the settings from. */
+  const val OLD_PACKAGE = "fyi.quin.backtalk"
 
-  /** The app ID that Backtalk uses now. */
-  const val NEW_PACKAGE = "fyi.quin.backtalk"
+  /** The app ID of newTalk. */
+  const val NEW_PACKAGE = "io.github.swarupdeveloper.newtalk"
 
-  /** Guards the settings export and the hand-over. Both apps declare and hold it. */
+  /** Backtalk's permission that guards its settings export and its hand-over. newTalk holds it. */
   const val PERMISSION = "fyi.quin.backtalk.permission.MIGRATE"
 
   /** Sent by the new app to the old one when the new screen reader is on. */
@@ -60,7 +59,7 @@ object AppIdMove {
   enum class InstallKind {
     /** The APK is a newer build of this app. */
     UPDATE,
-    /** The APK is Backtalk under the new app ID, which installs next to this app. */
+    /** The APK is newTalk under the new app ID, which installs next to this app. */
     MOVE,
     /** The APK is something else. */
     REFUSE,

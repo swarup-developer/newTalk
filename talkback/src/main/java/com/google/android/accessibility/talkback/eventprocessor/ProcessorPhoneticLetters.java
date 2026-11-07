@@ -320,7 +320,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
 
   /**
    * Returns the locale of text that the user moves through: the one the user picked with the
-   * language switcher, except for Backtalk's own text, which is always in the system language.
+   * language switcher, except for newTalk's own text, which is always in the system language.
    */
   private String traversalLocale(boolean isTalkbackPackage) {
     if (isTalkbackPackage || service.getUserPreferredLocale() == null) {

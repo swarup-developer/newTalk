@@ -199,16 +199,16 @@ object ScriptInput {
   private fun parseStep(step: String, text: String, needsBacktalk: Boolean): Keys {
     val parts = step.split('+').map { it.trim() }
     require(parts.none { it.isEmpty() }) {
-      "Keys look like backtalk+shift+n or backtalk+t, s: $text"
+      "Keys look like newtalk+shift+n or newtalk+t, s: $text"
     }
     val modifiers = parts.dropLast(1).map { it.lowercase() }
-    require(("backtalk" in modifiers) == needsBacktalk) {
-      if (needsBacktalk) "Keys must start with backtalk, Backtalk's modifier key: $text"
-      else "Only the first keys include backtalk: $text"
+    require(("newtalk" in modifiers) == needsBacktalk) {
+      if (needsBacktalk) "Keys must start with newtalk, newTalk's modifier key: $text"
+      else "Only the first keys include newtalk: $text"
     }
     val flags =
       modifiers
-        .filter { it != "backtalk" }
+        .filter { it != "newtalk" }
         .fold(0) { flags, name ->
           val flag = modifierFlags[name]
           require(flag != null) { "Unknown modifier $name in $text" }

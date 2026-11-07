@@ -33,7 +33,7 @@ import java.io.IOException
 import java.util.concurrent.Executors
 
 /**
- * Takes a script that is shared to Backtalk or opened with it, such as from a file manager or a
+ * Takes a script that is shared to newTalk or opened with it, such as from a file manager or a
  * browser's downloads, or a shared https link to one, such as a script's page on GitHub, and opens
  * Scripts with it. Scripts then asks before installing, as it does for Import script, listing what
  * the script can do.
@@ -113,7 +113,7 @@ class ScriptImportActivity : Activity() {
 
   /**
    * A file to read, if it is a content URI. Another app could name a file:// path that only
-   * Backtalk may read, and Backtalk would read it with its own permissions.
+   * newTalk may read, and newTalk would read it with its own permissions.
    */
   private fun fileSource(uri: Uri?): Source? =
     uri?.takeIf { it.scheme == ContentResolver.SCHEME_CONTENT }?.let { Source.FromFile(it) }
@@ -133,7 +133,7 @@ class ScriptImportActivity : Activity() {
   }
 
   companion object {
-    /** The copy of the shared script in Backtalk's cache, which Scripts reads and deletes. */
+    /** The copy of the shared script in newTalk's cache, which Scripts reads and deletes. */
     const val SHARED_FILE = "shared_script"
 
     private val executor = Executors.newSingleThreadExecutor()

@@ -2201,7 +2201,7 @@ public class SelectorController implements UserInputEventListener {
   }
 
   private void changeTtsEngine(EventId eventId, boolean isNext) {
-    // The engine of a voice profile in use is set in the profile, so changing Backtalk default's
+    // The engine of a voice profile in use is set in the profile, so changing newTalk default's
     // engine would do nothing.
     if (VoiceProfiles.isProfileActive()) {
       String displayText = context.getString(R.string.speech_engine_unavailable_with_profile);
@@ -2259,14 +2259,14 @@ public class SelectorController implements UserInputEventListener {
 
   /**
    * Changes to the previous or next voice profile from a gesture or keyboard shortcut, with
-   * Backtalk's default first.
+   * newTalk's default first.
    */
   public void changeVoiceProfile(EventId eventId, boolean isNext) {
     changeVoiceProfile(eventId, isNext, /* hint= */ null);
   }
 
   /**
-   * Changes to the previous or next voice profile, with Backtalk's default first, or says there are
+   * Changes to the previous or next voice profile, with newTalk's default first, or says there are
    * none to change to.
    */
   private void changeVoiceProfile(EventId eventId, boolean isNext, @Nullable String hint) {

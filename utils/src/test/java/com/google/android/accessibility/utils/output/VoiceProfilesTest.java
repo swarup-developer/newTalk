@@ -33,7 +33,7 @@ import org.junit.After;
 import org.junit.Test;
 
 public class VoiceProfilesTest {
-  private static final String DEFAULT = "Backtalk default";
+  private static final String DEFAULT = "newTalk default";
   private static final IntFunction<String> NUMBERED = number -> "Profile " + number;
 
   private final FakePrefs prefs = new FakePrefs();
@@ -251,7 +251,7 @@ public class VoiceProfilesTest {
     assertFalse(VoiceProfiles.isNameTaken(prefs, "", "Books", DEFAULT));
 
     assertFalse(VoiceProfiles.rename(prefs, fast, "Reading", DEFAULT));
-    assertFalse(VoiceProfiles.rename(prefs, fast, "Backtalk Default", DEFAULT));
+    assertFalse(VoiceProfiles.rename(prefs, fast, "newTalk Default", DEFAULT));
     assertEquals("Fast", VoiceProfiles.read(prefs, fast).name());
     assertTrue(VoiceProfiles.rename(prefs, reading, "READING", DEFAULT));
     assertEquals("READING", VoiceProfiles.read(prefs, reading).name());

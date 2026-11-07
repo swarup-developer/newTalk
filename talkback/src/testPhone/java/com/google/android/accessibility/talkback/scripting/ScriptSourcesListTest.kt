@@ -18,7 +18,6 @@ package com.google.android.accessibility.talkback.scripting
 
 import android.content.Context
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -30,59 +29,50 @@ import org.robolectric.annotation.Config
 @Config(sdk = [34])
 class ScriptSourcesListTest {
   private val context: Context = RuntimeEnvironment.getApplication()
-  private val default = ScriptSource.parse("github.com/trypsynth/backtalk-scripts")!!
-  private val other = ScriptSource.parse("github.com/a/b")!!
+  private val one = ScriptSource.parse("github.com/a/b")!!
+  private val two = ScriptSource.parse("github.com/c/d")!!
 
   private fun addresses(kind: SourceKind = SourceKind.SCRIPTS) =
     ScriptSources.all(context, kind).map { it.address }
 
   @Test
-  fun scriptSourcesStartWithBacktalkScripts() {
-    assertEquals(listOf(default.address), addresses())
-  }
-
-  @Test
-  fun soundThemeSourcesStartWithBacktalkThemes() {
-    assertEquals(
-      listOf("https://github.com/trypsynth/backtalk-themes"),
-      addresses(SourceKind.SOUND_THEMES),
-    )
-  }
-
-  @Test
-  fun aRemovedThemeSourceStaysRemovedAndLeavesScriptSourcesAlone() {
-    val themes = ScriptSource.parse("github.com/trypsynth/backtalk-themes")!!
-
-    ScriptSources.remove(context, themes, SourceKind.SOUND_THEMES)
-
-    assertEquals(emptyList<String>(), addresses(SourceKind.SOUND_THEMES))
-    assertEquals(listOf(default.address), addresses())
-  }
-
-  @Test
-  fun addingAnotherSourceKeepsTheDefault() {
-    assertTrue(ScriptSources.add(context, other))
-
-    assertEquals(listOf(default.address, other.address), addresses())
-  }
-
-  @Test
-  fun theDefaultCountsAsAlreadyAdded() {
-    assertFalse(ScriptSources.add(context, default))
-  }
-
-  @Test
-  fun aRemovedDefaultStaysRemoved() {
-    ScriptSources.remove(context, default)
-
+  fun scriptSourcesStartEmpty() {
     assertEquals(emptyList<String>(), addresses())
   }
 
   @Test
-  fun aSavedListDoesNotGetTheDefault() {
-    ScriptSources.remove(context, default)
-    ScriptSources.add(context, other)
+  fun soundThemeSourcesStartEmpty() {
+    assertEquals(emptyList<String>(), addresses(SourceKind.SOUND_THEMES))
+  }
 
-    assertEquals(listOf(other.address), addresses())
+  @Test
+  fun addedSourcesKeepTheirOrder() {
+    assertTrue(ScriptSources.add(context, one))
+    assertTrue(ScriptSources.add(context, two))
+
+    assertEquals(listOf(one.address, two.address), addresses())
+  }
+
+  @Test
+  fun aSourceIsAddedOnlyOnce() {
+    assertTrue(ScriptSources.add(context, one))
+
+    assertEquals(false, ScriptSources.add(context, one))
+  }
+
+  @Test
+  fun aThemeSourceLeavesScriptSourcesAlone() {
+    ScriptSources.add(context, one, SourceKind.SOUND_THEMES)
+
+    assertEquals(listOf(one.address), addresses(SourceKind.SOUND_THEMES))
+    assertEquals(emptyList<String>(), addresses())
+  }
+
+  @Test
+  fun aRemovedSourceStaysRemoved() {
+    ScriptSources.add(context, one)
+    ScriptSources.remove(context, one)
+
+    assertEquals(emptyList<String>(), addresses())
   }
 }

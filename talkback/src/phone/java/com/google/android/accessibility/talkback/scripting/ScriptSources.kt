@@ -57,19 +57,10 @@ object ScriptSources {
   private const val MAX_LISTING_BYTES = 8 * 1024 * 1024
   private const val MAX_PAGES = 5
   private const val MAX_SCRIPTS = 200
-  private const val DEFAULT_SCRIPT_SOURCE = "github.com/trypsynth/backtalk-scripts"
-  private const val DEFAULT_SOUND_THEME_SOURCE = "github.com/trypsynth/backtalk-themes"
 
-  /** The sources of [kind] until the list is first saved, so a source removed stays removed. */
-  private fun defaults(kind: SourceKind): List<ScriptSource> =
-    listOfNotNull(
-      ScriptSource.parse(
-        when (kind) {
-          SourceKind.SCRIPTS -> DEFAULT_SCRIPT_SOURCE
-          SourceKind.SOUND_THEMES -> DEFAULT_SOUND_THEME_SOURCE
-        }
-      )
-    )
+  /** No source until the user adds one, so newTalk depends on no repository of its own. */
+  private fun defaults(@Suppress("UNUSED_PARAMETER") kind: SourceKind): List<ScriptSource> =
+    emptyList()
 
   @Synchronized
   fun all(context: Context, kind: SourceKind = SourceKind.SCRIPTS): List<ScriptSource> {
@@ -264,7 +255,7 @@ object ScriptSources {
         connection.readTimeout = READ_TIMEOUT_MS
         connection.instanceFollowRedirects = false
         connection.setRequestProperty("Accept", accept)
-        connection.setRequestProperty("User-Agent", "Backtalk")
+        connection.setRequestProperty("User-Agent", "newTalk")
         val code = connection.responseCode
         if (code in 300..399) {
           val location = connection.getHeaderField("Location") ?: throw IOException("HTTP $code")

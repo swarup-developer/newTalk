@@ -47,7 +47,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Speaks emoji the way the user chose: as the speech engine reads them, by their names from
- * Backtalk, or not at all. Some engines read emoji badly or not at all, and some users don't want
+ * newTalk, or not at all. Some engines read emoji badly or not at all, and some users don't want
  * to hear them. Names come from {@link EmojiNames}, in the language the text is spoken in.
  */
 public final class EmojiSpeech {
@@ -56,10 +56,10 @@ public final class EmojiSpeech {
   /** The speech engine gets emoji as they are. */
   public static final String MODE_ENGINE = "engine";
 
-  /** Backtalk replaces emoji with their names. */
+  /** newTalk replaces emoji with their names. */
   public static final String MODE_NAMES = "names";
 
-  /** Backtalk leaves emoji out, unless the text is only emoji. */
+  /** newTalk leaves emoji out, unless the text is only emoji. */
   public static final String MODE_NONE = "none";
 
   /**
@@ -137,7 +137,7 @@ public final class EmojiSpeech {
 
   /**
    * The voice's language changed, so loads its names ahead of the first emoji spoken in it, while
-   * Backtalk names or leaves out emoji.
+   * newTalk names or leaves out emoji.
    */
   static void onLanguageChanged() {
     @Nullable Context app = appContext;
@@ -174,7 +174,7 @@ public final class EmojiSpeech {
   }
 
   /**
-   * Sets how many times an emoji named by Backtalk must repeat in a row to be spoken as a count,
+   * Sets how many times an emoji named by newTalk must repeat in a row to be spoken as a count,
    * such as "3 grinning face", or 0 to name each one.
    */
   public static void setRepeatCount(int count) {
@@ -266,7 +266,7 @@ public final class EmojiSpeech {
 
   /**
    * Returns the end of the emoji that starts at {@code index} when moving by word should stop on
-   * emoji, which it does when Backtalk names them, or -1. Words otherwise start with a letter or
+   * emoji, which it does when newTalk names them, or -1. Words otherwise start with a letter or
    * digit, so an emoji between spaces was skipped.
    */
   public static int emojiWordEnd(CharSequence text, int index) {
@@ -277,7 +277,7 @@ public final class EmojiSpeech {
     return emojiEnd(context, text, index);
   }
 
-  /** Returns whether moving by word stops on emoji, which it does when Backtalk names them. */
+  /** Returns whether moving by word stops on emoji, which it does when newTalk names them. */
   public static boolean stopsOnEmojiWords() {
     return mode.equals(MODE_NAMES);
   }

@@ -138,7 +138,7 @@ class ScreenOnSpeechSuppression(
     }
   }
 
-  /** Focus can arrive without Backtalk's action history; System UI also posts later live updates. */
+  /** Focus can arrive without newTalk's action history; System UI also posts later live updates. */
   fun shouldSuppressEvent(event: AccessibilityEvent): Boolean {
     if (!isSuppressing()) return false
     val emergency = emergencyPackage()

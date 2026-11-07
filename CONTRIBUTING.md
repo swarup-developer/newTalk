@@ -1,6 +1,6 @@
-# Contributing to Backtalk
+# Contributing to newTalk
 
-Thanks for wanting to help. Backtalk is maintained by one person in their spare time, and every pull request is read and reviewed by hand. These guidelines keep that possible.
+Thanks for wanting to help. newTalk is maintained by one person in their spare time, and every pull request is read and reviewed by hand. These guidelines keep that possible.
 
 ## Pull requests
 
@@ -24,12 +24,12 @@ Pull requests whose authors can't explain them are closed.
 
 ## Code
 
-*   Keep changes to Google's files small. Most of the code comes from TalkBack. Put Backtalk's own code in files of its own where you can, and keep edits to Google's files to what's needed, so that later TalkBack updates merge cleanly.
-*   New behaviour is off by default, behind a switch, unless it fixes something that is clearly broken. Users shouldn't find that Backtalk works differently after an update without having chosen it.
-*   Describe Backtalk's own behaviour in [differences.md](differences.md), in plain words a user can follow.
+*   Keep changes to Google's files small. Most of the code comes from TalkBack. Put newTalk's own code in files of its own where you can, and keep edits to Google's files to what's needed, so that later TalkBack updates merge cleanly.
+*   New behaviour is off by default, behind a switch, unless it fixes something that is clearly broken. Users shouldn't find that newTalk works differently after an update without having chosen it.
+*   Describe newTalk's own behaviour in [differences.md](differences.md), in plain words a user can follow.
 *   Add tests for logic that can be tested without a device.
 *   Keep work off the main thread, such as reading the screen's views, network requests and file access, wherever it doesn't have to be there. The main thread handles every gesture and every utterance.
-*   Respect the minimum Android version. Backtalk runs from Android 8 (API 26). Check the version before calling newer APIs.
+*   Respect the minimum Android version. newTalk runs from Android 8 (API 26). Check the version before calling newer APIs.
 *   Before you push, run `./gradlew testPhoneDebugUnitTest :lintPhoneDebug :lintWearDebug`, and make sure all of it passes.
 
 ## Strings and translations
@@ -37,7 +37,7 @@ Pull requests whose authors can't explain them are closed.
 *   Each new string shown to the user gets a translator comment that says where it appears and what it means, with a `[CHAR LIMIT=…]`.
 *   Add each new string's name to the `MissingTranslation` list in [lint.xml](lint.xml), as `<ignore regexp="name" />`, so that lint doesn't fail until it's translated.
 *   Never regenerate `lint-baseline.xml`. It rewrites tens of thousands of lines, conflicts with every other pull request, and hides new lint errors along with the old ones.
-*   In translations, the app's name is spelled Backtalk, with a lowercase t.
+*   In translations, the app's name is spelled newTalk, with a lowercase t.
 
 ## Commits
 

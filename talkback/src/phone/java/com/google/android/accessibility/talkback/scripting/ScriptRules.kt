@@ -47,7 +47,7 @@ private constructor(
         size > CACHE_SIZE
     }
   // Whether an ancestor hides the item. Finding out asks the app for each ancestor in turn, and
-  // Backtalk asks about every item it considers for focus.
+  // newTalk asks about every item it considers for focus.
   private val hiddenInsideCache =
     object : LinkedHashMap<AccessibilityNodeInfoCompat, Boolean>(CACHE_SIZE, 0.75f, true) {
       override fun removeEldestEntry(

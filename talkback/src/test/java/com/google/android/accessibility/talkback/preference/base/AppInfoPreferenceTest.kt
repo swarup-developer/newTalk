@@ -30,11 +30,11 @@ import org.robolectric.annotation.Config
 @Config(sdk = [34], application = Application::class)
 class AppInfoPreferenceTest {
   @Test fun opensSystemDetailsForTheOfficialInstallation() {
-    assertTarget("fyi.quin.backtalk")
+    assertTarget("io.github.swarupdeveloper.newtalk")
   }
 
   @Test fun aSeparateTestCopyNeverOpensTheOfficialAppsDetails() {
-    assertTarget("fyi.quin.backtalk.updatetest")
+    assertTarget("io.github.swarupdeveloper.newtalk.updatetest")
   }
 
   private fun assertTarget(targetPackage: String) {

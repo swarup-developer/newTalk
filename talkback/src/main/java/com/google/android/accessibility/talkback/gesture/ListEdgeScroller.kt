@@ -84,7 +84,7 @@ class ListEdgeScroller(
         AccessibilityNodeInfoUtils.supportsAction(current, action) &&
         pipeline.returnFeedback(
           eventId,
-          // Recorded as Backtalk's own scroll, so focus doesn't follow it as it would a user's, and
+          // Recorded as newTalk's own scroll, so focus doesn't follow it as it would a user's, and
           // the item focused at the end is spoken rather than how far the list scrolled.
           Feedback.scroll(
             current,

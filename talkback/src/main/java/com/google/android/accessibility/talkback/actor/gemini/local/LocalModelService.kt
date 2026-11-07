@@ -34,10 +34,10 @@ import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * Runs the on-device model in its own process, `:ondeviceai`. A model takes gigabytes of memory,
- * and when the phone runs out, Android stops the process that holds it. In Backtalk's process that
- * stopped the screen reader. Here it only stops the model, and Backtalk says what happened.
+ * and when the phone runs out, Android stops the process that holds it. In newTalk's process that
+ * stopped the screen reader. Here it only stops the model, and newTalk says what happened.
  *
- * Backtalk talks to it through [RemoteLocalLlm], with the messages in the companion object. Before
+ * newTalk talks to it through [RemoteLocalLlm], with the messages in the companion object. Before
  * loading a model, it checks that the phone has enough free memory for it.
  */
 class LocalModelService : Service() {
@@ -127,7 +127,7 @@ class LocalModelService : Service() {
     try {
       replyTo.send(reply)
     } catch (e: RemoteException) {
-      Log.w(TAG, "Backtalk is gone", e)
+      Log.w(TAG, "newTalk is gone", e)
     }
   }
 
@@ -162,7 +162,7 @@ class LocalModelService : Service() {
     private const val MIB = 1024L * 1024L
 
     // One thread and one model for the whole process, not for each instance of the service. When
-    // Backtalk unbinds while a model loads, the load goes on, and the next bind makes a new
+    // newTalk unbinds while a model loads, the load goes on, and the next bind makes a new
     // instance. Its requests then wait for that load, instead of loading a second model beside it.
     private val worker =
       Executors.newSingleThreadExecutor { Thread(it, "on-device-ai").apply { isDaemon = true } }
@@ -182,10 +182,10 @@ class LocalModelService : Service() {
       }
     }
 
-    /** Backtalk asks for an answer. arg1 is the request ID, replyTo gets the answer. */
+    /** newTalk asks for an answer. arg1 is the request ID, replyTo gets the answer. */
     const val MSG_GENERATE = 1
 
-    /** Backtalk cancels the request whose ID is in arg1, and any before it. */
+    /** newTalk cancels the request whose ID is in arg1, and any before it. */
     const val MSG_CANCEL = 2
 
     /** The answer, in [KEY_TEXT]. */

@@ -23,14 +23,14 @@ import android.os.Bundle;
 
 /**
  * Asks the user, with a warning, whether an app may be a braille display. The notification that
- * Backtalk shows when it finds a new display app opens this, and a display app can open it too, with
+ * newTalk shows when it finds a new display app opens this, and a display app can open it too, with
  * {@link #ACTION_ASK} and its package name in {@link #EXTRA_PACKAGE}.
  */
 public final class ExternalDisplayApprovalActivity extends Activity {
   /** Opens the question about the app in {@link #EXTRA_PACKAGE}. */
-  public static final String ACTION_ASK = "fyi.quin.backtalk.action.ASK_BRAILLE_DISPLAY";
+  public static final String ACTION_ASK = "io.github.swarupdeveloper.newtalk.action.ASK_BRAILLE_DISPLAY";
 
-  public static final String EXTRA_PACKAGE = "fyi.quin.backtalk.extra.PACKAGE";
+  public static final String EXTRA_PACKAGE = "io.github.swarupdeveloper.newtalk.extra.PACKAGE";
 
   static Intent intent(Context context, String app) {
     return new Intent(ACTION_ASK)

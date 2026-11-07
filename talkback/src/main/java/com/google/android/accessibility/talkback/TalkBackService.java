@@ -1139,7 +1139,7 @@ public class TalkBackService extends AccessibilityServiceCompat
     if (screenOnSpeechSuppression != null) {
       screenOnSpeechSuppression.onAccessibilityEvent(event);
     }
-    // Paused Backtalk drops events, except the end of a touch that started before the pause, so
+    // Paused newTalk drops events, except the end of a touch that started before the pause, so
     // that nothing still thinks a finger is down after resuming. Its feedback is dropped too.
     if (PauseController.isPaused()
         && event.getEventType() != AccessibilityEvent.TYPE_TOUCH_INTERACTION_END) {
@@ -1406,7 +1406,7 @@ public class TalkBackService extends AccessibilityServiceCompat
       }
     }
     if (pauseController != null) {
-      // While paused, keys pass to apps except the ones that resume Backtalk.
+      // While paused, keys pass to apps except the ones that resume newTalk.
       Boolean handled = pauseController.onKeyEvent(keyEvent);
       if (handled != null) {
         return handled;
@@ -1797,7 +1797,7 @@ public class TalkBackService extends AccessibilityServiceCompat
     return keyComboManager;
   }
 
-  /** Returns the controller that pauses and resumes Backtalk, or null before initialization. */
+  /** Returns the controller that pauses and resumes newTalk, or null before initialization. */
   public @Nullable PauseController getPauseController() {
     return pauseController;
   }
@@ -1856,7 +1856,7 @@ public class TalkBackService extends AccessibilityServiceCompat
 
   /**
    * Returns the controller of the exit watermark, or null before the service is connected. Settings
-   * screens can resume in that time, such as when they are opened as Backtalk restarts.
+   * screens can resume in that time, such as when they are opened as newTalk restarts.
    */
   public @Nullable TalkBackExitController getTalkBackExitController() {
     if (talkBackExitController == null) {
@@ -2044,7 +2044,7 @@ public class TalkBackService extends AccessibilityServiceCompat
     helper = new TalkBackUpdateHelper(this);
     helper.checkUpdate();
     Updater.startAutomaticChecks(this);
-    // Turns Backtalk under its old app ID off, before this one says it is on.
+    // Turns newTalk under its old app ID off, before this one says it is on.
     AppIdHandOver.onServiceConnected(this, this::refreshGestureDetection);
 
     compositor.handleEvent(Compositor.EVENT_SPOKEN_FEEDBACK_ON, talkbackOnEventId);
@@ -3401,7 +3401,7 @@ public class TalkBackService extends AccessibilityServiceCompat
     }
 
     // The saved reading order holds nodes, which would outlive the service and could be reused,
-    // stale, when Backtalk is turned on again.
+    // stale, when newTalk is turned on again.
     TraversalTreeCache.clear("shutdown");
 
     if (fullScreenReadActor != null) {
@@ -4102,7 +4102,7 @@ public class TalkBackService extends AccessibilityServiceCompat
    */
   private @Nullable Boolean requestTouchExploration(boolean requestedState) {
     if (requestedState && PauseController.isPaused()) {
-      // Touch works as if no screen reader is on until Backtalk resumes.
+      // Touch works as if no screen reader is on until newTalk resumes.
       requestedState = false;
     }
     requestServiceFlag(
@@ -4117,7 +4117,7 @@ public class TalkBackService extends AccessibilityServiceCompat
     }
   }
 
-  /** Turns off, or back on, what pausing Backtalk turns off besides events and feedback. */
+  /** Turns off, or back on, what pausing newTalk turns off besides events and feedback. */
   private void onPauseChanged(boolean paused) {
     if (paused && screenFocusRestorer != null) {
       screenFocusRestorer.onUserInteraction();
@@ -4369,7 +4369,7 @@ public class TalkBackService extends AccessibilityServiceCompat
 
   /**
    * Runs onUnlockedBootCompleted() as soon as the user is unlocked. BOOT_COMPLETED comes after the
-   * rest of the boot's broadcasts, many seconds later on a slow device, and until then Backtalk
+   * rest of the boot's broadcasts, many seconds later on a slow device, and until then newTalk
    * speaks with the engine it could use while locked instead of the user's own.
    */
   private void checkUnlockedBoot() {
@@ -4592,7 +4592,7 @@ public class TalkBackService extends AccessibilityServiceCompat
       return;
     }
     if (shouldUseTalkbackGestureDetection()) {
-      LogUtils.i(TAG, "No other service explores by touch, handling gestures in Backtalk");
+      LogUtils.i(TAG, "No other service explores by touch, handling gestures in newTalk");
       unregisterGestureDetection();
       registerGestureDetection();
       setSupportClickableLinks(true);
@@ -4602,7 +4602,7 @@ public class TalkBackService extends AccessibilityServiceCompat
       AccessibilityServiceInfo info = getServiceInfo();
       if (info != null) {
         // With this flag clear, Android carries out double tap itself, as when Handle gestures in
-        // Backtalk is off.
+        // newTalk is off.
         info.flags &= ~FLAG_SERVICE_HANDLES_DOUBLE_TAP;
         setServiceInfo(info);
       }

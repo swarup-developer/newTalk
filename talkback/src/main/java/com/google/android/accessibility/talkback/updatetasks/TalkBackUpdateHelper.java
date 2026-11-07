@@ -69,7 +69,7 @@ public class TalkBackUpdateHelper {
   private static final String TAG = TalkBackUpdateHelper.class.getSimpleName();
   public static final String PREF_APP_VERSION = "app_version";
 
-  /** Version codes below this are earlier Backtalk builds, not TalkBack versions. */
+  /** Version codes below this are earlier newTalk builds, not TalkBack versions. */
   private static final int BACKTALK_VERSION_CODE_MIN = 1_000_000;
   public static final String PREF_APP_PREV_VERSION_NAME = "app_prev_version_name";
 
@@ -133,7 +133,7 @@ public class TalkBackUpdateHelper {
     editor.putInt(PREF_APP_VERSION, currentVersion);
     editor.putString(PREF_APP_PREV_VERSION_NAME, packageInfo.versionName);
 
-    // Earlier Backtalk builds used small version codes, which look like very old TalkBack versions.
+    // Earlier newTalk builds used small version codes, which look like very old TalkBack versions.
     // Their settings are already current, so the upgrade steps below must not run for them.
     if (previousVersion != VERSION_CODE_UNKNOWN && previousVersion < BACKTALK_VERSION_CODE_MIN) {
       editor.apply();
@@ -493,7 +493,7 @@ public class TalkBackUpdateHelper {
   private static final String PREF_READING_CONTROLS_OFF_DONE = "reading_controls_off_done";
 
   /**
-   * Turns off, once, the reading controls that Backtalk turned on by itself: wrap around and lift to
+   * Turns off, once, the reading controls that newTalk turned on by itself: wrap around and lift to
    * activate, which used to be on by default, and the focus delay controls, which TalkBack added the
    * first time the user changed a delay. They're off by default now, and the settings screen saved
    * the old defaults, so changing them in resources alone wouldn't reach these users.

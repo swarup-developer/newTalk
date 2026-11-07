@@ -153,7 +153,7 @@ public class TalkBackPreferenceFilter {
     SCRIPTS(R.string.pref_scripts_key, HIDDEN_ON_WATCH),
     SINGLE_TAP_ACTIVATION(
         R.string.pref_single_tap_key, HIDDEN_ON_TV | HIDDEN_ON_XR),
-    // Only Backtalk's own gesture detection lets it touch the item on a double tap; without it,
+    // Only newTalk's own gesture detection lets it touch the item on a double tap; without it,
     // Android clicks the item itself.
     DIRECT_CLICK(
         R.string.pref_direct_click_key,
@@ -172,7 +172,7 @@ public class TalkBackPreferenceFilter {
         R.string.pref_typing_focus_time_out_key, HIDDEN_ON_TV | HIDDEN_TYPING_LATENCY_SETTING),
     TOUCH_LATENCY_SETTINGS(
         R.string.pref_touch_focus_time_out_key, HIDDEN_ON_TV | HIDDEN_TOUCH_LATENCY_SETTING),
-    // Taps are timed by Backtalk's own gesture detection, so without it this does nothing.
+    // Taps are timed by newTalk's own gesture detection, so without it this does nothing.
     MULTI_TAP_TIMEOUT(
         R.string.pref_multi_tap_timeout_key, HIDDEN_ON_TV | SHOW_IF_SERVICE_GESTURE_DETECTION),
     SWIPE_HOLD_TIMEOUT(
@@ -204,7 +204,7 @@ public class TalkBackPreferenceFilter {
     // A TV has no touchscreen for direct touch, and no gesture for the status readout.
     DIRECT_TOUCH(R.string.pref_direct_touch_key, HIDDEN_ON_WATCH | HIDDEN_ON_TV),
     STATUS_READOUT(R.string.pref_status_readout_key, HIDDEN_ON_TV),
-    // A TV has no notification shade for Backtalk's list to replace.
+    // A TV has no notification shade for newTalk's list to replace.
     NOTIFICATION_LIST(R.string.pref_notification_list_key, HIDDEN_ON_TV),
     NOTIFICATION_PARTS(R.string.pref_notification_parts_key, HIDDEN_ON_TV),
     RESTORE_FOCUS(

@@ -44,7 +44,7 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 /**
- * A row for each of Backtalk's sounds in the theme in use, where the user can choose a sound file
+ * A row for each of newTalk's sounds in the theme in use, where the user can choose a sound file
  * to play in its place. Files are copied in on a background thread.
  */
 class ThemeSoundsFragment : TalkbackBaseFragment() {
@@ -74,7 +74,7 @@ class ThemeSoundsFragment : TalkbackBaseFragment() {
     val context = requireContext()
     prefs = SharedPreferencesUtils.getSharedPreferences(context)
     choosingFor = savedInstanceState?.getString(STATE_CHOOSING_FOR)
-    // Like every settings screen, so that nothing is ever saved outside Backtalk's settings.
+    // Like every settings screen, so that nothing is ever saved outside newTalk's settings.
     preferenceManager.setStorageDeviceProtected()
     val screen = preferenceManager.createPreferenceScreen(context)
     preferenceScreen = screen

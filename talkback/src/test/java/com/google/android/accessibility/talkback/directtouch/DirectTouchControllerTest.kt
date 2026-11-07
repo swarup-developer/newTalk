@@ -308,7 +308,7 @@ class DirectTouchControllerTest {
     windowsChange(PLAYER, WINDOWS_CHANGE_ADDED, statusBar(), navigationBar(), player())
     transcript.clear()
 
-    // The marked view goes away, and touch has to come back to Backtalk without waiting.
+    // The marked view goes away, and touch has to come back to newTalk without waiting.
     mark()
     contentChange(PLAYER_PACKAGE, PLAYER, settle = Duration.ZERO)
 

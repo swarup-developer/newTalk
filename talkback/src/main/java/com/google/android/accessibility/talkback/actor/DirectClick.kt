@@ -46,13 +46,13 @@ import kotlin.math.abs
  * ACTION_CLICK and react only to touches, such as "Add to favorites" in TikTok, which works out the
  * button from where the finger lands.
  *
- * A gesture Backtalk dispatches goes through touch exploration like a finger does, so its press
+ * A gesture newTalk dispatches goes through touch exploration like a finger does, so its press
  * reaches gesture detection rather than the app, also in the 300 ms after a double tap while
  * Android still counts the touch as going on. Gesture detection takes the press with [claim] and
  * asks Android to hand it to the app, and only then is the finger lifted: the press is a stroke
- * that stays down, and the lift continues it. Android takes the two requests in the order Backtalk
+ * that stays down, and the lift continues it. Android takes the two requests in the order newTalk
  * sends them, so the app gets the press before the lift, and holds it only for as long as the lift
- * takes, however busy Backtalk is. Were the lift sent with the press, it could come first, and the
+ * takes, however busy newTalk is. Were the lift sent with the press, it could come first, and the
  * app would keep a finger down for a long press.
  *
  * Everything runs on the main thread. At most one press is in flight, and whatever ends it, be it
@@ -127,7 +127,7 @@ internal constructor(
       return false
     }
     val point = locate(node) ?: return false
-    // Android would hand a press there to the app at once, so the lift would wait on Backtalk.
+    // Android would hand a press there to the app at once, so the lift would wait on newTalk.
     if (passThrough.passesThrough(point.x, point.y)) {
       return false
     }

@@ -49,7 +49,7 @@ import kotlin.concurrent.withLock
  * there until the build on the main thread is done.
  */
 object WindowNodePrefetcher {
-  private const val TAG = "BacktalkPrefetch"
+  private const val TAG = "NewTalkPrefetch"
 
   private const val THREADS = 8
 

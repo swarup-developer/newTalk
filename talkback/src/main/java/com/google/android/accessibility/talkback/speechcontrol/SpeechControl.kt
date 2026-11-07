@@ -34,26 +34,26 @@ import com.google.android.accessibility.utils.output.SpeechControllerImpl
 import com.google.android.libraries.accessibility.utils.log.LogUtils
 
 /**
- * Lets apps the user chose speak through Backtalk, in the user's voice and settings, from
+ * Lets apps the user chose speak through newTalk, in the user's voice and settings, from
  * [SpeechControlReceiver] and [SpeechControlService]. See docs/speech-api.md.
  *
  * Speech from other apps can't be turned against the user:
  * - Nothing is said unless Let other apps speak is on and the user allowed that app, which
- *   Backtalk asks about the first time the app tries.
- * - A sound can play before each thing an app says, so it can't pass for Backtalk.
- * - Nothing is said while the device is locked, or while Backtalk is off or paused.
+ *   newTalk asks about the first time the app tries.
+ * - A sound can play before each thing an app says, so it can't pass for newTalk.
+ * - Nothing is said while the device is locked, or while newTalk is off or paused.
  * - Each app can speak a few times at once, then about once a second.
- * - Apps can replace or stop only speech from other apps, never Backtalk's own.
+ * - Apps can replace or stop only speech from other apps, never newTalk's own.
  *
  * Everything runs on the main thread.
  */
 object SpeechControl {
   private const val TAG = "SpeechControl"
 
-  const val PERMISSION = "fyi.quin.backtalk.permission.SPEAK"
+  const val PERMISSION = "io.github.swarupdeveloper.newtalk.permission.SPEAK"
 
-  const val ACTION_SPEAK = "fyi.quin.backtalk.action.SPEAK"
-  const val ACTION_STOP = "fyi.quin.backtalk.action.STOP_SPEECH"
+  const val ACTION_SPEAK = "io.github.swarupdeveloper.newtalk.action.SPEAK"
+  const val ACTION_STOP = "io.github.swarupdeveloper.newtalk.action.STOP_SPEECH"
 
   const val EXTRA_TEXT = "text"
   const val EXTRA_INTERRUPT = "interrupt"
@@ -69,7 +69,7 @@ object SpeechControl {
   private var stopOtherAppsSpeech: Runnable? = null
   private val rateLimiter = SpeechControlPolicy.RateLimiter()
 
-  /** Called by Backtalk when it starts, so that apps can speak through it. */
+  /** Called by newTalk when it starts, so that apps can speak through it. */
   @JvmStatic
   @MainThread
   fun attach(
@@ -88,7 +88,7 @@ object SpeechControl {
     this.stopOtherAppsSpeech = stopOtherAppsSpeech
   }
 
-  /** Called by Backtalk when it stops. */
+  /** Called by newTalk when it stops. */
   @JvmStatic
   @MainThread
   fun detach() {
@@ -135,7 +135,7 @@ object SpeechControl {
           SpeechControlPolicy.clampScale(pitch),
           SpeechControlPolicy.clampVolume(volume),
         ),
-        // Replaces only what other apps were saying, never Backtalk's own speech.
+        // Replaces only what other apps were saying, never newTalk's own speech.
         if (interrupt) {
           FLAG_CLEAR_QUEUED_UTTERANCES_WITH_SAME_UTTERANCE_GROUP or
             FLAG_INTERRUPT_CURRENT_UTTERANCE_WITH_SAME_UTTERANCE_GROUP

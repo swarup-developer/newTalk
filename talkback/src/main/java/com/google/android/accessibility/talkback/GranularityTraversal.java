@@ -288,7 +288,7 @@ public final class GranularityTraversal {
 
   /**
    * Moves the cursor of text the framework moves through, a focused edit text or selectable text,
-   * over the next or previous word when that word is an emoji, and Backtalk names emoji. The
+   * over the next or previous word when that word is an emoji, and newTalk names emoji. The
    * framework's words skip emoji, which left them unheard; in an edit text, the next delete would
    * remove one. Other words, and other granularities, are left to the framework, so its cursor
    * stays the only one.
@@ -297,7 +297,7 @@ public final class GranularityTraversal {
    */
   public boolean traverseEmojiWordInFrameworkText(
       AccessibilityNodeInfoCompat node, boolean forward, EventId eventId) {
-    // Checked first, so that moving by word costs nothing more unless Backtalk names emoji.
+    // Checked first, so that moving by word costs nothing more unless newTalk names emoji.
     if (!EmojiSpeech.stopsOnEmojiWords()) {
       return false;
     }

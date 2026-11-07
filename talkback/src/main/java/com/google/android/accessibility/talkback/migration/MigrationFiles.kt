@@ -77,7 +77,7 @@ object MigrationFiles {
 
   /**
    * Keys of the default preferences that are not carried over: the updater's own state. The app
-   * version is carried over, so the new app treats the old settings as an update of Backtalk, and
+   * version is carried over, so the new app treats the old settings as an update of newTalk, and
    * not as a first start.
    */
   val SKIPPED_PREF_KEYS = setOf(Updater.PREF_LAST_CHECK_TIME, Updater.PREF_LAST_NOTIFIED_BUILD)

@@ -90,36 +90,38 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
-    <!-- Calling by voice is optional, so devices without a telephone can still install Backtalk. -->
+    <!-- Calling by voice is optional, so devices without a telephone can still install newTalk. -->
     <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
-    <!-- Guards the settings that Backtalk shares when it moves from the app ID
-         com.android.talkback to fyi.quin.backtalk. Both apps declare and hold it, and are signed
-         with the same key. Named after the app ID, like the permissions below, so that a build
-         under another app ID installs beside Backtalk. -->
+    <!-- Guards the settings that this app shares with a build under another app ID that is
+         signed with the same key. Named after the app ID, like the permissions below, so that a
+         build under another app ID installs beside newTalk. -->
     <permission
         android:name="${applicationId}.permission.MIGRATE"
         android:protectionLevel="signature" />
     <uses-permission android:name="${applicationId}.permission.MIGRATE" />
+    <!-- Backtalk's permission, so that newTalk can read Backtalk's settings and turn it off when
+         both are signed with the same key. See AppIdMove. -->
+    <uses-permission android:name="fyi.quin.backtalk.permission.MIGRATE" />
 
     <!-- Named after the app ID, because Android refuses to install an app that declares a
          permission another app, signed with a different key, already declares. Under
-         fyi.quin.backtalk the name is fyi.quin.backtalk.permission.SPEAK. -->
+         io.github.swarupdeveloper.newtalk the name is io.github.swarupdeveloper.newtalk.permission.SPEAK. -->
     <permission
         android:name="${applicationId}.permission.SPEAK"
         android:label="@string/permission_speak_label"
         android:description="@string/permission_speak_description"
         android:protectionLevel="normal" />
 
-    <!-- Held by an app that can provide a braille display, so that it can ask to be one. Backtalk
-         uses it only once the user allows it in Backtalk. See docs/braille-display-api.md. Named
+    <!-- Held by an app that can provide a braille display, so that it can ask to be one. newTalk
+         uses it only once the user allows it in newTalk. See docs/braille-display-api.md. Named
          after the app ID, as SPEAK is. -->
     <permission
         android:name="${applicationId}.permission.BRAILLE_DISPLAY"
         android:label="@string/permission_braille_display_label"
         android:description="@string/permission_braille_display_description"
         android:protectionLevel="normal" />
-    <!-- Required by a braille display app's service, so that only Backtalk can bind it. -->
+    <!-- Required by a braille display app's service, so that only newTalk can bind it. -->
     <permission
         android:name="${applicationId}.permission.BIND_BRAILLE_DISPLAY"
         android:protectionLevel="signature" />
@@ -131,7 +133,7 @@
         android:name="android.permission.WRITE_SECURE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
 
-    <!-- Used to offer to uninstall Backtalk under its old app ID. -->
+    <!-- Used to offer to uninstall newTalk under its old app ID. -->
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 
     <application
@@ -226,7 +228,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Puts Backtalk settings on the Android TV home screen, where an accessibility service has
+        <!-- Puts newTalk settings on the Android TV home screen, where an accessibility service has
              no other way in. Phones and watches ignore it. -->
         <activity-alias
             android:name="com.google.android.accessibility.talkback.preference.TvSettingsLauncher"
@@ -305,7 +307,7 @@
             android:exported="true" >
         </activity>
 
-        <!-- Installs sound themes that are opened with or shared to Backtalk. -->
+        <!-- Installs sound themes that are opened with or shared to newTalk. -->
         <activity android:name="com.google.android.accessibility.talkback.soundthemes.SoundThemeInstallActivity"
             android:excludeFromRecents="true"
             android:label="@string/sound_theme_install_label"
@@ -328,14 +330,14 @@
             </intent-filter>
         </activity>
 
-        <!-- Downloads a sound theme from a link typed into Backtalk. Not exported, so that only
-             Backtalk can start a download this way. -->
+        <!-- Downloads a sound theme from a link typed into newTalk. Not exported, so that only
+             newTalk can start a download this way. -->
         <activity-alias
             android:name="com.google.android.accessibility.talkback.soundthemes.SoundThemeLinkInstall"
             android:targetActivity="com.google.android.accessibility.talkback.soundthemes.SoundThemeInstallActivity"
             android:exported="false" />
 
-        <!-- Backtalk's own list of notifications, opened instead of the system's shade. -->
+        <!-- newTalk's own list of notifications, opened instead of the system's shade. -->
         <activity
             android:name="com.google.android.accessibility.talkback.notificationlist.NotificationListActivity"
             android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
@@ -439,7 +441,7 @@
             android:name="com.google.android.accessibility.talkback.update.UpdateReceiver"
             android:exported="false" />
 
-        <!-- Shares settings and custom labels, read-only, with Backtalk under its new app ID. -->
+        <!-- Shares settings and custom labels, read-only, with newTalk under its new app ID. -->
         <provider
             android:name="com.google.android.accessibility.talkback.migration.SettingsExportProvider"
             android:authorities="${applicationId}.migration"
@@ -447,7 +449,7 @@
             android:permission="${applicationId}.permission.MIGRATE"
             android:directBootAware="true" />
 
-        <!-- Turns this screen reader off when Backtalk under its new app ID is on. -->
+        <!-- Turns this screen reader off when newTalk under its new app ID is on. -->
         <receiver
             android:name="com.google.android.accessibility.talkback.migration.HandOverReceiver"
             android:exported="true"
@@ -462,8 +464,8 @@
             android:exported="true"
             android:permission="${applicationId}.permission.SPEAK">
             <intent-filter>
-                <action android:name="fyi.quin.backtalk.action.SPEAK" />
-                <action android:name="fyi.quin.backtalk.action.STOP_SPEECH" />
+                <action android:name="io.github.swarupdeveloper.newtalk.action.SPEAK" />
+                <action android:name="io.github.swarupdeveloper.newtalk.action.STOP_SPEECH" />
             </intent-filter>
         </receiver>
         <!-- Saves the user's answer from the notification that asks whether an app may speak. -->
@@ -475,7 +477,7 @@
             android:exported="true"
             android:permission="${applicationId}.permission.SPEAK">
             <intent-filter>
-                <action android:name="fyi.quin.backtalk.action.SPEECH_CONTROL" />
+                <action android:name="io.github.swarupdeveloper.newtalk.action.SPEECH_CONTROL" />
             </intent-filter>
         </service>
 

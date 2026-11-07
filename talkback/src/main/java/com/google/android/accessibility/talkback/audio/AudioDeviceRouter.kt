@@ -110,7 +110,7 @@ class AudioDeviceRouter @JvmOverloads constructor(
   // Android pick the communication route again, which during a call could move the call to a
   // watch whose phone calls setting is off.
   private var communicationDeviceSetByUs = false
-  // The chosen Bluetooth device already plays Backtalk's audio the way it plays media, so the
+  // The chosen Bluetooth device already plays newTalk's audio the way it plays media, so the
   // communication route is left alone. That route would switch the headset into call mode, with
   // narrowband sound and noise filtering, for every app's audio (#316).
   @Volatile private var usesMediaRoute = false
@@ -290,7 +290,7 @@ class AudioDeviceRouter @JvmOverloads constructor(
 
   /**
    * Routes to an external [device]: through the communication route, unless it is a Bluetooth
-   * device that already plays media, which plays Backtalk's audio too.
+   * device that already plays media, which plays newTalk's audio too.
    */
   private fun routeToExternal(am: AudioManager, device: AudioDeviceInfo) {
     if (playsAsMedia(am, device)) {
@@ -505,7 +505,7 @@ class AudioDeviceRouter @JvmOverloads constructor(
   }
 
   /**
-   * Tells speech and sounds whether Backtalk routes them, while the keep-alive track plays. Only
+   * Tells speech and sounds whether newTalk routes them, while the keep-alive track plays. Only
    * accessibility audio follows the route, so they use the accessibility stream then, and the
    * user's choice of stream otherwise.
    */
@@ -555,7 +555,7 @@ class AudioDeviceRouter @JvmOverloads constructor(
   private fun handleCommunicationDeviceChanged(device: AudioDeviceInfo?) {
     if (currentTarget == AudioTarget.SystemDefault) return
     if (stepsAside) return
-    // Calls and voice input own the communication route while Backtalk plays as media.
+    // Calls and voice input own the communication route while newTalk plays as media.
     if (usesMediaRoute) return
     val am = audioManager ?: return
     val targetDevice = getTargetAudioDevice()

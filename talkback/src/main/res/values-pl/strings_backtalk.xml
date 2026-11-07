@@ -47,7 +47,7 @@
   <string name="template_battery_level_unknown">Poziom baterii nieznany</string>
   <string name="value_charger_connected">Ładowarka podłączona</string>
   <string name="title_pref_screen_announcements">Włączanie i wyłączanie ekranu</string>
-  <string name="summary_pref_screen_announcements">Wybierz, co Backtalk odczytuje przy wyłączaniu i włączaniu ekranu oraz odblokowywaniu telefonu</string>
+  <string name="summary_pref_screen_announcements">Wybierz, co newTalk odczytuje przy wyłączaniu i włączaniu ekranu oraz odblokowywaniu telefonu</string>
   <string name="title_screen_announcements_screen_off">Przy wyłączaniu ekranu</string>
   <string name="title_screen_announcements_screen_on">Przy włączaniu ekranu</string>
   <string name="title_screen_announcements_unlock">Przy odblokowywaniu telefonu</string>
@@ -60,27 +60,27 @@
   <string name="title_pref_category_typing_and_braille">Pisanie i brajl</string>
   <string name="title_pref_category_more">Więcej</string>
   <string name="title_pref_reserve_vibration_watch_gestures">Zarezerwuj gesty dla zegara wibracyjnego</string>
-  <string name="summary_pref_reserve_vibration_watch_gestures">Backtalk nie obsługuje pojedynczego ani dwukrotnego kliknięcia dwoma palcami, aby mogła ich używać funkcja „Zegar wibracyjny” firmy Samsung. Włącz ją w ustawieniach ułatwień dostępu zegarka.</string>
+  <string name="summary_pref_reserve_vibration_watch_gestures">newTalk nie obsługuje pojedynczego ani dwukrotnego kliknięcia dwoma palcami, aby mogła ich używać funkcja „Zegar wibracyjny” firmy Samsung. Włącz ją w ustawieniach ułatwień dostępu zegarka.</string>
   <string name="shortcut_reserved_for_vibration_watch">Zarezerwowany dla zegara wibracyjnego w ustawieniach zaawansowanych</string>
   <string name="title_pref_speakerphone_away_from_ear">Włączaj tryb głośnomówiący po odsunięciu telefonu od ucha</string>
   <string name="summary_pref_speakerphone_away_from_ear">Podczas rozmowy włącza tryb głośnomówiący po odsunięciu telefonu od ucha i wyłącza go po ponownym przyłożeniu.</string>
   <string name="summary_pref_speakerphone_needs_permission">Wymaga uprawnienia, którego Android nie przyznaje czytnikom ekranu. Aby je przyznać, wykonaj poniższe polecenie za pomocą adb lub Shizuku, a następnie wróć do tego ekranu: %1$s</string>
-  <string name="title_pref_speech_control">Zezwalaj innym aplikacjom na odczytywanie tekstu przez Backtalk</string>
+  <string name="title_pref_speech_control">Zezwalaj innym aplikacjom na odczytywanie tekstu przez newTalk</string>
   <string name="summary_pref_speech_control">Aplikacje, którym zezwolisz, mogą odczytywać tekst głosem używanym w Backtalku. Gdy urządzenie jest zablokowane, ich tekst nie jest odczytywany.</string>
   <string name="speech_control_apps_category">Aplikacje</string>
-  <string name="speech_control_no_apps">Żadna aplikacja nie poprosiła jeszcze o odczytywanie tekstu przez Backtalk.</string>
-  <string name="speech_control_ask_title">Zezwolić aplikacji <xliff:g id="app" example="Tasker">%1$s</xliff:g> na odczytywanie tekstu przez Backtalk?</string>
+  <string name="speech_control_no_apps">Żadna aplikacja nie poprosiła jeszcze o odczytywanie tekstu przez newTalk.</string>
+  <string name="speech_control_ask_title">Zezwolić aplikacji <xliff:g id="app" example="Tasker">%1$s</xliff:g> na odczytywanie tekstu przez newTalk?</string>
   <string name="speech_control_ask_text">Może odczytywać tekst głosem używanym w Backtalku. Możesz zmienić to uprawnienie w ustawieniach zaawansowanych.</string>
   <string name="speech_control_allow">Zezwól</string>
   <string name="speech_control_deny">Nie zezwalaj</string>
-  <string name="permission_speak_label">odczytywanie tekstu przez Backtalk</string>
-  <string name="permission_speak_description">Umożliwia aplikacji zgłoszenie prośby o odczytywanie tekstu głosem używanym w Backtalku. Backtalk poprosi Cię o zgodę, zanim aplikacja będzie mogła z niego korzystać.</string>
+  <string name="permission_speak_label">odczytywanie tekstu przez newTalk</string>
+  <string name="permission_speak_description">Umożliwia aplikacji zgłoszenie prośby o odczytywanie tekstu głosem używanym w Backtalku. newTalk poprosi Cię o zgodę, zanim aplikacja będzie mogła z niego korzystać.</string>
   <string name="title_pref_emoji_speech">Emoji</string>
   <string name="emoji_speech_engine">Odczytywane przez syntezator mowy</string>
-  <string name="emoji_speech_names">Odczytywane przez Backtalk</string>
+  <string name="emoji_speech_names">Odczytywane przez newTalk</string>
   <string name="emoji_speech_none">Nie odczytuj</string>
   <string name="summary_selector_menu_emoji">Zmień sposób odczytywania emoji</string>
-  <string name="emoji_speech_state">Emoji: <xliff:g example="Read by Backtalk" id="state">%1$s</xliff:g></string>
+  <string name="emoji_speech_state">Emoji: <xliff:g example="Read by newTalk" id="state">%1$s</xliff:g></string>
   <string name="title_pref_emoji_repeat_count">Podawaj liczbę powtórzonych emoji</string>
   <string name="emoji_repeat_count_off">Wyłączone</string>
   <string name="emoji_repeat_count_2">2 lub więcej</string>
@@ -99,7 +99,7 @@
   <string name="summary_pref_speak_volume_changes">Podawaj nowy poziom po naciśnięciu przycisków głośności</string>
   <string name="title_pref_speak_notifications">Odczytuj powiadomienia</string>
   <string name="summary_pref_speak_notifications">Odczytuj nowe powiadomienia, gdy się pojawią. Informacje o połączeniach przychodzących są zawsze odczytywane.</string>
-  <string name="talkback_exit_watermark_text_no_menu_gesture">Backtalk jest włączony. Aby go wyłączyć, przytrzymaj 2 palce na ekranie przez 5 sekund. Aby ukryć ten komunikat, w ustawieniach zaawansowanych Backtalka wyłącz opcję pokazywania instrukcji jego wyłączania.</string>
+  <string name="talkback_exit_watermark_text_no_menu_gesture">newTalk jest włączony. Aby go wyłączyć, przytrzymaj 2 palce na ekranie przez 5 sekund. Aby ukryć ten komunikat, w ustawieniach zaawansowanych Backtalka wyłącz opcję pokazywania instrukcji jego wyłączania.</string>
   <string name="title_pref_audio_output_device">Urządzenie odtwarzające</string>
   <string name="dialog_title_audio_output_device">Wybierz, gdzie odtwarzać dźwięk Backtalka</string>
   <string name="value_audio_output_device_default">Domyślne urządzenie systemowe</string>
@@ -111,7 +111,7 @@
   <string name="value_audio_output_device_wired_headphones">Słuchawki przewodowe</string>
   <string name="value_audio_output_device_usb_headset">Zestaw słuchawkowy USB</string>
   <string name="value_audio_output_device_usb_device">Urządzenie audio USB</string>
-  <string name="pref_reduce_window_delay_summary">Backtalk szybciej odczytuje nowe ekrany, gdy animacje są wyłączone. Ta opcja wyłącza animacje w całym telefonie.</string>
+  <string name="pref_reduce_window_delay_summary">newTalk szybciej odczytuje nowe ekrany, gdy animacje są wyłączone. Ta opcja wyłącza animacje w całym telefonie.</string>
   <string name="dialog_message_detailed_ai_description">Wybrane obrazy są wysyłane do interfejsu API Gemini firmy Google w celu uzyskania opisu. Po włączeniu AI na urządzeniu są opisywane na tym telefonie i nie są wysyłane.\n\nJeśli korzystasz z bezpłatnego klucza API, Google może przechowywać otrzymane dane, używać ich do ulepszania swoich produktów i przekazywać je do oceny ludziom. Generatywna AI ma charakter eksperymentalny, więc będzie popełniać błędy. Obowiązują <xliff:g id="Gemini API terms" example="Gemini API Additional Terms of Service">%1$s</xliff:g>.</string>
   <string name="dialog_message_detailed_ai_promotion">Szczegółowe opisy obrazów są tworzone przez generatywną AI. Wybrane obrazy są wysyłane do interfejsu API Gemini firmy Google w celu uzyskania opisu. Po włączeniu AI na urządzeniu są opisywane na tym telefonie i nie są wysyłane.\n\nJeśli korzystasz z bezpłatnego klucza API, Google może przechowywać otrzymane dane, używać ich do ulepszania swoich produktów i przekazywać je do oceny ludziom. Generatywna AI ma charakter eksperymentalny, więc będzie popełniać błędy. Szczegółowe opisy obrazów możesz w każdej chwili wyłączyć w ustawieniach Backtalka.\n\nObowiązują <xliff:g id="Gemini API terms" example="Gemini API Additional Terms of Service">%1$s</xliff:g>.</string>
   <string name="dialog_message_screen_overview_promotion">Zrzut ekranu jest wysyłany do interfejsu API Gemini firmy Google w celu uzyskania opisu, co trwa kilka sekund. Po włączeniu AI na urządzeniu jest opisywany na tym telefonie i nie jest wysyłany.\n\nJeśli korzystasz z bezpłatnego klucza API, Google może przechowywać otrzymane dane, używać ich do ulepszania swoich produktów i przekazywać je do oceny ludziom. Generatywna AI ma charakter eksperymentalny, więc będzie popełniać błędy. Obowiązują <xliff:g id="Gemini API terms" example="Gemini API Additional Terms of Service">%1$s</xliff:g>.</string>
@@ -167,7 +167,7 @@
   <string name="template_list_position">Pozycja <xliff:g id="position" example="2">%1$d</xliff:g> z <xliff:g id="count" example="3">%2$d</xliff:g></string>
   <string name="template_item_details_order_picked_up">Rozpoczęto przeciąganie: <xliff:g id="detail" example="Name">%1$s</xliff:g>. <xliff:g id="position" example="Position 1 of 3">%2$s</xliff:g></string>
   <string name="template_item_details_order_dropped">Zakończono przeciąganie: <xliff:g id="detail" example="Name">%1$s</xliff:g>. <xliff:g id="position" example="Position 2 of 3">%2$s</xliff:g></string>
-  <string name="item_details_order_footer">Backtalk odczytuje informacje o elemencie w tej kolejności. Aby ją zmienić, dotknij wybranej pozycji i przytrzymaj, a następnie przeciągnij ją w górę lub w dół. Gdy Backtalk jest włączony, kliknij dwukrotnie, przytrzymaj i przeciągnij. Możesz też użyć czynności „Przenieś w górę” i „Przenieś w dół”.</string>
+  <string name="item_details_order_footer">newTalk odczytuje informacje o elemencie w tej kolejności. Aby ją zmienić, dotknij wybranej pozycji i przytrzymaj, a następnie przeciągnij ją w górę lub w dół. Gdy newTalk jest włączony, kliknij dwukrotnie, przytrzymaj i przeciągnij. Możesz też użyć czynności „Przenieś w górę” i „Przenieś w dół”.</string>
   <string name="title_pref_speak_items_before_scroll">Odczytuj elementy, zanim przewinięcie pokaże je na ekranie</string>
   <string name="gemini_error_api_key">Usługa Gemini nie zaakceptowała klucza API. Sprawdź go w ustawieniach automatycznych opisów.</string>
   <string name="gemini_error_quota">Osiągnięto limit użycia Twojego klucza API Gemini. Spróbuj ponownie później.</string>
@@ -180,7 +180,7 @@
   <string name="brightness_needs_permission">Zezwól na zmianę ustawień systemowych, aby regulować jasność.</string>
   <string name="brightness_adaptive_on">Wyłącz jasność adaptacyjną, aby ustawić ją ręcznie.</string>
   <string name="title_pref_control_sounds">Dźwięki i wibracje kontrolek</string>
-  <string name="summary_pref_control_sounds">Każdy typ kontrolki, np. przycisk, pole wyboru, pole edycji lub element listy, ma własny dźwięk i wzór wibracji z tematu. Zastępują one dźwięk i wibrację zaznaczenia, podobnie jak w dodatku Unspoken do NVDA. Dźwięk dochodzi z miejsca odpowiadającego położeniu kontrolki na ekranie, a Backtalk pomija odczytywanie jej typu.</string>
+  <string name="summary_pref_control_sounds">Każdy typ kontrolki, np. przycisk, pole wyboru, pole edycji lub element listy, ma własny dźwięk i wzór wibracji z tematu. Zastępują one dźwięk i wibrację zaznaczenia, podobnie jak w dodatku Unspoken do NVDA. Dźwięk dochodzi z miejsca odpowiadającego położeniu kontrolki na ekranie, a newTalk pomija odczytywanie jej typu.</string>
   <string name="title_pref_control_sounds_speak_roles">Nadal odczytuj typ kontrolki</string>
   <string name="summary_pref_control_sounds_speak_roles">Odczytuj typ kontrolki, np. „przycisk”, także gdy odtwarzany jest jej dźwięk. To ustawienie dotyczy wszystkich tematów dźwiękowych.</string>
   <string name="title_pref_control_sounds_3d">Dźwięk przestrzenny 3D</string>
@@ -205,7 +205,7 @@
   <string name="direct_touch_tile_label">Dotyk bezpośredni</string>
   <string name="title_pref_direct_touch">Dotyk bezpośredni</string>
   <string name="pref_direct_touch_master">Dotyk bezpośredni</string>
-  <string name="pref_direct_touch_master_summary">Przekazuj dotyk bezpośrednio do wybranych poniżej aplikacji. Backtalk ponownie przejmuje jego obsługę w oknach dialogowych, polach tekstowych, na klawiaturze i ekranach systemowych.</string>
+  <string name="pref_direct_touch_master_summary">Przekazuj dotyk bezpośrednio do wybranych poniżej aplikacji. newTalk ponownie przejmuje jego obsługę w oknach dialogowych, polach tekstowych, na klawiaturze i ekranach systemowych.</string>
   <string name="pref_direct_touch_speech">Odczytuj zmiany stanu dotyku bezpośredniego</string>
   <string name="pref_direct_touch_haptics">Wibruj przy zmianie stanu dotyku bezpośredniego</string>
   <string name="direct_touch_apps_category">Aplikacje</string>
@@ -270,7 +270,7 @@
   <string name="on_device_ai_import_done">Model zainstalowany</string>
   <string name="on_device_ai_import_failed">Wybrany plik nie jest obsługiwanym plikiem modelu.</string>
   <string name="pref_on_device_ai_timeout">Limit czasu oczekiwania na odpowiedź</string>
-  <string name="pref_on_device_ai_timeout_summary">%1$s. Po upływie tego czasu Backtalk przestaje czekać. Opisywanie ekranu trwa dłużej niż opisywanie obrazu.</string>
+  <string name="pref_on_device_ai_timeout_summary">%1$s. Po upływie tego czasu newTalk przestaje czekać. Opisywanie ekranu trwa dłużej niż opisywanie obrazu.</string>
   <string name="on_device_ai_choose_timeout">Limit czasu oczekiwania na odpowiedź</string>
   <string name="pref_on_device_ai_short_prompts">Krótsze opisy ekranu</string>
   <string name="pref_on_device_ai_short_prompts_summary">Funkcja „Opisz ekran” prosi o mniej szczegółów, dzięki czemu szybciej odpowiada. Wyłącz tę opcję, aby uzyskać pełniejsze opisy.</string>
@@ -283,13 +283,13 @@
   <string name="on_device_ai_error_low_space">Brak wystarczającej ilości wolnego miejsca na ten model.</string>
   <string name="on_device_ai_metered_title">Pobrać przez sieć z limitem danych?</string>
   <string name="gemini_api_key_dialog_message">Uzyskaj bezpłatny klucz API w Google AI Studio na stronie aistudio.google.com/apikey i wklej go tutaj. Aby usunąć klucz, wyczyść pole i zapisz zmiany.\n\nObrazy i ekrany, które opisujesz, są wysyłane do Google. Jeśli korzystasz z bezpłatnej wersji usługi, Google może używać ich do ulepszania swoich produktów.</string>
-  <string name="update_move_title">Backtalk będzie instalowany jako nowa aplikacja</string>
-  <string name="update_move_notification_text">Kliknij, aby zainstalować nową aplikację Backtalk. Twoje ustawienia zostaną przeniesione.</string>
-  <string name="update_move_dialog_message">Backtalk zmienia identyfikator aplikacji, aby można go było instalować na większej liczbie telefonów. Zainstaluj nową aplikację Backtalk. Twoje ustawienia zostaną przeniesione. Następnie ją włącz, a dotychczasowa wyłączy się automatycznie.</string>
-  <string name="update_move_installing">Backtalk zmienia identyfikator aplikacji. Zainstaluj nową aplikację Backtalk. Twoje ustawienia zostaną przeniesione.</string>
-  <string name="update_move_turn_on">Włącz nową aplikację Backtalk. Dotychczasowa wyłączy się automatycznie.</string>
+  <string name="update_move_title">newTalk będzie instalowany jako nowa aplikacja</string>
+  <string name="update_move_notification_text">Kliknij, aby zainstalować nową aplikację newTalk. Twoje ustawienia zostaną przeniesione.</string>
+  <string name="update_move_dialog_message">newTalk zmienia identyfikator aplikacji, aby można go było instalować na większej liczbie telefonów. Zainstaluj nową aplikację newTalk. Twoje ustawienia zostaną przeniesione. Następnie ją włącz, a dotychczasowa wyłączy się automatycznie.</string>
+  <string name="update_move_installing">newTalk zmienia identyfikator aplikacji. Zainstaluj nową aplikację newTalk. Twoje ustawienia zostaną przeniesione.</string>
+  <string name="update_move_turn_on">Włącz nową aplikację newTalk. Dotychczasowa wyłączy się automatycznie.</string>
   <string name="update_wrong_package">Pobrany plik nie jest aktualizacją Backtalka, więc nie został zainstalowany</string>
-  <string name="migration_moved_title">Backtalk został przeniesiony do nowej aplikacji</string>
+  <string name="migration_moved_title">newTalk został przeniesiony do nowej aplikacji</string>
   <string name="migration_moved_text">Kliknij, aby odinstalować poprzednią aplikację.</string>
   <plurals name="on_device_ai_models_downloaded">
     <item quantity="one">Pobrano %1$d model</item>
@@ -315,15 +315,15 @@
   <string name="keycombo_menu_global_pause_backtalk">Wstrzymaj lub wznów Backtalka</string>
   <string name="backtalk_paused">Wstrzymano działanie Backtalka</string>
   <string name="backtalk_resumed">Wznowiono działanie Backtalka</string>
-  <string name="notification_title_backtalk_paused">Backtalk jest wstrzymany</string>
+  <string name="notification_title_backtalk_paused">newTalk jest wstrzymany</string>
   <string name="notification_message_backtalk_paused">Kliknij, aby wznowić</string>
   <string name="notification_channel_backtalk_paused">Wstrzymanie Backtalka</string>
   <string name="dialog_title_pause_backtalk">Wstrzymać Backtalka?</string>
   <string name="dialog_button_pause_backtalk">Wstrzymaj</string>
-  <string name="dialog_message_pause_backtalk">Po wstrzymaniu Backtalk nie odczytuje treści ani nie reaguje na gesty. Ekran obsługuje się tak, jak przy wyłączonym czytniku ekranu.</string>
-  <string name="message_resume_keyguard">Aby wznowić Backtalka, kliknij powiadomienie „Backtalk jest wstrzymany”, szybko naciśnij 3 razy przycisk zmniejszania głośności lub zablokuj i wybudź telefon, aby pojawił się ekran blokady.</string>
-  <string name="message_resume_screen_on">Aby wznowić Backtalka, kliknij powiadomienie „Backtalk jest wstrzymany”, szybko naciśnij 3 razy przycisk zmniejszania głośności lub wyłącz i ponownie włącz ekran.</string>
-  <string name="message_resume_manual">Aby wznowić Backtalka, kliknij powiadomienie „Backtalk jest wstrzymany” lub szybko naciśnij 3 razy przycisk zmniejszania głośności.</string>
+  <string name="dialog_message_pause_backtalk">Po wstrzymaniu newTalk nie odczytuje treści ani nie reaguje na gesty. Ekran obsługuje się tak, jak przy wyłączonym czytniku ekranu.</string>
+  <string name="message_resume_keyguard">Aby wznowić Backtalka, kliknij powiadomienie „newTalk jest wstrzymany”, szybko naciśnij 3 razy przycisk zmniejszania głośności lub zablokuj i wybudź telefon, aby pojawił się ekran blokady.</string>
+  <string name="message_resume_screen_on">Aby wznowić Backtalka, kliknij powiadomienie „newTalk jest wstrzymany”, szybko naciśnij 3 razy przycisk zmniejszania głośności lub wyłącz i ponownie włącz ekran.</string>
+  <string name="message_resume_manual">Aby wznowić Backtalka, kliknij powiadomienie „newTalk jest wstrzymany” lub szybko naciśnij 3 razy przycisk zmniejszania głośności.</string>
   <string name="message_resume_key_combo">Możesz też nacisnąć <xliff:g id="key_combo" example="Alt + P">%1$s</xliff:g>.</string>
   <string name="title_pref_resume_backtalk">Wznawianie Backtalka</string>
   <string name="value_resume_keyguard">Po wyświetleniu ekranu blokady</string>
@@ -450,13 +450,13 @@
   <string name="script_binding_assign">Przypisz</string>
   <string name="script_binding_choose_gesture">Wybierz gest</string>
   <string name="script_binding_type_keys">Wpisz skrót klawiszowy</string>
-  <string name="script_binding_type_keys_summary">Np. backtalk+shift+n lub backtalk+t, s</string>
+  <string name="script_binding_type_keys_summary">Np. newtalk+shift+n lub newtalk+t, s</string>
   <string name="script_binding_bad_keys">Nie można użyć tej kombinacji klawiszy. <xliff:g id="reason">%1$s</xliff:g></string>
   <string name="script_install_adds">Dodawane polecenia:</string>
   <string name="script_install_command"><xliff:g id="title">%1$s</xliff:g>: <xliff:g id="bindings">%2$s</xliff:g></string>
   <string name="title_pref_sound_themes">Tematy dźwiękowe</string>
   <string name="sound_themes_installed_category">Zainstalowane tematy</string>
-  <string name="sound_theme_backtalk">Backtalk</string>
+  <string name="sound_theme_backtalk">newTalk</string>
   <string name="sound_theme_backtalk_description">Dźwięki i wibracje Backtalka oraz dodane przez Ciebie dźwięki.</string>
   <string name="sound_theme_in_use">W użyciu</string>
   <string name="sound_theme_by">Autor: <xliff:g id="author" example="Bryan Smart">%1$s</xliff:g></string>
@@ -506,7 +506,7 @@
   <string name="sound_theme_installed">Zainstalowano temat <xliff:g id="theme" example="Unspoken">%1$s</xliff:g>.</string>
   <string name="sound_theme_installed_in_use">Zainstalowano temat <xliff:g id="theme" example="Unspoken">%1$s</xliff:g>. Jest teraz używany.</string>
   <string name="sound_theme_install_nothing">Brak tematu dźwiękowego do zainstalowania.</string>
-  <string name="sound_theme_install_not_a_theme">Backtalk nie może używać tego pliku jako tematu dźwiękowego: <xliff:g id="reason" example="it has no theme.json">%1$s</xliff:g>.</string>
+  <string name="sound_theme_install_not_a_theme">newTalk nie może używać tego pliku jako tematu dźwiękowego: <xliff:g id="reason" example="it has no theme.json">%1$s</xliff:g>.</string>
   <string name="sound_theme_install_failed">Nie udało się zainstalować tematu dźwiękowego. <xliff:g id="reason" example="HTTP 404">%1$s</xliff:g></string>
   <string name="sound_theme_install_https_only">Linki do tematów dźwiękowych muszą zaczynać się od https.</string>
   <string name="title_pref_theme_sounds_of">Dźwięki tematu: <xliff:g id="theme" example="Unspoken">%1$s</xliff:g></string>
@@ -529,7 +529,7 @@
   <string name="theme_sound_use_default">Użyj dźwięku Backtalka</string>
   <string name="theme_sound_remove">Usuń dźwięk</string>
   <string name="theme_sound_too_large">Ten plik jest za duży. Plik dźwiękowy może mieć maksymalnie 5 MB.</string>
-  <string name="theme_sound_not_audio">Backtalk nie może odtworzyć tego pliku. Wybierz plik dźwiękowy w formacie WAV, OGG, MP3 lub FLAC.</string>
+  <string name="theme_sound_not_audio">newTalk nie może odtworzyć tego pliku. Wybierz plik dźwiękowy w formacie WAV, OGG, MP3 lub FLAC.</string>
   <string name="theme_sound_failed">Nie udało się odczytać tego pliku.</string>
   <string name="shortcut_announce_status">Odczytaj stan urządzenia</string>
   <string name="template_status_bars">Siła sygnału: <xliff:g id="level" example="3">%1$d</xliff:g> z <xliff:g id="max_level" example="4">%2$d</xliff:g></string>
@@ -566,7 +566,7 @@
   <string name="update_dialog_title">Dostępna jest kompilacja <xliff:g id="build" example="97">%1$d</xliff:g> Backtalka</string>
   <string name="update_dialog_install">Zainstaluj</string>
   <string name="update_checking">Sprawdzanie aktualizacji</string>
-  <string name="update_up_to_date">Backtalk jest aktualny</string>
+  <string name="update_up_to_date">newTalk jest aktualny</string>
   <string name="update_check_failed">Nie udało się sprawdzić aktualizacji</string>
   <string name="update_downloading">Pobieranie aktualizacji</string>
   <string name="update_install_failed">Nie udało się zainstalować aktualizacji</string>
@@ -584,14 +584,14 @@
   <string name="summary_selector_switch_tts_engine">Przełączaj między zainstalowanymi syntezatorami mowy</string>
   <string name="speech_engine_unavailable_with_profile">Zmiana syntezatora mowy jest niedostępna podczas korzystania z profilu głosowego</string>
   <string name="battery_optimization_notification_title">Optymalizacja baterii może zatrzymać Backtalka</string>
-  <string name="battery_optimization_notification_text">Na tym telefonie oszczędzanie baterii może zatrzymać Backtalka po wyłączeniu ekranu. Czytnik przestanie wtedy mówić do czasu ponownego uruchomienia. Kliknij, aby otworzyć optymalizację baterii. Wybierz „Wszystkie aplikacje”, znajdź Backtalk i wybierz „Nie optymalizuj”.</string>
+  <string name="battery_optimization_notification_text">Na tym telefonie oszczędzanie baterii może zatrzymać Backtalka po wyłączeniu ekranu. Czytnik przestanie wtedy mówić do czasu ponownego uruchomienia. Kliknij, aby otworzyć optymalizację baterii. Wybierz „Wszystkie aplikacje”, znajdź newTalk i wybierz „Nie optymalizuj”.</string>
   <string name="title_pref_category_apps">Aplikacje</string>
   <string name="title_pref_touch_activation">Dotyk i aktywowanie</string>
   <string name="title_pref_navigation">Nawigacja</string>
   <string name="action_copy_command">Skopiuj polecenie</string>
   <string name="command_copied">Skopiowano polecenie</string>
   <string name="permission_braille_display_label">zgłaszanie prośby o działanie jako monitor brajlowski Backtalka</string>
-  <string name="permission_braille_display_description">Umożliwia aplikacji zgłoszenie prośby o działanie jako monitor brajlowski Backtalka. Jeśli udzielisz jej zgody w Backtalku, będzie mogła odczytywać całą zawartość ekranu i sterować urządzeniem. Backtalk najpierw poprosi Cię o zgodę.</string>
+  <string name="permission_braille_display_description">Umożliwia aplikacji zgłoszenie prośby o działanie jako monitor brajlowski Backtalka. Jeśli udzielisz jej zgody w Backtalku, będzie mogła odczytywać całą zawartość ekranu i sterować urządzeniem. newTalk najpierw poprosi Cię o zgodę.</string>
   <string name="title_pref_phonetic_letters_mode">Odczytuj litery z przykładami</string>
   <string name="phonetic_letters_mode_off">Wyłączone</string>
   <string name="phonetic_letters_mode_after_letter_delay">Po literze, z opóźnieniem, np. „h, Henryk”</string>

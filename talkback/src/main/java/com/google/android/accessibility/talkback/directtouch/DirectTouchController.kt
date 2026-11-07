@@ -56,8 +56,8 @@ import com.google.android.accessibility.utils.output.ThemeVibrations
 
 /**
  * Gives games direct touch. While an app the user turned on is in front, touches go straight to it.
- * Touch goes back to Backtalk as soon as a dialog, another app, the notification shade or a text
- * field needs the screen reader, or the screen turns off. The keyboard stays with Backtalk without
+ * Touch goes back to newTalk as soon as a dialog, another app, the notification shade or a text
+ * field needs the screen reader, or the screen turns off. The keyboard stays with newTalk without
  * ending direct touch, because its window is cut out of the passthrough region unless direct typing
  * is on for the app. A keyboard that is itself in the list, such as a self-voicing braille keyboard,
  * takes touches directly in every app, whether or not direct touch is on.
@@ -69,11 +69,11 @@ import com.google.android.accessibility.utils.output.ThemeVibrations
  * a marked view is showing, so the marked views coming and going are not announced.
  *
  * An app turned on for the whole screen that shows native items, such as buttons, over a game's
- * drawing surface is built for the screen reader there, so touch stays with Backtalk while they
+ * drawing surface is built for the screen reader there, so touch stays with newTalk while they
  * show. That is the one look at an app's views, bounded to [MAX_NODES_LOOKED_AT] of them, and the
  * app's content changes make it again.
  *
- * Everything else comes from Backtalk's own window, screen and display monitors. A region mode app is asked for its marked views by ID, one call per window that the app
+ * Everything else comes from newTalk's own window, screen and display monitors. A region mode app is asked for its marked views by ID, one call per window that the app
  * answers itself. Turning direct touch off takes effect at once. Turning it on waits [DEBOUNCE_MS] so that a
  * burst of window changes settles first. All callbacks arrive on the main thread.
  */
@@ -162,7 +162,7 @@ class DirectTouchController(
   }
 
   /**
-   * Raw events, before Backtalk drops any. Watches for window changes, on or off, for a text field
+   * Raw events, before newTalk drops any. Watches for window changes, on or off, for a text field
    * taking focus, and for a region mode app's views changing or scrolling under its marked areas.
    */
   fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -174,7 +174,7 @@ class DirectTouchController(
     }
     if (DirectTouchRegions.reassertsRegion(event.eventType)) {
       // Look again once things settle, like the original did after every window change. The active
-      // window moves without Backtalk's window interpreter reporting it, for instance back to the
+      // window moves without newTalk's window interpreter reporting it, for instance back to the
       // game when a finger lifts off the navigation bar, and nothing else would turn direct touch
       // back on. While on, this also sends the region again after another service clears it.
       handler.removeCallbacks(recheck)
@@ -191,7 +191,7 @@ class DirectTouchController(
     ) {
       onMarkedAreasMayHaveMoved()
     }
-    // A region mode app keeps most of its screen with Backtalk, so a text field there can take and
+    // A region mode app keeps most of its screen with newTalk, so a text field there can take and
     // lose focus while its region is empty, and that has to be followed too.
     if (!active && !regionApp) {
       return
@@ -244,7 +244,7 @@ class DirectTouchController(
   }
 
   /**
-   * Stops sending the region while Backtalk is paused, when explore by touch is off and the region
+   * Stops sending the region while newTalk is paused, when explore by touch is off and the region
    * does nothing. On resume, sends it again for the current screen.
    */
   fun setPaused(paused: Boolean) {
@@ -376,7 +376,7 @@ class DirectTouchController(
   /**
    * Whether the navigation bar buttons take touches directly, so that a single tap presses them
    * and holding Home holds it, as with lift to activate on the navigation bar. Lifting to activate
-   * a button Backtalk focused does not work on every phone, but touches that go straight to the
+   * a button newTalk focused does not work on every phone, but touches that go straight to the
    * navigation bar do.
    */
   private fun isNavBarDirect(): Boolean =
@@ -385,7 +385,7 @@ class DirectTouchController(
 
   /**
    * Says the navigation bar button that a tap pressed, such as Back or Home, when the navigation
-   * bar takes touches directly. Backtalk never sees those touches, so without this a tap on the
+   * bar takes touches directly. newTalk never sees those touches, so without this a tap on the
    * bar would act without a word. The app that draws the bar reports the press, sometimes twice.
    */
   private fun speakNavBarButton(event: AccessibilityEvent) {
@@ -622,7 +622,7 @@ class DirectTouchController(
 
   /**
    * Whether the app's main window shows items of its own that the screen reader can use over a
-   * game's drawing surface. Items are visible views that Backtalk itself would give focus and that
+   * game's drawing surface. Items are visible views that newTalk itself would give focus and that
    * have something to say, such as buttons, or labels and images that have a description. The
    * surface takes focus but says nothing. A game showing a menu over its play field is built for
    * the screen reader there, so it keeps touch until the menu goes. An app with no surface, such as
@@ -742,7 +742,7 @@ class DirectTouchController(
 
   /**
    * Vibrates directly. The switch in the direct touch settings is an explicit choice, so it does not
-   * depend on Backtalk's vibration feedback setting, which drops every Feedback.vibration when off.
+   * depend on newTalk's vibration feedback setting, which drops every Feedback.vibration when off.
    */
   private fun vibrate(pattern: LongArray) {
     val vibrator = service.getSystemService(Vibrator::class.java)

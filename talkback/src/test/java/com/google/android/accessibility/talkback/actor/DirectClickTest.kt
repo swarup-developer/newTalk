@@ -115,7 +115,7 @@ class DirectClickTest {
   private fun idOf(stroke: StrokeDescription, getter: String) =
     StrokeDescription::class.java.getMethod(getter).invoke(stroke) as Int
 
-  /** An event as gesture detection gets it, of a gesture Backtalk dispatched unless [deviceId]. */
+  /** An event as gesture detection gets it, of a gesture newTalk dispatched unless [deviceId]. */
   private fun event(
     action: Int,
     x: Float,

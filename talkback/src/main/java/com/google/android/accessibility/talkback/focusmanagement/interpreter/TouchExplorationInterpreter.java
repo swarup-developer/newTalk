@@ -83,7 +83,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
   /**
    * The newest hover that came too late to handle, or null. While dragging fast, hovers can come
    * faster than focusing each node takes, since each one waits on the app, so they queue up and
-   * Backtalk falls behind. A late hover's node would only be focused and then cut off by the
+   * newTalk falls behind. A late hover's node would only be focused and then cut off by the
    * hovers after it, so late hovers are set aside, each replacing the last, and only the newest
    * is handled once the hovers waiting before it have been seen.
    */

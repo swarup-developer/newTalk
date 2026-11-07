@@ -206,7 +206,7 @@ class TouchInteractionMonitorTest {
   }
 
   /**
-   * A gesture Backtalk dispatched touches at ([x], [y]) [timeMs] after the start. Android injects
+   * A gesture newTalk dispatched touches at ([x], [y]) [timeMs] after the start. Android injects
    * it from no device, and passes it on through the main thread.
    */
   private fun injectedAt(action: Int, x: Float, y: Float, timeMs: Long) {

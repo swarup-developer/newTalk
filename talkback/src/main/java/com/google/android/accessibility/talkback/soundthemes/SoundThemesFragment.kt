@@ -43,7 +43,7 @@ import com.google.android.accessibility.utils.widget.KeyboardSafeEditText
 
 /**
  * Manages sound themes: makes new ones, opens the settings of each, and installs more. Themes are
- * installed by [SoundThemeInstallActivity], which also opens theme files shared with Backtalk from
+ * installed by [SoundThemeInstallActivity], which also opens theme files shared with newTalk from
  * other apps. Which theme is in use is chosen in Sound and vibration.
  */
 class SoundThemesFragment : TalkbackBaseFragment() {
@@ -62,7 +62,7 @@ class SoundThemesFragment : TalkbackBaseFragment() {
     val context = requireContext()
     prefs = SharedPreferencesUtils.getSharedPreferences(context)
     actions.restore(savedInstanceState)
-    // Like every settings screen, so that nothing is ever saved outside Backtalk's settings.
+    // Like every settings screen, so that nothing is ever saved outside newTalk's settings.
     preferenceManager.setStorageDeviceProtected()
     preferenceScreen = preferenceManager.createPreferenceScreen(context)
   }
@@ -347,7 +347,7 @@ class SoundThemesFragment : TalkbackBaseFragment() {
     val PACK_TYPES =
       arrayOf("application/zip", "application/x-zip-compressed", "application/octet-stream")
 
-    /** The name to show for [theme]: Backtalk's own is translated. */
+    /** The name to show for [theme]: newTalk's own is translated. */
     @JvmStatic
     fun nameOf(context: Context, theme: SoundTheme): String =
       if (theme.isBuiltIn) context.getString(R.string.sound_theme_backtalk)

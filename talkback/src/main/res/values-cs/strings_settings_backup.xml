@@ -8,6 +8,6 @@
     <string name="settings_backup_export_done">Nastavení exportováno</string>
     <string name="settings_backup_export_failed">Nastavení se nepodařilo exportovat</string>
     <string name="settings_backup_import_done">Nastavení importováno</string>
-    <string name="settings_backup_import_restart">Některá importovaná nastavení vyžadují pro použití vypnout a znovu zapnout Backtalk.</string>
+    <string name="settings_backup_import_restart">Některá importovaná nastavení vyžadují pro použití vypnout a znovu zapnout newTalk.</string>
     <string name="settings_backup_import_failed">Tento soubor se nepodařilo načíst</string>
 </resources>

@@ -638,7 +638,7 @@ public class TextEventInterpreter {
     } else if (eventTypeInt
         == AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) {
 
-      // Copying mode: the selection is kept by Backtalk, so the move is described by what it
+      // Copying mode: the selection is kept by newTalk, so the move is described by what it
       // selected and deselected.
       @Nullable CopySelection copySelection =
           isSelectionModeActive ? selectionStateReader.copySelection() : null;
@@ -737,7 +737,7 @@ public class TextEventInterpreter {
   /**
    * Returns the text to speak for a move by character over {@code start} to {@code end}, or null
    * to say nothing. An emoji, which may be several characters such as one with a skin tone, is
-   * taken whole when Backtalk speaks emoji, so that it can be named. Apps that move through its
+   * taken whole when newTalk speaks emoji, so that it can be named. Apps that move through its
    * parts one at a time get it named once, as the move enters it, and nothing for the other parts,
    * which ProcessorEmojiTraversal moves over.
    */

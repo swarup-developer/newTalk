@@ -102,7 +102,7 @@ public class VoiceProfileFragment extends TalkbackBaseFragment {
     prefs = SharedPreferencesUtils.getSharedPreferences(context);
     Bundle args = getArguments();
     id = (args == null) ? "" : args.getString(ARG_PROFILE_ID, "");
-    // Backtalk's settings are in device protected storage. Without this, the profile would be
+    // newTalk's settings are in device protected storage. Without this, the profile would be
     // saved to a second settings file, which the service moves over the real one when it starts,
     // losing every other setting.
     getPreferenceManager().setStorageDeviceProtected();
@@ -237,7 +237,7 @@ public class VoiceProfileFragment extends TalkbackBaseFragment {
             getString(movedResId, VoiceProfileNames.nameOf(requireContext(), prefs, neighbour)));
   }
 
-  /** Nothing moves above Backtalk default or below the last profile. */
+  /** Nothing moves above newTalk default or below the last profile. */
   private void updateMoves() {
     if (moveUp == null || moveDown == null) {
       return;

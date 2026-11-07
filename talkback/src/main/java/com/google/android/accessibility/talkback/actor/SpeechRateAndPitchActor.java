@@ -24,7 +24,7 @@ import com.google.android.accessibility.utils.output.VoiceProfiles;
 
 /**
  * This class supports changing speech rate and pitch. They change the voice profile in use, or the
- * text-to-speech settings when Backtalk's default is in use.
+ * text-to-speech settings when newTalk's default is in use.
  */
 public class SpeechRateAndPitchActor {
 

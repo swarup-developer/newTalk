@@ -30,10 +30,10 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils
  * screen that has not changed does not ask the app for every node again. Any event that can change
  * that window throws the order away, the same way the framework's own node cache is kept current.
  *
- * Filter logcat by the "BacktalkTreeCache" tag in debug builds to see how often the order is reused.
+ * Filter logcat by the "NewTalkTreeCache" tag in debug builds to see how often the order is reused.
  */
 object TraversalTreeCache {
-  private const val TAG = "BacktalkTreeCache"
+  private const val TAG = "NewTalkTreeCache"
 
   /** Events that never change the nodes or their order. */
   internal const val IGNORED_EVENT_TYPES =

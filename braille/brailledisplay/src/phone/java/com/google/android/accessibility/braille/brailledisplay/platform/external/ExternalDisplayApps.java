@@ -31,11 +31,11 @@ import java.util.Set;
 
 /**
  * The apps that can provide a braille display, and which of them the user has allowed. An app can
- * only ask to be one; Backtalk uses it once the user allows it in Backtalk, not before.
+ * only ask to be one; newTalk uses it once the user allows it in newTalk, not before.
  */
 public final class ExternalDisplayApps {
   /** The action of a display app's service. */
-  public static final String ACTION_BRAILLE_DISPLAY = "fyi.quin.backtalk.action.BRAILLE_DISPLAY";
+  public static final String ACTION_BRAILLE_DISPLAY = "io.github.swarupdeveloper.newtalk.action.BRAILLE_DISPLAY";
 
   /**
    * The permission a display app holds to ask to be one. Named after the app ID, as the manifest
@@ -46,7 +46,7 @@ public final class ExternalDisplayApps {
     return context.getPackageName() + ".permission.BRAILLE_DISPLAY";
   }
 
-  /** The permission a display app's service requires, which only Backtalk holds. */
+  /** The permission a display app's service requires, which only newTalk holds. */
   private static String permissionBindBrailleDisplay(Context context) {
     return context.getPackageName() + ".permission.BIND_BRAILLE_DISPLAY";
   }
@@ -92,7 +92,7 @@ public final class ExternalDisplayApps {
 
   /**
    * The display services of installed apps that can be displays, by package: the service must be one
-   * that only Backtalk can bind, as an accessibility service must be one that only Android can bind,
+   * that only newTalk can bind, as an accessibility service must be one that only Android can bind,
    * and the app must hold the permission. Whether the user allowed them isn't checked here.
    */
   public static Map<String, ComponentName> displayServices(Context context, int flags) {

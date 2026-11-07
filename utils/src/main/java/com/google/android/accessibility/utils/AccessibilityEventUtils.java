@@ -67,7 +67,7 @@ public class AccessibilityEventUtils {
   }
 
   /**
-   * Returns the event's source node, or null if it has none. An event that Backtalk made itself,
+   * Returns the event's source node, or null if it has none. An event that newTalk made itself,
    * such as a focus event spoken before the app's, cannot hold a source, and asking it for one
    * throws.
    */

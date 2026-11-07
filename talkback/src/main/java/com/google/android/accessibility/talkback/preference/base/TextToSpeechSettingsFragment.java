@@ -42,7 +42,7 @@ public class TextToSpeechSettingsFragment extends TalkbackBaseFragment {
             || TextUtils.equals(key, getString(R.string.pref_speech_pitch_key))) {
           updateSeekBarValues();
         } else if (TextUtils.equals(key, VoiceProfiles.PREF_ACTIVE)) {
-          // Switched by a gesture, keyboard shortcut or the Backtalk menu.
+          // Switched by a gesture, keyboard shortcut or the newTalk menu.
           updateVoiceProfileSummary();
         }
       };
@@ -130,7 +130,7 @@ public class TextToSpeechSettingsFragment extends TalkbackBaseFragment {
   }
 
   /**
-   * Names the voice profile in use, if any, since the settings on this screen are Backtalk
+   * Names the voice profile in use, if any, since the settings on this screen are newTalk
    * default's and don't change how a profile sounds.
    */
   private void updateVoiceProfileSummary() {

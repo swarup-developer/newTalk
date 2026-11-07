@@ -34,7 +34,7 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils
 import java.util.concurrent.Executors
 
 /**
- * Settings for direct touch: the master switch, what Backtalk reports when it changes, the apps
+ * Settings for direct touch: the master switch, what newTalk reports when it changes, the apps
  * and the apps that get raw touch. Each app has an action that turns direct typing on
  * or off for it, which screen reader users reach from the actions menu.
  */

@@ -55,7 +55,7 @@ object NotificationList {
         context.resources.getBoolean(R.bool.pref_notification_list_default),
       )
 
-  /** Whether the user has given Backtalk notification access. */
+  /** Whether the user has given newTalk notification access. */
   fun isAccessGranted(context: Context): Boolean =
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
       context

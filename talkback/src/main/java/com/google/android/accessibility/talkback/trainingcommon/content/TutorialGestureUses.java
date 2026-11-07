@@ -220,7 +220,7 @@ public final class TutorialGestureUses {
    * of them still do what it says, so that the translated text is right. Keyboard tutorial texts
    * are checked by {@link KeyboardTutorialKeys}. Otherwise it returns a line for
    * each action the text names, with the gesture the user has for it, built from translated action
-   * and gesture names, such as "Open Backtalk menu: Swipe down then right".
+   * and gesture names, such as "Open newTalk menu: Swipe down then right".
    */
   public static @Nullable String gestureLinesIfChanged(
       Context context, @StringRes int textResId, ServiceData data) {

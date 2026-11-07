@@ -31,8 +31,8 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils
 
 /**
  * Receives the notifications for [NotificationList]. Android binds it while the user has given
- * Backtalk notification access. It unbinds itself while the list is turned off or Backtalk is off,
- * and Backtalk and the list bind it again when they start.
+ * newTalk notification access. It unbinds itself while the list is turned off or newTalk is off,
+ * and newTalk and the list bind it again when they start.
  */
 class NotificationListService : NotificationListenerService() {
 
@@ -99,14 +99,14 @@ class NotificationListService : NotificationListenerService() {
     private const val TAG = "NotificationListService"
 
     /**
-     * Whether the listener is needed: while the list is on and Backtalk is on. A bound listener
-     * keeps Backtalk's process running, and with it the audio and speech engine it held, after
-     * Backtalk is turned off, which can leave another screen reader turned on then silent.
+     * Whether the listener is needed: while the list is on and newTalk is on. A bound listener
+     * keeps newTalk's process running, and with it the audio and speech engine it held, after
+     * newTalk is turned off, which can leave another screen reader turned on then silent.
      */
     fun isNeeded(context: Context): Boolean =
       TalkBackService.getInstance() != null && NotificationList.isEnabled(context)
 
-    /** Connects the listener when Backtalk starts, if it is needed. */
+    /** Connects the listener when newTalk starts, if it is needed. */
     @JvmStatic
     fun onBacktalkStarted(context: Context) {
       if (instance == null && isNeeded(context) && NotificationList.isAccessGranted(context)) {
@@ -114,7 +114,7 @@ class NotificationListService : NotificationListenerService() {
       }
     }
 
-    /** Disconnects the listener when Backtalk stops. */
+    /** Disconnects the listener when newTalk stops. */
     @JvmStatic
     fun onBacktalkStopped() {
       instance?.unbind()
@@ -122,7 +122,7 @@ class NotificationListService : NotificationListenerService() {
 
     /**
      * Asks Android to connect the listener again. Android ignores that while it takes the listener
-     * for connected, as it can after an update killed Backtalk's process twice, so if the listener
+     * for connected, as it can after an update killed newTalk's process twice, so if the listener
      * hasn't connected soon after, it is unbound and asked for again.
      */
     fun rebind(context: Context) {

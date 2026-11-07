@@ -31,10 +31,10 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils
  * Watches for another accessibility service that explores by touch, such as a second screen reader
  * or a screen reader's helper service.
  *
- * Android keeps one gesture detection mode for each display, shared by every service. When Backtalk
+ * Android keeps one gesture detection mode for each display, shared by every service. When newTalk
  * recognizes gestures itself and another service handles touches too, double tap and double-tap
  * and hold can stop working, which leaves the phone unusable (#242). While another service explores
- * by touch, Backtalk leaves gestures to Android, as TalkBack does.
+ * by touch, newTalk leaves gestures to Android, as TalkBack does.
  *
  * [onChanged] runs on the main thread when [otherServiceExploresByTouch] changes. It runs at once
  * when another service starts exploring by touch, and shortly after the last one stops, because

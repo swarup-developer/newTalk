@@ -40,7 +40,7 @@ import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 
 /**
- * Plays Backtalk's sounds and speech on one low-latency audio track at the device's own sample
+ * Plays newTalk's sounds and speech on one low-latency audio track at the device's own sample
  * rate, so that Android can give it its fast path, which reaches the speaker tens of milliseconds
  * sooner than ordinary tracks. Short sounds are mixed together, and speech streams play one after
  * another, as they arrive from the engine.
@@ -179,7 +179,7 @@ class LowLatencyAudio private constructor(context: Context, private val attribut
 
     /**
      * The engine's audio has been digital silence for [SILENT_MS], as if it applied the zero volume
-     * Backtalk gives it itself, so the stream plays nothing.
+     * newTalk gives it itself, so the stream plays nothing.
      */
     fun onSilent(id: String)
 
@@ -230,7 +230,7 @@ class LowLatencyAudio private constructor(context: Context, private val attribut
           !AudioDecoder.isSupportedEncoding(encoding) ||
             !SpatialSoundPlayer.isSupportedFormat(rate, channels)
         ) {
-          // An engine can claim any format. One Backtalk cannot play is said the usual way.
+          // An engine can claim any format. One newTalk cannot play is said the usual way.
           LogUtils.w(TAG, "Speech %s has unsupported format %d Hz %d ch %d", id, rate, channels, encoding)
           if (streams.remove(this)) abandon(playerFailed = false)
           return

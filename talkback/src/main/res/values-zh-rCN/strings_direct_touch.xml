@@ -13,8 +13,8 @@
     <!-- Direct touch settings: master switch title. [CHAR LIMIT=40] -->
     <string name="pref_direct_touch_master">直接触摸</string>
     <!-- Direct touch settings: master switch summary. [CHAR LIMIT=NONE] -->
-    <string name="pref_direct_touch_master_summary">把触摸直接传给你在下方选择的应用，并为对话框、文本框、键盘和系统界面收回给 Backtalk。</string>
-    <!-- Direct touch settings: switch that makes Backtalk speak when direct touch changes. [CHAR LIMIT=60] -->
+    <string name="pref_direct_touch_master_summary">把触摸直接传给你在下方选择的应用，并为对话框、文本框、键盘和系统界面收回给 newTalk。</string>
+    <!-- Direct touch settings: switch that makes newTalk speak when direct touch changes. [CHAR LIMIT=60] -->
     <string name="pref_direct_touch_speech">直接触摸变化时朗读</string>
     <!-- Direct touch settings: switch that makes the phone vibrate when direct touch changes. [CHAR LIMIT=60] -->
     <string name="pref_direct_touch_haptics">直接触摸变化时振动</string>

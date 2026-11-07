@@ -103,7 +103,7 @@ class ScriptManager(
     node: AccessibilityNodeInfoCompat,
     speech: CharSequence,
   ): CharSequence? {
-    // Scripts leave Backtalk's own screens alone, so its settings can always be used to turn a
+    // Scripts leave newTalk's own screens alone, so its settings can always be used to turn a
     // script off.
     if (node.packageName?.toString() == service.packageName) {
       return null
@@ -275,7 +275,7 @@ class ScriptManager(
   val isClosed: Boolean
     get() = closed
 
-  /** Whether a Backtalk screen is in front, where scripts can't read, act or show anything. */
+  /** Whether a newTalk screen is in front, where scripts can't read, act or show anything. */
   val inBacktalk: Boolean
     get() = activation.inBacktalk
 
@@ -298,7 +298,7 @@ class ScriptManager(
   fun onScriptError(runtime: ScriptRuntime, message: String, interrupted: Boolean) {
     val id = runtime.id
     ScriptLog.add(id, ScriptLog.Level.ERROR, message)
-    // Calls are refused on Backtalk's own screens, which is no fault of the script.
+    // Calls are refused on newTalk's own screens, which is no fault of the script.
     if (activation.inBacktalk && !interrupted) {
       return
     }

@@ -43,7 +43,7 @@ import com.google.android.accessibility.utils.output.SpeechController.SpeakOptio
 import com.google.android.libraries.accessibility.utils.log.LogUtils
 
 /**
- * Shows the Backtalk menu as a circle in an accessibility overlay. The user touches the screen,
+ * Shows the newTalk menu as a circle in an accessibility overlay. The user touches the screen,
  * slides to an item, and lifts to select it. Lifting in the middle of the circle or outside it
  * closes the menu.
  *
@@ -282,7 +282,7 @@ class RadialMenuController(
         R.raw.radial_menu_8,
       )
 
-    /** Whether the user chose to show the Backtalk menu as a circle. */
+    /** Whether the user chose to show the newTalk menu as a circle. */
     @JvmStatic
     fun isEnabled(context: Context): Boolean {
       // A watch's round screen suits a circle; it is scaled to fit.

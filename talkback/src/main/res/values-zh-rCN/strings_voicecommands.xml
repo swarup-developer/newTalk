@@ -126,11 +126,11 @@
   <!-- Voice command help: placing a call to a contact or phone number. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_help_call">呼叫 [联系人] 或呼叫 [电话号码]</string>
   <!-- Voice command help: explains confirming a call, calling on speaker and choosing between contacts. [CHAR_LIMIT=NONE] -->
-  <string name="voice_commands_help_call_description">Backtalk 会重复即将呼叫的联系人，您说“是”即可确认。加上“开免提”可通过免提拨打。如果匹配到多位联系人，说序号即可选择</string>
+  <string name="voice_commands_help_call_description">newTalk 会重复即将呼叫的联系人，您说“是”即可确认。加上“开免提”可通过免提拨打。如果匹配到多位联系人，说序号即可选择</string>
   <!-- Voice command help: answering, declining or ending a call. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_help_call_control">接听来电、拒接或挂断</string>
   <!-- Voice command help: other phrases for call control, and the permissions it asks for. [CHAR_LIMIT=NONE] -->
-  <string name="voice_commands_help_call_control_description">也可说“接听电话”“拒绝来电”和“结束通话”。首次使用时，Backtalk 会请求电话和联系人权限</string>
+  <string name="voice_commands_help_call_control_description">也可说“接听电话”“拒绝来电”和“结束通话”。首次使用时，newTalk 会请求电话和联系人权限</string>
   <string name="voice_commands_help_copy_description">先选择文字，然后才能复制</string>
   <string name="voice_commands_help_cut_description">先选择文字，然后才能剪切</string>
   <string name="voice_commands_help_delete_description">先选择文字，然后才能删除</string>
@@ -161,7 +161,7 @@
   <!-- One numbered entry in the list of matching contacts; %1$d is its number and %2$s is the contact name. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_call_choose_item">%1$d，%2$s。</string>
   <!-- Spoken before Android asks for the phone and contacts permissions that calling by voice needs. [CHAR_LIMIT=NONE] -->
-  <string name="voice_commands_call_permission_needed">要使用语音拨打和接听电话，Backtalk 需获取权限。请在后续界面中授权，然后再次说出指令。</string>
+  <string name="voice_commands_call_permission_needed">要使用语音拨打和接听电话，newTalk 需获取权限。请在后续界面中授权，然后再次说出指令。</string>
   <!-- Spoken when the voice command answers a ringing call. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_call_answering">接听来电</string>
   <!-- Spoken when the voice command declines a ringing call. [CHAR_LIMIT=NONE] -->

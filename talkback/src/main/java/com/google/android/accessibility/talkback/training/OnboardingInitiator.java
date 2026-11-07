@@ -91,7 +91,7 @@ public class OnboardingInitiator {
    * @return {@code true} if the onboarding for new features is initiated
    */
   public static boolean showOnboardingIfNecessary(Context context) {
-    // The onboarding pages describe Google's TalkBack releases, not Backtalk's changes.
+    // The onboarding pages describe Google's TalkBack releases, not newTalk's changes.
     markAllOnboardingAsShown(context);
     if (FormFactorUtils.isAndroidTv() || FormFactorUtils.isAndroidWear()) {
       return false;

@@ -21,7 +21,7 @@ import android.view.accessibility.AccessibilityEvent
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import com.google.android.accessibility.utils.AccessibilityEventUtils
 
-/** What Backtalk already did for an app's focus event before it arrived. */
+/** What newTalk already did for an app's focus event before it arrived. */
 enum class EarlyFocusMatch {
   /** Nothing: the event is handled as usual. */
   NONE,
@@ -43,7 +43,7 @@ enum class EarlyFocusMatch {
 }
 
 /**
- * Remembers the nodes whose accessibility focus was spoken as soon as Backtalk focused them, so
+ * Remembers the nodes whose accessibility focus was spoken as soon as newTalk focused them, so
  * that the app's focus events for them, which come later, are not spoken again.
  *
  * Each node is remembered for one focus event, for at most [MAX_WAIT_MS].
@@ -67,7 +67,7 @@ class EarlyFocusSpeech(clock: () -> Long = SystemClock::uptimeMillis) {
     records.addStateUpdated(node, actionTime)
 
   /**
-   * Forgets [node], which Backtalk has focused again without speaking it early, such as by touch,
+   * Forgets [node], which newTalk has focused again without speaking it early, such as by touch,
    * so that its next focus event is spoken.
    */
   fun forget(node: AccessibilityNodeInfoCompat) = records.forget(node)
@@ -136,7 +136,7 @@ class EarlyFocusRecords<T>(maxItems: Int, maxAgeMs: Long, clock: () -> Long) {
    * Returns what was already done for the focus event of [item] (null when not looked up) sent at
    * [eventTime], and, if [consume], forgets the entry it matched.
    *
-   * The app sends its focus event while Backtalk performs the focus action, so after the action
+   * The app sends its focus event while newTalk performs the focus action, so after the action
    * started. An event sent before the latest focus action handled early started is stale: that
    * action took the focus away from its node. An [eventTime] of 0 is unknown.
    */

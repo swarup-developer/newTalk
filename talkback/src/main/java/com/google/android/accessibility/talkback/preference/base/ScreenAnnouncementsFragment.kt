@@ -18,7 +18,7 @@ package com.google.android.accessibility.talkback.preference.base
 
 import com.google.android.accessibility.talkback.R
 
-/** What Backtalk says when the screen turns off or on and when the phone is unlocked. */
+/** What newTalk says when the screen turns off or on and when the phone is unlocked. */
 class ScreenAnnouncementsFragment : TalkbackBaseFragment(R.xml.screen_announcement_preferences) {
   override fun getTitle(): CharSequence = getText(R.string.title_pref_screen_announcements)
 }

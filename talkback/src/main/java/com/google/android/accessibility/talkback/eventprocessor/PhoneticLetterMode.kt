@@ -22,7 +22,7 @@ import com.google.android.accessibility.talkback.R
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences
 
 /**
- * How Backtalk says the phonetic word for a letter, such as "hotel" for h. This replaced an on/off
+ * How newTalk says the phonetic word for a letter, such as "hotel" for h. This replaced an on/off
  * setting, whose on is [AFTER_LETTER_DELAY].
  */
 object PhoneticLetterMode {

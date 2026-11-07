@@ -452,7 +452,7 @@ public final class FeatureSupport {
   /** Returns {@code true} if the device supports animation off by Accessibility service. */
   public static boolean supportsServiceControlOfGlobalAnimations() {
     // TalkBack turned this off until it could reliably revert the animation scale when it is turned
-    // off. Backtalk is the user's screen reader rather than one of several, and it already restores
+    // off. newTalk is the user's screen reader rather than one of several, and it already restores
     // the saved scale in onUnbind, so it turns animations off as the setting says.
     return BuildVersionUtils.isAtLeastT();
   }

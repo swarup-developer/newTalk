@@ -75,7 +75,7 @@ public class FeedbackController {
   public static final int SPATIAL_3D_WITH_HEADPHONES = 2;
 
   /**
-   * How Backtalk's sounds play: as speech, so that they follow the audio output device and the
+   * How newTalk's sounds play: as speech, so that they follow the audio output device and the
    * volume chosen for speech. Set by {@link #setUseAccessibilityStream}.
    */
   private static volatile AudioAttributes sFeedbackAttributes =
@@ -566,8 +566,8 @@ public class FeedbackController {
   }
 
   /**
-   * Returns whether Backtalk's sounds go to headphones: a Bluetooth headset or headphones, wired or
-   * USB headphones, or hearing aids. On Android 13 and later it asks where audio with Backtalk's
+   * Returns whether newTalk's sounds go to headphones: a Bluetooth headset or headphones, wired or
+   * USB headphones, or hearing aids. On Android 13 and later it asks where audio with newTalk's
    * attributes goes, so that sounds stay flat on the phone speaker, and on a Bluetooth speaker or
    * car that is connected but not playing them. Before that, it can only tell what is connected.
    */
@@ -797,7 +797,7 @@ public class FeedbackController {
         .build();
   }
 
-  /** How Backtalk's sounds play, with the volume speech uses. */
+  /** How newTalk's sounds play, with the volume speech uses. */
   public static AudioAttributes feedbackAttributes() {
     return sFeedbackAttributes;
   }

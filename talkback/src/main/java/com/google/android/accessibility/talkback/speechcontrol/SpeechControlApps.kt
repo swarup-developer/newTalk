@@ -18,7 +18,7 @@ package com.google.android.accessibility.talkback.speechcontrol
 
 import android.content.SharedPreferences
 
-/** Which apps the user let speak through Backtalk, and which they didn't. */
+/** Which apps the user let speak through newTalk, and which they didn't. */
 object SpeechControlApps {
   enum class State {
     ALLOWED,

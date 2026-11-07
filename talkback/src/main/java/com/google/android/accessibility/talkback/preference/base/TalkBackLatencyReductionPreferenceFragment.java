@@ -325,7 +325,7 @@ public class TalkBackLatencyReductionPreferenceFragment extends TalkbackBaseFrag
     }
   }
 
-  /** Moving before the finger lifts needs Backtalk to detect the gestures itself. */
+  /** Moving before the finger lifts needs newTalk to detect the gestures itself. */
   private void removeSwipeBeforeLiftPreferenceIfNeeded() {
     Preference pref = findPreferenceByResId(R.string.pref_swipe_before_lift_key);
     if (pref != null && !FeatureSupport.supportGestureDetection()) {

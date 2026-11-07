@@ -100,7 +100,7 @@
     <!-- Entry that sets how long to wait for an answer. [CHAR LIMIT=40] -->
     <string name="pref_on_device_ai_timeout">回答时间上限</string>
     <!-- Summary of the time limit entry. %1$s is the current limit, like "3 minutes". [CHAR LIMIT=NONE] -->
-    <string name="pref_on_device_ai_timeout_summary">%1$s。超过此时长后 Backtalk 停止等待。描述屏幕比描述图像耗时更久。</string>
+    <string name="pref_on_device_ai_timeout_summary">%1$s。超过此时长后 newTalk 停止等待。描述屏幕比描述图像耗时更久。</string>
     <!-- Title of the time limit dialog. [CHAR LIMIT=40] -->
     <string name="on_device_ai_choose_timeout">回答时间上限</string>
     <!-- A time limit in minutes. [CHAR LIMIT=20] -->

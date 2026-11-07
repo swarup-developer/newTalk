@@ -30,7 +30,7 @@ import java.io.File
 import java.io.FileNotFoundException
 
 /**
- * Shares this app's settings and custom labels, read-only, with Backtalk under its new app ID.
+ * Shares this app's settings and custom labels, read-only, with newTalk under its new app ID.
  *
  * Only apps signed with the same key can use it, since it requires [AppIdMove.PERMISSION]. It
  * lists the files at content://<authority>/files and opens one at

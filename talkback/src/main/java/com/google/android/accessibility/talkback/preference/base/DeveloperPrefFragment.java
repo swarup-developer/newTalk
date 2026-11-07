@@ -225,7 +225,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
       if (FeatureSupport.supportGestureDetection()) {
         serviceGestureDetectionPref.setOnPreferenceChangeListener(
             (preference, newValue) -> {
-              // Turning it on or off only takes effect when Backtalk restarts.
+              // Turning it on or off only takes effect when newTalk restarts.
               Toast.makeText(
                       getContext(),
                       R.string.toast_pref_talkback_gesture_detection,

@@ -89,7 +89,7 @@ class BrailleImeVibrator private constructor(context: Context) {
   }
 
   /**
-   * Plays Backtalk's own vibration named [themeName], as sound themes name it, even while the
+   * Plays newTalk's own vibration named [themeName], as sound themes name it, even while the
    * keyboard is closed, so that Individual sounds and vibrations can preview it. Returns false if
    * there is no such vibration.
    */

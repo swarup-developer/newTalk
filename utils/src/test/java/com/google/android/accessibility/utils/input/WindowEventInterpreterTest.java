@@ -70,7 +70,7 @@ import org.robolectric.util.ReflectionHelpers.ClassParameter;
  * Feeds the window interpreter the window events of common screen changes, with the windows the
  * system would list at each moment, and records every interpretation that reaches its listeners.
  * Each test pins down all that a listener can read, so that changes to how the interpreter looks up
- * windows can show that what it tells the rest of Backtalk stays the same.
+ * windows can show that what it tells the rest of newTalk stays the same.
  *
  * <p>The main looper is paused, so time passes only when a test waits, and the 10 ms checks of a
  * window change run one by one.

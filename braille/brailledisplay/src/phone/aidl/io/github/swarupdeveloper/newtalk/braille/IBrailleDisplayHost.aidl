@@ -14,10 +14,10 @@
  * the License.
  */
 
-package fyi.quin.backtalk.braille;
+package io.github.swarupdeveloper.newtalk.braille;
 
 /**
- * Backtalk's side of a braille display that another app provides. See docs/braille-display-api.md.
+ * newTalk's side of a braille display that another app provides. See docs/braille-display-api.md.
  */
 oneway interface IBrailleDisplayHost {
     /**
@@ -36,7 +36,7 @@ oneway interface IBrailleDisplayHost {
     void brailleKeys(int dots, boolean space);
 
     /**
-     * Runs a braille display command, named as in Backtalk's BrailleInputEvent without the CMD_
+     * Runs a braille display command, named as in newTalk's BrailleInputEvent without the CMD_
      * prefix, such as NAV_ITEM_NEXT, or ROUTE with the cell as the argument.
      */
     void command(String name, int argument);

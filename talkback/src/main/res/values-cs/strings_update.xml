@@ -9,7 +9,7 @@
     <string name="update_dialog_title">Je k dispozici sestavení Backtalku <xliff:g id="build" example="97">%1$d</xliff:g></string>
     <string name="update_dialog_install">Nainstalovat</string>
     <string name="update_checking">Kontrola aktualizací</string>
-    <string name="update_up_to_date">Backtalk je aktuální</string>
+    <string name="update_up_to_date">newTalk je aktuální</string>
     <string name="update_check_failed">Aktualizace se nepodařilo zkontrolovat</string>
     <string name="update_downloading">Stahování aktualizace</string>
     <string name="update_install_failed">Aktualizaci se nepodařilo nainstalovat</string>

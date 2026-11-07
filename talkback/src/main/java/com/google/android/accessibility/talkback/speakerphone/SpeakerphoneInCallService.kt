@@ -38,10 +38,10 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils
  * Switches a call to the speaker when the phone is away from the user's ear, and back to the
  * earpiece when it is held up again, like VoiceOver on iPhone.
  *
- * Android binds this service during calls only when Backtalk holds MANAGE_ONGOING_CALLS, which the
+ * Android binds this service during calls only when newTalk holds MANAGE_ONGOING_CALLS, which the
  * user grants with adb or Shizuku. It has no call screen of its own. It watches the proximity
  * sensor only while a call can be heard and the setting is on, and only switches the call while
- * Backtalk is on and not paused, so that turning Backtalk off or on, or pausing it, takes effect
+ * newTalk is on and not paused, so that turning newTalk off or on, or pausing it, takes effect
  * during a call.
  */
 @RequiresApi(Build.VERSION_CODES.S)
@@ -83,7 +83,7 @@ class SpeakerphoneInCallService : InCallService() {
   private val applyReading = Runnable {
     val nearEar = pendingNearEar ?: return@Runnable
     if (!TalkBackService.isServiceActive() || PauseController.isPaused()) {
-      // Forget the reading, so the next one switches once Backtalk is back.
+      // Forget the reading, so the next one switches once newTalk is back.
       pendingNearEar = null
       return@Runnable
     }

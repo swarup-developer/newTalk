@@ -1,6 +1,6 @@
-# Writing Backtalk scripts
+# Writing newTalk scripts
 
-A script is a JavaScript file that changes how Backtalk works in one app, or in every app. This document describes the whole script API.
+A script is a JavaScript file that changes how newTalk works in one app, or in every app. This document describes the whole script API.
 
 Scripts run on phones and tablets. Watches and TVs can't run them.
 
@@ -11,9 +11,9 @@ A script is one of these:
 *   A `.js` file, up to 1 MB.
 *   A `.zip` file with a `main.js` in it, plus anything `main.js` uses: other JavaScript modules, sounds, and translations. The zip can be up to 5 MB, up to 5 MB unpacked, and hold up to 200 files.
 
-To install a script, go to **Apps** > **Scripts** in Backtalk settings and choose **Import script**. Backtalk lists what the script asks to do before it installs it. Importing a file with the id of a script that's already installed updates that script and keeps its data and settings; Backtalk always asks first, and says so if the author changed.
+To install a script, go to **Apps** > **Scripts** in newTalk settings and choose **Import script**. newTalk lists what the script asks to do before it installs it. Importing a file with the id of a script that's already installed updates that script and keeps its data and settings; newTalk always asks first, and says so if the author changed.
 
-To find scripts, choose **Script sources** on the Scripts screen. The list starts with the [backtalk-scripts](https://github.com/trypsynth/backtalk-scripts) repository. To add another, choose **Add source**. A source is the address of a repository, or of a branch or folder in one, on GitHub, GitLab, Codeberg, Gitea (gitea.com) or Bitbucket:
+To find scripts, choose **Script sources** on the Scripts screen. The list starts with the [newtalk-scripts](https://github.com/swarup-developer/newtalk-scripts) repository. To add another, choose **Add source**. A source is the address of a repository, or of a branch or folder in one, on GitHub, GitLab, Codeberg, Gitea (gitea.com) or Bitbucket:
 
 *   `github.com/owner/repository` or `github.com/owner/repository/tree/main/scripts`
 *   `gitlab.com/group/repository` or `gitlab.com/group/subgroup/repository/-/tree/main/scripts`
@@ -23,7 +23,7 @@ To find scripts, choose **Script sources** on the Scripts screen. The list start
 
 Only public repositories on these services work. The source's `.js` and `.zip` files are listed. Choosing one downloads it and shows the same install dialog as **Import script**. **Remove source** on a source's screen removes it from the list; scripts already installed from it stay installed.
 
-Scripts run in [QuickJS](https://github.com/quickjs-ng/quickjs), so you can use modern JavaScript, including modules, classes, `async` and `await`. A script can't reach Android directly. It has no file system, no `require`, and no Java classes; everything goes through the `backtalk` object described below.
+Scripts run in [QuickJS](https://github.com/quickjs-ng/quickjs), so you can use modern JavaScript, including modules, classes, `async` and `await`. A script can't reach Android directly. It has no file system, no `require`, and no Java classes; everything goes through the `newtalk` object described below.
 
 ## A first script
 
@@ -37,21 +37,21 @@ export const manifest = {
   permissions: ['speech'],
 };
 
-backtalk.onAppEnter(() => backtalk.speak('Hello from a script'));
+newtalk.onAppEnter(() => newtalk.speak('Hello from a script'));
 ```
 
-[examples/example-plugin.js](scripting/examples/example-plugin.js) is a longer one. It also comes with Backtalk: choose **Add the example script** on the Scripts screen.
+[examples/example-plugin.js](scripting/examples/example-plugin.js) is a longer one. It also comes with newTalk: choose **Add the example script** on the Scripts screen.
 
 ## The manifest
 
-`main.js` must contain `export const manifest = { ... }`. Backtalk reads it without running the rest of the script, so it can only hold plain values: no variables, function calls or template strings with expressions.
+`main.js` must contain `export const manifest = { ... }`. newTalk reads it without running the rest of the script, so it can only hold plain values: no variables, function calls or template strings with expressions.
 
 | Field | Meaning |
 |---|---|
 | `id` | Required. Lowercase letters, digits, dots, dashes and underscores, starting with a letter or digit, up to 64 characters. A script with the same id replaces the installed one. |
 | `name` | Required. Shown in the Scripts list, and at the start of the title of every dialog the script shows. |
 | `author` | Required. |
-| `minBuild` | The oldest Backtalk build the script works with, such as `345`. See [Older Backtalk builds](#older-backtalk-builds). |
+| `minBuild` | The oldest newTalk build the script works with, such as `345`. See [Older newTalk builds](#older-newtalk-builds). |
 | `version` | The script's own version, as text. The default is `'1'`. |
 | `description` | Shown on the script's page and before it's installed. |
 | `homepage` | An `http` or `https` address. The script's page has a button that opens it. |
@@ -59,14 +59,14 @@ backtalk.onAppEnter(() => backtalk.speak('Hello from a script'));
 | `permissions` | A list of the [permissions](#permissions) the script needs. |
 | `settings` | [Settings](#settings) the user can change on the script's page. |
 | `rules` | [Rules](#rules) that change items without running any code. |
-| `commands` | [Commands](#commands) the user can run with a gesture, keys, the Backtalk menu or reading controls. |
+| `commands` | [Commands](#commands) the user can run with a gesture, keys, the newTalk menu or reading controls. |
 | `navigation` | [Reading controls](#navigation) that move between items of a kind. |
 
-### Older Backtalk builds
+### Older newTalk builds
 
-Backtalk builds are numbered. When a feature needs a newer build than the first one with scripts, this document says which, such as "Needs build 345".
+newTalk builds are numbered. When a feature needs a newer build than the first one with scripts, this document says which, such as "Needs build 345".
 
-Set `minBuild` to the newest build your script needs. On an older build, Backtalk warns before installing the script, and its page says it may not work. Scripts can check `backtalk.build` before using a newer function.
+Set `minBuild` to the newest build your script needs. On an older build, newTalk warns before installing the script, and its page says it may not work. Scripts can check `newtalk.build` before using a newer function.
 
 An older build that finds a field it doesn't know leaves out what holds it, and says so before installing:
 
@@ -87,16 +87,16 @@ apps: [
 ],
 ```
 
-*   `activity` limits the script to one screen. It's the activity's full class name, or the end of it. Backtalk learns the activity from the app's window changes. Until it has seen one, such as just after Backtalk is updated or the phone restarts with the app open, the script runs in all of the app's screens.
+*   `activity` limits the script to one screen. It's the activity's full class name, or the end of it. newTalk learns the activity from the app's window changes. Until it has seen one, such as just after newTalk is updated or the phone restarts with the app open, the script runs in all of the app's screens.
 *   `window` limits it to windows whose title contains the text.
 
-A script with `apps` is loaded when one of its apps comes to the front and unloaded when it leaves, so anything it keeps in variables is lost then. Use [`backtalk.storage`](#storage) for what should last.
+A script with `apps` is loaded when one of its apps comes to the front and unloaded when it leaves, so anything it keeps in variables is lost then. Use [`newtalk.storage`](#storage) for what should last.
 
 A script without `apps` runs in every app and is loaded as long as it's turned on.
 
-Scripts never change Backtalk's own screens. Rules, speech changes, gestures, keys, menu items and reading controls from scripts don't apply there, and a script can't name Backtalk in `apps`. While a Backtalk screen is in front, calls that need the `screen`, `actions`, `system` or `dialogs` permission throw an error, `backtalk.speak` doesn't interrupt, and scripts get no events from Backtalk itself. This is so that **Apps** > **Scripts** always works, whatever a script does.
+Scripts never change newTalk's own screens. Rules, speech changes, gestures, keys, menu items and reading controls from scripts don't apply there, and a script can't name newTalk in `apps`. While a newTalk screen is in front, calls that need the `screen`, `actions`, `system` or `dialogs` permission throw an error, `newtalk.speak` doesn't interrupt, and scripts get no events from newTalk itself. This is so that **Apps** > **Scripts** always works, whatever a script does.
 
-Scripts are also unloaded while the screen is off, while Backtalk is paused, and while **Turn off all scripts** is on. Timers and requests end when a script is unloaded.
+Scripts are also unloaded while the screen is off, while newTalk is paused, and while **Turn off all scripts** is on. Timers and requests end when a script is unloaded.
 
 ### Permissions
 
@@ -104,19 +104,19 @@ A script can only use what its manifest asks for. The user sees the list before 
 
 | Permission | What it allows |
 |---|---|
-| `screen` | Reading the screen: `backtalk.screen`, the items given to hooks, commands and actions, and the `onFocus`, `onAnnouncement`, `onTextChange` and `onContentChange` hooks. A script for all apps also needs it to learn which app is in front: `backtalk.app`, `onAppEnter`, `onAppLeave` and `onWindowChange`. |
+| `screen` | Reading the screen: `newtalk.screen`, the items given to hooks, commands and actions, and the `onFocus`, `onAnnouncement`, `onTextChange` and `onContentChange` hooks. A script for all apps also needs it to learn which app is in front: `newtalk.app`, `onAppEnter`, `onAppLeave` and `onWindowChange`. |
 | `actions` | Clicking, scrolling, typing and moving focus: `node.click()`, `node.perform()`, `node.focus()`, `node.setText()`, and rule actions other than `speak`. |
-| `speech` | Speaking with `backtalk.speak`, rules that change an item, `backtalk.rules`, changing what a hook was given to say, and the `onSpeech` hook. |
+| `speech` | Speaking with `newtalk.speak`, rules that change an item, `newtalk.rules`, changing what a hook was given to say, and the `onSpeech` hook. |
 | `passwords` | The text of password fields. Without it, that text is left out. |
-| `input` | Commands, `backtalk.bind`, `navigation`, the `onActions` hook, and actions in rules. |
+| `input` | Commands, `newtalk.bind`, `navigation`, the `onActions` hook, and actions in rules. |
 | `network` | `fetch`. |
-| `clipboard` | `backtalk.clipboard`. |
-| `system` | `backtalk.system` and `backtalk.resume`. |
+| `clipboard` | `newtalk.clipboard`. |
+| `system` | `newtalk.system` and `newtalk.resume`. |
 | `notifications` | The `onNotification` hook. |
 | `events` | The `onEvent` hook, which sees every accessibility event in every app. |
-| `dialogs` | `backtalk.ui`. |
+| `dialogs` | `newtalk.ui`. |
 
-Backtalk marks `passwords`, `network`, `clipboard`, `system`, `notifications`, `events` and `dialogs` as ones to allow only for trusted scripts.
+newTalk marks `passwords`, `network`, `clipboard`, `system`, `notifications`, `events` and `dialogs` as ones to allow only for trusted scripts.
 
 ## Rules
 
@@ -142,9 +142,9 @@ A rule can set any of these:
 | Field | Effect |
 |---|---|
 | `label` | The item's name, used where the app gave none or a poor one. |
-| `speak` | Everything Backtalk says for the item, in place of its name, role and state. |
+| `speak` | Everything newTalk says for the item, in place of its name, role and state. |
 | `hide` | `true` hides the item: swiping skips it. `'all'` hides what's inside it too. A hidden item is still there, so a script can click it. |
-| `silence` | `true` stops Backtalk speaking the item's changes, selections and announcements, such as a progress bar's updates. `'all'` silences what's inside it too, such as the seek bar in a grouped row. Focusing the item still speaks it. Needs build 345. |
+| `silence` | `true` stops newTalk speaking the item's changes, selections and announcements, such as a progress bar's updates. `'all'` silences what's inside it too, such as the seek bar in a grouped row. Focusing the item still speaks it. Needs build 345. |
 | `role` | The item's role, such as `'button'`. An unknown role is an error that lists the roles. |
 | `state` | The item's state, such as `'Selected'`. |
 | `hint` | The usage hint. |
@@ -156,9 +156,9 @@ A rule can set any of these:
 | `liftToActivate` | `true` activates the item when the finger lifts from it after touching it, as **Lift to activate** does, whatever that setting is. Needs build 395. |
 | `longPressAfter` | For an item with `liftToActivate`, a number of milliseconds from 100 to 10,000. Holding the finger on the item for that time long-presses it, and lifting the finger then does nothing more. Items that can't be long-pressed are left alone. Needs build 395. |
 
-When several rules match an item, the first one that sets a field wins for that field. Rules from scripts for the app come before rules from scripts for all apps, and `backtalk.rules.add` comes before the manifest.
+When several rules match an item, the first one that sets a field wins for that field. Rules from scripts for the app come before rules from scripts for all apps, and `newtalk.rules.add` comes before the manifest.
 
-To find an item's id, class and role, assign **Inspect focused item** to a gesture, or add it to the Backtalk menu in **Customize menus**. **Copy screen tree** copies every item on screen as JSON.
+To find an item's id, class and role, assign **Inspect focused item** to a gesture, or add it to the newTalk menu in **Customize menus**. **Copy screen tree** copies every item on screen as JSON.
 
 ### Actions in rules
 
@@ -174,7 +174,7 @@ To find an item's id, class and role, assign **Inspect focused item** to a gestu
 
 Each action has a `title` and one of `click`, `longClick`, `focus`, `scrollForward`, `scrollBackward` or `speak`. All but `speak` take the item to act on, as an id or a query, and need the `actions` permission. `speak` takes text, or `{ textOf: item }`, which needs `screen`. Actions in rules need the `input` permission.
 
-Backtalk looks for the item inside the focused item first, and then on the whole screen. In a list where every row has the same button, the second search finds the first row's button, so use the [`onActions` hook](#hooks) there and search from the row yourself.
+newTalk looks for the item inside the focused item first, and then on the whole screen. In a list where every row has the same button, the second search finds the first row's button, so use the [`onActions` hook](#hooks) there and search from the row yourself.
 
 ## Queries
 
@@ -195,7 +195,7 @@ A query finds items. It's an id as text, or an object with any of these; an item
 
 ## Items
 
-Hooks, commands and `backtalk.screen` give you items. An item is a snapshot: its fields don't change when the screen does. Call `refresh()` for a new one.
+Hooks, commands and `newtalk.screen` give you items. An item is a snapshot: its fields don't change when the screen does. Call `refresh()` for a new one.
 
 Fields: `text`, `contentDescription`, `hint`, `stateDescription`, `id`, `className`, `role`, `packageName`, `windowId`, `bounds` (`left`, `top`, `right`, `bottom`), `childCount`, `selectionStart`, `selectionEnd`, `checkable`, `checked`, `clickable`, `longClickable`, `focusable`, `focused`, `accessibilityFocused`, `selected`, `enabled`, `editable`, `password`, `scrollable`, `visible`, `heading`, and `actions`, a list of `{ id, label }`.
 
@@ -208,11 +208,11 @@ Fields: `text`, `contentDescription`, `hint`, `stateDescription`, `id`, `classNa
 | `click()`, `longClick()`, `scrollForward()`, `scrollBackward()` | Performs the action. Returns a promise of whether it worked. |
 | `perform(action, args)` | Performs `click`, `longClick`, `scrollForward`, `scrollBackward`, `expand`, `collapse`, `dismiss`, `copy`, `cut`, `paste`, `select`, a custom action by its label, or any action by its number. |
 | `setText(text)` | Replaces the text of an edit field. |
-| `focus()` | Moves Backtalk's focus to the item. |
+| `focus()` | Moves newTalk's focus to the item. |
 
-Backtalk keeps the last 500 items a script was given. Using an older one throws "That item is no longer available".
+newTalk keeps the last 500 items a script was given. Using an older one throws "That item is no longer available".
 
-## The backtalk object
+## The newtalk object
 
 ### Hooks
 
@@ -220,10 +220,10 @@ Each of these takes a function and returns a function that removes it again.
 
 | Hook | Called | Arguments |
 |---|---|---|
-| `onFocus` | Before Backtalk speaks a focused item. | The item, and the text Backtalk will say. |
-| `onSpeech` | Before Backtalk says anything. | The text. |
-| `onNotification` | Before Backtalk speaks a notification or toast. | `{ package, toast, title, text, category }`, and the text. |
-| `onAnnouncement` | Before Backtalk speaks an app's announcement. | `{ package, text }`, and the text. |
+| `onFocus` | Before newTalk speaks a focused item. | The item, and the text newTalk will say. |
+| `onSpeech` | Before newTalk says anything. | The text. |
+| `onNotification` | Before newTalk speaks a notification or toast. | `{ package, toast, title, text, category }`, and the text. |
+| `onAnnouncement` | Before newTalk speaks an app's announcement. | `{ package, text }`, and the text. |
 | `onAppEnter`, `onAppLeave` | When the app in front changes, or the script loads or unloads. | `{ package, activity, window }`. |
 | `onWindowChange` | When a window opens or changes. | `{ package, activity, window }`. |
 | `onTextChange` | When text in an edit field changes. | `{ package, node, text, before, from, added, removed, password }`. |
@@ -231,7 +231,7 @@ Each of these takes a function and returns a function that removes it again.
 | `onEvent` | For every accessibility event. | `{ type, package, className, text, contentDescription, beforeText, password, windowId, time }`. |
 | `onSettingChange` | When the user changes one of the script's settings. | The key and the new value. |
 | `onButton` | When the user presses a button setting. | The key. |
-| `onActions` | When Backtalk builds the Actions menu for an item. | The item. Return a list of `{ title, run }`; `run` is called with the item. |
+| `onActions` | When newTalk builds the Actions menu for an item. | The item. Return a list of `{ title, run }`; `run` is called with the item. |
 
 The first four can change what's said. Return:
 
@@ -240,7 +240,7 @@ The first four can change what's said. Return:
 *   `false` or `{ silent: true }` to say nothing.
 *   Nothing, to leave it alone.
 
-Changing speech needs the `speech` permission. Backtalk waits 30 milliseconds for these hooks, then speaks without them, so keep them fast and don't `await` in them. Speech hooks take priority over queued background work, and all listeners share that deadline, including queue time. A hook cannot interrupt JavaScript already running. If the script is in the middle of something that takes longer, such as a command, Backtalk doesn't wait at all.
+Changing speech needs the `speech` permission. newTalk waits 30 milliseconds for these hooks, then speaks without them, so keep them fast and don't `await` in them. Speech hooks take priority over queued background work, and all listeners share that deadline, including queue time. A hook cannot interrupt JavaScript already running. If the script is in the middle of something that takes longer, such as a command, newTalk doesn't wait at all.
 
 ### Commands
 
@@ -248,28 +248,28 @@ A command is something the user runs. Declare it in the manifest, and give it at
 
 ```js
 commands: [
-  { id: 'unread', title: 'Next unread', gesture: 'swipeUpThenRight', keys: 'backtalk+u' },
+  { id: 'unread', title: 'Next unread', gesture: 'swipeUpThenRight', keys: 'newtalk+u' },
   { id: 'summary', title: 'Read summary', menu: true },
   { id: 'messages', title: 'Messages', control: true },
 ],
 ```
 
 *   `gesture` is a gesture name or a list of them. The names are in [Gestures](#gestures).
-*   `keys` is keys or a list. Keys start with `backtalk`, Backtalk's modifier key, then any of `shift`, `ctrl`, `alt` and `meta`, then a key: `'backtalk+shift+n'`. A second key can follow a comma: `'backtalk+t, s'`.
-*   `menu: true` adds the command to the Backtalk menu.
+*   `keys` is keys or a list. Keys start with `newtalk`, newTalk's modifier key, then any of `shift`, `ctrl`, `alt` and `meta`, then a key: `'newtalk+shift+n'`. A second key can follow a comma: `'newtalk+t, s'`.
+*   `menu: true` adds the command to the newTalk menu.
 *   `control: true` adds it to the reading controls. Swiping up or down with the control selected runs the command with `direction` set to `'previous'` or `'next'`.
 
-Commands need the `input` permission. The user can turn each gesture and key off on the script's page, or assign others. While a script runs, its gestures and keys come before Backtalk's own, except for the gesture assigned to **Turn all scripts on or off**.
+Commands need the `input` permission. The user can turn each gesture and key off on the script's page, or assign others. While a script runs, its gestures and keys come before newTalk's own, except for the gesture assigned to **Turn all scripts on or off**.
 
 ```js
-backtalk.onCommand('unread', (event) => {
+newtalk.onCommand('unread', (event) => {
   // event.id, event.via ('gesture', 'keys', 'menu' or 'control'), event.direction, event.node
 });
 ```
 
-`event.node` is the focused item. Return `false` to have Backtalk do what the gesture or keys normally do.
+`event.node` is the focused item. Return `false` to have newTalk do what the gesture or keys normally do.
 
-`backtalk.bind(command, { gesture })` or `backtalk.bind(command, { keys })` adds a gesture or keys to a declared command, and `backtalk.unbind` removes one.
+`newtalk.bind(command, { gesture })` or `newtalk.bind(command, { keys })` adds a gesture or keys to a declared command, and `newtalk.unbind` removes one.
 
 ### Navigation
 
@@ -281,28 +281,28 @@ Each entry becomes a reading control that moves to the next or previous item mat
 
 ### Speech, sound and vibration
 
-*   `backtalk.speak(text, { interrupt, rate, pitch, language })`. `rate` and `pitch` are from 0.25 to 4, where 1 is the user's own setting. `language` is a tag such as `'de'`.
-*   `backtalk.playSound(name)` plays one of Backtalk's sounds (`focus`, `actionable`, `click`, `longClick`, `scroll`, `listEnter`, `listExit`, `end`, `enter`, `typo`, `beep`) or a sound file in the script's zip, such as `'sounds/chime.wav'`.
-*   `backtalk.playTone(frequency, ms = 100, { volume })` plays a tone.
-*   `backtalk.playAudio(samples, { sampleRate, volume })` plays samples from -1 to 1, up to 10 seconds.
-*   `backtalk.vibrate(pattern)` vibrates for a number of milliseconds, or a list of up to 20 that alternates vibration and pause, up to 5 seconds.
+*   `newtalk.speak(text, { interrupt, rate, pitch, language })`. `rate` and `pitch` are from 0.25 to 4, where 1 is the user's own setting. `language` is a tag such as `'de'`.
+*   `newtalk.playSound(name)` plays one of newTalk's sounds (`focus`, `actionable`, `click`, `longClick`, `scroll`, `listEnter`, `listExit`, `end`, `enter`, `typo`, `beep`) or a sound file in the script's zip, such as `'sounds/chime.wav'`.
+*   `newtalk.playTone(frequency, ms = 100, { volume })` plays a tone.
+*   `newtalk.playAudio(samples, { sampleRate, volume })` plays samples from -1 to 1, up to 10 seconds.
+*   `newtalk.vibrate(pattern)` vibrates for a number of milliseconds, or a list of up to 20 that alternates vibration and pause, up to 5 seconds.
 
 Sounds and vibration follow the user's **Sound feedback** and **Vibration feedback** settings. A script can play 4 sounds at once; more are skipped.
 
 ### Screen
 
-*   `backtalk.screen.focused()` is the item with Backtalk's focus.
-*   `backtalk.screen.root()` is the top item of the active window.
-*   `backtalk.screen.find(query)` and `backtalk.screen.findAll(query, limit = 50)` search the active window. A search looks at up to 3,000 items, returns up to 200, and stops when the script runs out of [time](#limits).
-*   `backtalk.app` is `{ package, activity, window, meta }` for the app in front. `activity` is `null` until Backtalk has seen the app change window. `meta` holds the meta-data in the app's manifest that has a true or false, number or text value, such as `backtalk.app.meta['com.example.flag']`. Needs build 315.
+*   `newtalk.screen.focused()` is the item with newTalk's focus.
+*   `newtalk.screen.root()` is the top item of the active window.
+*   `newtalk.screen.find(query)` and `newtalk.screen.findAll(query, limit = 50)` search the active window. A search looks at up to 3,000 items, returns up to 200, and stops when the script runs out of [time](#limits).
+*   `newtalk.app` is `{ package, activity, window, meta }` for the app in front. `activity` is `null` until newTalk has seen the app change window. `meta` holds the meta-data in the app's manifest that has a true or false, number or text value, such as `newtalk.app.meta['com.example.flag']`. Needs build 315.
 
 ### Rules from code
 
-`backtalk.rules.add(rule)` adds a rule and returns a number for `backtalk.rules.remove(number)`. `backtalk.rules.clear()` removes all added rules. A script can add up to 200. Fields this build doesn't know are left out as they are in the manifest, with a warning in the script's log, and a rule with nothing left throws an error.
+`newtalk.rules.add(rule)` adds a rule and returns a number for `newtalk.rules.remove(number)`. `newtalk.rules.clear()` removes all added rules. A script can add up to 200. Fields this build doesn't know are left out as they are in the manifest, with a warning in the script's log, and a rule with nothing left throws an error.
 
 ### Storage
 
-`backtalk.storage` keeps data between loads: `get(key, fallback)`, `set(key, value)`, `remove(key)`, `keys()` and `clear()`. Values are anything JSON can hold. A script can store about 512,000 characters. The user can clear it with **Clear stored data**.
+`newtalk.storage` keeps data between loads: `get(key, fallback)`, `set(key, value)`, `remove(key)`, `keys()` and `clear()`. Values are anything JSON can hold. A script can store about 512,000 characters. The user can clear it with **Clear stored data**.
 
 ### Settings
 
@@ -316,17 +316,17 @@ settings: [
 ],
 ```
 
-Settings appear on their own screen on the script's page. `backtalk.settings.get(key)` reads one, `backtalk.settings.all()` reads them all, and `backtalk.settings.set(key, value)` changes one. `backtalk.settings.setOptions(key, options)` replaces the options of a list. A setting's value can be up to 16,384 characters.
+Settings appear on their own screen on the script's page. `newtalk.settings.get(key)` reads one, `newtalk.settings.all()` reads them all, and `newtalk.settings.set(key, value)` changes one. `newtalk.settings.setOptions(key, options)` replaces the options of a list. A setting's value can be up to 16,384 characters.
 
 ### Dialogs
 
 All of these need the `dialogs` permission. Every dialog's title starts with the script's name, so that it can't be taken for the app's own or the system's.
 
-*   `await backtalk.ui.alert(message, { title })`
-*   `await backtalk.ui.confirm(message, { title, ok, cancel })` gives `true` or `false`.
-*   `await backtalk.ui.prompt(title, { text, hint })` gives the text, or `null` if cancelled.
-*   `await backtalk.ui.choose(title, options, { selected })` gives the chosen value, or `null`.
-*   `backtalk.ui.dialog({ title, items, onClose })` shows a form with up to 50 items.
+*   `await newtalk.ui.alert(message, { title })`
+*   `await newtalk.ui.confirm(message, { title, ok, cancel })` gives `true` or `false`.
+*   `await newtalk.ui.prompt(title, { text, hint })` gives the text, or `null` if cancelled.
+*   `await newtalk.ui.choose(title, options, { selected })` gives the chosen value, or `null`.
+*   `newtalk.ui.dialog({ title, items, onClose })` shows a form with up to 50 items.
 
 Each form item has a `type`, an `id`, and usually a `label`:
 
@@ -342,10 +342,10 @@ Each form item has a `type`, an `id`, and usually a `label`:
 
 ### Clipboard, system and network
 
-*   `backtalk.clipboard.get()` and `backtalk.clipboard.set(text)`.
-*   `backtalk.system.back()`, `home()`, `recents()`, `notifications()`, `quickSettings()`, `powerDialog()`, `lockScreen()`, `takeScreenshot()` and `allApps()`.
-*   `backtalk.system.openApp(packageName)`.
-*   `backtalk.resume()` resumes a paused Backtalk. It needs the `system` permission.
+*   `newtalk.clipboard.get()` and `newtalk.clipboard.set(text)`.
+*   `newtalk.system.back()`, `home()`, `recents()`, `notifications()`, `quickSettings()`, `powerDialog()`, `lockScreen()`, `takeScreenshot()` and `allApps()`.
+*   `newtalk.system.openApp(packageName)`.
+*   `newtalk.resume()` resumes a paused newTalk. It needs the `system` permission.
 *   `fetch(url, { method, headers, body, timeout })` works like the web's, for `https` addresses only. `method` is `GET`, `POST`, `PUT`, `DELETE`, `HEAD` or `OPTIONS`. A `body` that isn't text is sent as JSON. The response has `status`, `statusText`, `ok`, `url`, `headers`, `text()` and `json()`. A request body can be 1 MB and a response 5 MB, the timeout is at most 60 seconds, and a script can have 8 requests going at once.
 
 ### Translations
@@ -359,18 +359,18 @@ Put a file for each language in the zip's `locales` folder, named by language ta
 }
 ```
 
-Backtalk translates the manifest's names, titles, labels and hints with it. In code:
+newTalk translates the manifest's names, titles, labels and hints with it. In code:
 
-*   `backtalk._(text, params)` translates text and fills in `{name}` placeholders.
-*   `backtalk.ngettext(singular, plural, count, params)` picks the plural form for the language.
-*   `backtalk.locale` is the device's language tag, and `backtalk.language` the one in use.
+*   `newtalk._(text, params)` translates text and fills in `{name}` placeholders.
+*   `newtalk.ngettext(singular, plural, count, params)` picks the plural form for the language.
+*   `newtalk.locale` is the device's language tag, and `newtalk.language` the one in use.
 
 ### Everything else
 
-*   `backtalk.build` is the build number of this Backtalk. See [Older Backtalk builds](#older-backtalk-builds).
-*   `backtalk.apiVersion` is always 4, the last script API version before build numbers replaced them.
-*   `backtalk.manifest` is the script's manifest.
-*   `console.log`, `info`, `debug`, `warn` and `error` write to the script's **Log**. They reach Android's log only at the level set in Backtalk's developer settings.
+*   `newtalk.build` is the build number of this newTalk. See [Older newTalk builds](#older-newtalk-builds).
+*   `newtalk.apiVersion` is always 4, the last script API version before build numbers replaced them.
+*   `newtalk.manifest` is the script's manifest.
+*   `console.log`, `info`, `debug`, `warn` and `error` write to the script's **Log**. They reach Android's log only at the level set in newTalk's developer settings.
 *   `setTimeout`, `setInterval`, `clearTimeout` and `clearInterval` work as on the web. A script can have 100 timers at once.
 
 ## Gestures
@@ -381,11 +381,11 @@ Backtalk translates the manifest's names, titles, labels and hints with it. In c
 
 *   A script has 2 seconds to load, and 2 seconds for each call into it. Hooks that change speech have 250 milliseconds. Searching the screen counts toward that time.
 *   A script can use 32 MB of memory.
-*   Backtalk turns a script off after 5 errors in a minute, or after it runs out of time 3 times in 5 minutes, and says so.
+*   newTalk turns a script off after 5 errors in a minute, or after it runs out of time 3 times in 5 minutes, and says so.
 
 ## If a script goes wrong
 
 *   The script's page has its **Log**, with what it wrote and every error.
 *   **Turn off all scripts** on the Scripts screen stops every script without changing which ones are on.
 *   **Turn all scripts on or off** does the same from a gesture. Assign it in gesture settings before trying a script you don't trust yet. Scripts can't take over the gesture it's assigned to.
-*   Scripts change nothing in Backtalk's own settings, so you can always get to the Scripts screen.
+*   Scripts change nothing in newTalk's own settings, so you can always get to the Scripts screen.

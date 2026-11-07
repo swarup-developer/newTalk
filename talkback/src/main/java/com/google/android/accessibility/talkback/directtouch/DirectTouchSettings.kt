@@ -20,7 +20,7 @@ import android.content.SharedPreferences
 import com.google.android.accessibility.talkback.focusmanagement.LiftToActivateMode
 
 /**
- * Settings for direct touch: which apps get raw touch, and how Backtalk reports changes. Apps that
+ * Settings for direct touch: which apps get raw touch, and how newTalk reports changes. Apps that
  * declare [CAPABILITY_KEY] or [REGIONS_CAPABILITY_KEY] are turned on the first time they are seen,
  * and after that the user's choice is kept.
  */
@@ -37,9 +37,9 @@ object DirectTouchSettings {
 
   /**
    * The name of the view ID resource that marks a view as a direct touch area, in an app that sets
-   * [REGIONS_CAPABILITY_KEY]. Backtalk asks the app for its views with the ID
+   * [REGIONS_CAPABILITY_KEY]. newTalk asks the app for its views with the ID
    * `<package>:id/dev_nvgt_direct_touch_region`, which the app answers by searching its own views,
-   * so Backtalk never walks the app's tree. Several views can share it.
+   * so newTalk never walks the app's tree. Several views can share it.
    */
   const val REGION_VIEW_ID = "dev_nvgt_direct_touch_region"
 

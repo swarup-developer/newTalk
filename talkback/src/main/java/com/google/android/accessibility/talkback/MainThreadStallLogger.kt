@@ -25,7 +25,7 @@ import android.util.Printer
 
 /**
  * Debug tool that logs the main thread stack while one message blocks it for too long. Filter
- * logcat by the "BacktalkStall" tag to find what TalkBack was waiting on during lag.
+ * logcat by the "NewTalkStall" tag to find what TalkBack was waiting on during lag.
  */
 internal class MainThreadStallLogger private constructor(private val watchdog: Handler) : Printer {
   private val mainThread = Looper.getMainLooper().thread
@@ -53,7 +53,7 @@ internal class MainThreadStallLogger private constructor(private val watchdog: H
   }
 
   companion object {
-    private const val TAG = "BacktalkStall"
+    private const val TAG = "NewTalkStall"
     private const val STALL_THRESHOLD_MS = 100L
 
     private var installed: MainThreadStallLogger? = null

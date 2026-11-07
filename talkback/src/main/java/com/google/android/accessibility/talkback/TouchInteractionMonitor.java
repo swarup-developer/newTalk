@@ -116,7 +116,7 @@ public class TouchInteractionMonitor
         ComponentCallbacks,
         UserInterface.UserInputEventListener {
   private static final String LOG_TAG = "TouchInteractionMonitor";
-  private static final String DEBUG_GESTURE_TAG = "BacktalkGesture";
+  private static final String DEBUG_GESTURE_TAG = "NewTalkGesture";
   private static final float MAX_DRAGGING_ANGLE_COS = 0.525321989f; // cos(pi/4)
   // The height of the top and bottom edges for  edge-swipes.
   // For now this is only used to allow three-finger edge-swipes from the bottom.

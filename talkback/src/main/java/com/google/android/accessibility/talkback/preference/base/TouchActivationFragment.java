@@ -55,7 +55,7 @@ public class TouchActivationFragment extends TalkbackBaseFragment {
 
   /**
    * Single tap needs explore by touch, which is set in the developer settings, so it can't be a
-   * dependency in the XML. Without Backtalk running, explore by touch is off, so the setting the
+   * dependency in the XML. Without newTalk running, explore by touch is off, so the setting the
    * user asked for counts instead.
    */
   private void updateSingleTap() {

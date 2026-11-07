@@ -65,7 +65,7 @@ public class FocusProcessorForScreenStateChange {
 
   /**
    * Set from the "Move focus to new windows" setting. When off, a window change places no focus,
-   * including when a Backtalk menu or dialog opens or closes. Focus left in a window that is no
+   * including when a newTalk menu or dialog opens or closes. Focus left in a window that is no
    * longer active is cleared, so that the next swipe starts in the new window.
    */
   private static volatile boolean focusNewWindows = true;

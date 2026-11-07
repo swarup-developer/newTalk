@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'backtalk'
+rootProject.name = 'newtalk'
 
 include ':talkback'
 include ':utils'

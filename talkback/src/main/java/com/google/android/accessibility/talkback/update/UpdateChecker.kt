@@ -38,17 +38,16 @@ data class UpdateInfo(
   val downloadUrl: String,
   /** The subjects of the commits that are newer than the running build, newest first. */
   val changes: List<String>,
-  /** True if the build is Backtalk under its new app ID, which installs as a new app. */
+  /** True if the build is newTalk under its new app ID, which installs as a new app. */
   val move: Boolean = false,
 )
 
 /**
  * Checks a rolling pre-release on GitHub for a newer development build.
  *
- * Builds with the app ID fyi.quin.backtalk are on the "dev" pre-release. The "latest" pre-release
- * holds builds with the old app ID com.android.talkback, and stays on the build that moves to the
- * new app ID, so old builds always pass through it. That build offers the move whenever "dev"
- * exists.
+ * newTalk builds are on the "dev" pre-release of github.com/swarup-developer/newTalk. A build
+ * running under the old app ID [AppIdMove.OLD_PACKAGE] checks "latest" for its own updates, and is
+ * offered the move to newTalk whenever "dev" exists.
  *
  * CI writes the release notes as a line "build: <commit count>", then one line per commit as "-
  * <7-character hash> <subject>", newest first. A release is newer only when its commit count is
@@ -56,23 +55,23 @@ data class UpdateInfo(
  */
 object UpdateChecker {
   private const val TAG = "UpdateChecker"
-  private const val RELEASES_URL = "https://api.github.com/repos/trypsynth/backtalk/releases/tags/"
+  private const val RELEASES_URL = "https://api.github.com/repos/swarup-developer/newTalk/releases/tags/"
 
   /** The pre-release for the old app ID com.android.talkback. */
   const val OLD_CHANNEL = "latest"
 
-  /** The pre-release for the app ID fyi.quin.backtalk. */
+  /** The pre-release for the app ID io.github.swarupdeveloper.newtalk. */
   const val NEW_CHANNEL = "dev"
 
   /** The phone build, which is also what builds before the watch build was published look for. */
-  @VisibleForTesting const val PHONE_APK_NAME = "backtalk.apk"
+  @VisibleForTesting const val PHONE_APK_NAME = "newtalk.apk"
   /** The watch build, so that a watch never installs the phone app. */
-  @VisibleForTesting const val WATCH_APK_NAME = "backtalk-wear.apk"
+  @VisibleForTesting const val WATCH_APK_NAME = "newtalk-wear.apk"
   /**
    * The phone build with ML Kit's text recognition model, for phones without Google Play services,
    * so that it never updates to a build whose text recognition needs them.
    */
-  @VisibleForTesting const val NO_PLAY_SERVICES_APK_NAME = "backtalk-nogms.apk"
+  @VisibleForTesting const val NO_PLAY_SERVICES_APK_NAME = "newtalk-nogms.apk"
   private const val SHORT_HASH_LENGTH = 7
   private const val MAX_CHANGES = 50
   private const val TIMEOUT_MS = 30_000
@@ -152,7 +151,7 @@ object UpdateChecker {
       (network?.openConnection(target) ?: target.openConnection()) as HttpURLConnection
     connection.connectTimeout = TIMEOUT_MS
     connection.readTimeout = TIMEOUT_MS
-    connection.setRequestProperty("User-Agent", "Backtalk/${versionName(context)}")
+    connection.setRequestProperty("User-Agent", "newTalk/${versionName(context)}")
     return connection
   }
 

@@ -423,7 +423,7 @@ public class DimScreenActor implements OnConfigurationChangedListener {
   }
 
   /**
-   * How to show the screen again, with the user's gestures: from the Backtalk menu if a gesture
+   * How to show the screen again, with the user's gestures: from the newTalk menu if a gesture
    * opens it, or else with the gesture for hiding and showing the screen, or else where gestures
    * are assigned.
    */
@@ -445,7 +445,7 @@ public class DimScreenActor implements OnConfigurationChangedListener {
 
   /**
    * Options for saying that the screen was hidden or shown. The user asked for it, so it is said
-   * even over other audio, or Backtalk's own speech, which would otherwise silence it. Without
+   * even over other audio, or newTalk's own speech, which would otherwise silence it. Without
    * that, hiding or showing the screen while something played went unannounced.
    */
   private static SpeakOptions announcementOptions(int queueMode) {

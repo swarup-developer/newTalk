@@ -37,7 +37,7 @@ public final class VoiceProfileMenuProcessor {
   private VoiceProfileMenuProcessor() {}
 
   /**
-   * Returns an item for Backtalk default and each voice profile, in the order of the Voice profiles
+   * Returns an item for newTalk default and each voice profile, in the order of the Voice profiles
    * screen, or none when there are no profiles to choose between.
    */
   private static List<ContextMenuItem> getMenuItems(
@@ -93,7 +93,7 @@ public final class VoiceProfileMenuProcessor {
   }
 
   /**
-   * Fills the submenu in the Backtalk menu.
+   * Fills the submenu in the newTalk menu.
    *
    * @return {@code false} if there are no profiles to choose between.
    */

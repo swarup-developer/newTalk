@@ -22,12 +22,12 @@ import kotlin.math.min
 
 /**
  * Utility for fuzzy phrase matching, normalisation, and intent extraction
- * in Backtalk voice commands.
+ * in newTalk voice commands.
  */
 object VoiceCommandFuzzyMatcher {
 
   private val POLITE_PREFIX_REGEX = Regex(
-    "^(?:please|can you|could you|would you|hey backtalk|hey talkback|backtalk(?!\\s+settings?)|talkback(?!\\s+settings?))\\s+",
+    "^(?:please|can you|could you|would you|hey new talk|hey newtalk|hey talkback|new talk(?!\\s+settings?)|newtalk(?!\\s+settings?)|talkback(?!\\s+settings?))\\s+",
     RegexOption.IGNORE_CASE
   )
 
@@ -39,7 +39,7 @@ object VoiceCommandFuzzyMatcher {
    * 1. Lowercases the string.
    * 2. Replaces common speech recognizer phonetics/abbreviations.
    * 3. Strips punctuation.
-   * 4. Strips conversational prefixes (e.g. "please", "can you", "hey backtalk").
+   * 4. Strips conversational prefixes (e.g. "please", "can you", "hey newtalk").
    * 5. Collapses whitespace.
    */
   @JvmStatic
@@ -126,10 +126,10 @@ object VoiceCommandFuzzyMatcher {
     if (normInput.isEmpty() || normTarget.isEmpty()) return false
     if (normInput == normTarget) return true
 
-    // Target mentions backtalk/talkback: require the input to also mention backtalk/talkback.
-    // This prevents generic commands like "open settings" from matching "open backtalk settings".
-    val targetHasScreenReader = target.contains("backtalk", ignoreCase = true) || target.contains("talkback", ignoreCase = true) || normTarget.contains("backtalk") || normTarget.contains("talkback")
-    val inputHasScreenReader = input.contains("backtalk", ignoreCase = true) || input.contains("talkback", ignoreCase = true) || normInput.contains("backtalk") || normInput.contains("talkback")
+    // Target mentions newtalk/talkback: require the input to also mention newtalk/talkback.
+    // This prevents generic commands like "open settings" from matching "open newtalk settings".
+    val targetHasScreenReader = target.contains("newtalk", ignoreCase = true) || target.contains("new talk", ignoreCase = true) || target.contains("talkback", ignoreCase = true) || normTarget.contains("newtalk") || normTarget.contains("talkback")
+    val inputHasScreenReader = input.contains("newtalk", ignoreCase = true) || input.contains("new talk", ignoreCase = true) || input.contains("talkback", ignoreCase = true) || normInput.contains("newtalk") || normInput.contains("talkback")
     if (targetHasScreenReader && !inputHasScreenReader) {
       return false
     }

@@ -31,7 +31,7 @@ import com.google.android.libraries.accessibility.utils.device.ScreenUtils
 /**
  * Control sounds, as in the Unspoken add-on for NVDA: each kind of control has its own sound,
  * played from where the control is on the screen, in place of the focus sound. The kinds of
- * control are Unspoken's. Backtalk has no sounds of its own for them: each plays the custom sound
+ * control are Unspoken's. newTalk has no sounds of its own for them: each plays the custom sound
  * the user chose for it, and a control without one plays the usual focus sound.
  */
 object ControlSounds {

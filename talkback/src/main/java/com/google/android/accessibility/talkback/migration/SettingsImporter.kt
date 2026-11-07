@@ -28,7 +28,7 @@ import java.io.File
 import java.io.IOException
 
 /**
- * Copies the settings and custom labels of Backtalk under its old app ID on the first start under
+ * Copies the settings and custom labels of Backtalk on the first start under
  * the new one.
  *
  * It runs from the Application, before anything loads the preferences or the labels database, so
@@ -87,7 +87,7 @@ object SettingsImporter {
 
   private fun importFromOldApp(context: Context) {
     if (!isOldAppInstalled(context)) {
-      LogUtils.i(TAG, "No Backtalk under the old app ID, so there are no settings to import")
+      LogUtils.i(TAG, "No Backtalk installed, so there are no settings to import")
       return
     }
     val authority = AppIdMove.authority(AppIdMove.OLD_PACKAGE)

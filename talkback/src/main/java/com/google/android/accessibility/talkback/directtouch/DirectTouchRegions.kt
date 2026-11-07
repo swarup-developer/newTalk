@@ -96,7 +96,7 @@ object DirectTouchRegions {
     val layer: Int,
     val bounds: Rect,
     /**
-     * Touches on it always stay with Backtalk, wherever it is in the stack, as [shouldExcludeWindow]
+     * Touches on it always stay with newTalk, wherever it is in the stack, as [shouldExcludeWindow]
      * decides.
      */
     val alwaysExcluded: Boolean,
@@ -108,7 +108,7 @@ object DirectTouchRegions {
   /**
    * The parts of the [marked] views that can take touches directly: each view clipped to its own
    * window, minus every window drawn on top of that window and every window that is always excluded.
-   * A dialog from the same app is cut out this way, so it works with Backtalk while the rest of a
+   * A dialog from the same app is cut out this way, so it works with newTalk while the rest of a
    * marked view stays direct. A view whose window isn't in [windows] is left out.
    */
   fun markedRegion(marked: List<MarkedArea>, windows: List<LayeredWindow>): Region {

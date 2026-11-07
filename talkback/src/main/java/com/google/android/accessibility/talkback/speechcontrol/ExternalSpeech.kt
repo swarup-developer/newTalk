@@ -24,8 +24,8 @@ import com.google.android.accessibility.utils.output.SpeechController.SpeakOptio
 import com.google.android.accessibility.utils.output.SpeechControllerImpl
 
 /**
- * Speech options for text that a script or another app asks Backtalk to say. It keeps its own rate
- * and pitch, is said as given, without Backtalk's speech filter, and is said over media.
+ * Speech options for text that a script or another app asks newTalk to say. It keeps its own rate
+ * and pitch, is said as given, without newTalk's speech filter, and is said over media.
  */
 object ExternalSpeech {
   @JvmStatic

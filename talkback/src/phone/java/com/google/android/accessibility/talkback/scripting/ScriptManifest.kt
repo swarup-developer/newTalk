@@ -50,7 +50,7 @@ data class AppMatcher(val packageName: String, val activity: String?, val window
 
   /**
    * Whether the front activity is the one this names. An activity is only known from the app's
-   * window changes, so after Backtalk starts with the app already open it is unknown until the app
+   * window changes, so after newTalk starts with the app already open it is unknown until the app
    * changes window, and is taken to match.
    */
   private fun activityMatches(className: String?): Boolean {
@@ -215,7 +215,7 @@ data class ScriptManifest(
   val description: String?,
   val author: String,
   val homepage: String?,
-  /** The oldest Backtalk build the script works with, or null if it works with any. */
+  /** The oldest newTalk build the script works with, or null if it works with any. */
   val minBuild: Int?,
   val apps: List<AppMatcher>,
   val permissions: Set<ScriptPermission>,
@@ -223,14 +223,14 @@ data class ScriptManifest(
   val rules: List<ScriptRule>,
   val commands: List<ScriptCommand>,
   val navigation: List<ScriptNavigation>,
-  /** What this Backtalk left out, since it doesn't know these fields. See [ManifestParser]. */
+  /** What this newTalk left out, since it doesn't know these fields. See [ManifestParser]. */
   val unsupported: List<String> = emptyList(),
   val json: String,
 ) {
   val isGlobal: Boolean
     get() = apps.isEmpty()
 
-  /** Whether all of the script works with this Backtalk. */
+  /** Whether all of the script works with this newTalk. */
   val isCompatible: Boolean
     get() = (minBuild ?: 0) <= BUILD && unsupported.isEmpty()
 
@@ -278,11 +278,11 @@ data class ScriptManifest(
       .ifEmpty { null }
 
   companion object {
-    /** This Backtalk's build number, which [minBuild] is compared with. */
+    /** This newTalk's build number, which [minBuild] is compared with. */
     @JvmField val BUILD = BuildConfig.COMMIT_COUNT
 
     /**
-     * What backtalk.apiVersion has said since script API versions were replaced by [minBuild], so
+     * What newtalk.apiVersion has said since script API versions were replaced by [minBuild], so
      * that scripts that check it keep working.
      */
     const val LEGACY_API_VERSION = 4

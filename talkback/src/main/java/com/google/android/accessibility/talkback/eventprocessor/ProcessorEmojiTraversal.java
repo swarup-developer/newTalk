@@ -30,7 +30,7 @@ import com.google.android.accessibility.utils.output.EmojiSpeech;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * Moves by character over a whole emoji when Backtalk speaks emoji, in apps that move through its
+ * Moves by character over a whole emoji when newTalk speaks emoji, in apps that move through its
  * parts one at a time. Chrome moves by code point, so a skin tone, or each person in a family and
  * the joiners between them, took a move each. The first move into the emoji names it (see
  * TextEventInterpreter); this asks the app to keep moving, silently, until the cursor is past it.

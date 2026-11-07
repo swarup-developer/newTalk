@@ -79,7 +79,7 @@
         android:noHistory="true"
         android:theme="@style/Theme.Transparent">
       <intent-filter>
-        <action android:name="fyi.quin.backtalk.action.ASK_BRAILLE_DISPLAY" />
+        <action android:name="io.github.swarupdeveloper.newtalk.action.ASK_BRAILLE_DISPLAY" />
         <category android:name="android.intent.category.DEFAULT" />
       </intent-filter>
     </activity>

@@ -235,7 +235,7 @@ public class FailoverTextToSpeech {
   public static final String PREF_USE_ACCESSIBILITY_STREAM_KEY = "pref_use_accessibility_stream";
 
   /**
-   * Set while Backtalk routes its audio to a chosen device, which only accessibility audio follows.
+   * Set while newTalk routes its audio to a chosen device, which only accessibility audio follows.
    * Not a user setting.
    */
   public static final String PREF_ROUTE_FORCED_KEY = "pref_audio_route_forced";
@@ -325,7 +325,7 @@ public class FailoverTextToSpeech {
 
   /**
    * How far into its text a resumed utterance's held speech carried on, by utterance ID, for recent
-   * utterances. Backtalk resumes with the rest of the text, so word positions in the held speech
+   * utterances. newTalk resumes with the rest of the text, so word positions in the held speech
    * are reported from there.
    */
   private final Map<String, Integer> resumeOffsets = recentMap();
@@ -344,10 +344,10 @@ public class FailoverTextToSpeech {
   /**
    * How long an engine with nothing else to do may say nothing at all about new speech before it
    * counts as hung, with low-latency audio on. A hung engine takes speech and never makes it, for
-   * every app, until its process is restarted, so Backtalk moves to another engine rather than
+   * every app, until its process is restarted, so newTalk moves to another engine rather than
    * going silent. This is shorter than {@link LowLatencyAudio#STALL_MS}, so a hung engine is not
    * taken for a low-latency failure. With the setting off, the engine plays its own speech, and
-   * Backtalk leaves it be.
+   * newTalk leaves it be.
    */
   private static final long ENGINE_HANG_MS = 3000;
 
@@ -384,7 +384,7 @@ public class FailoverTextToSpeech {
 
   /**
    * Low-latency utterances being said again the usual way, by ID. The engine can still report on
-   * the silent first try, which must not reach Backtalk as the utterance's progress, or Backtalk
+   * the silent first try, which must not reach newTalk as the utterance's progress, or newTalk
    * would take it as done before it is heard. So the second try has its own ID, {@link
    * #RESPOKEN_ID_PREFIX} and the utterance's, and reports on the first try are dropped.
    */
@@ -582,7 +582,7 @@ public class FailoverTextToSpeech {
 
   public static boolean shouldUseAccessibilityStream(Context context) {
     SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
-    // Only accessibility audio follows a device that Backtalk routes to. While it routes nowhere,
+    // Only accessibility audio follows a device that newTalk routes to. While it routes nowhere,
     // as with the phone speaker chosen and nothing else connected, the user's choice stands.
     if (prefs.getBoolean(PREF_ROUTE_FORCED_KEY, false)) {
       return true;
@@ -1231,7 +1231,7 @@ public class FailoverTextToSpeech {
         mLastUtteranceLocale = null;
         missingVoice = null;
         if (profile == null) {
-          // Backtalk default sets only a language, which can fail, so start from the engine's own
+          // newTalk default sets only a language, which can fail, so start from the engine's own
           // voice rather than keep the profile's.
           try {
             Voice engineDefault = tts.getDefaultVoice();
@@ -1531,7 +1531,7 @@ public class FailoverTextToSpeech {
 
   /**
    * Speaks text with the engine, through {@link LowLatencyAudio} if the setting is on and it can.
-   * Then the engine synthesizes the speech and Backtalk plays it, so that it reaches the speaker
+   * Then the engine synthesizes the speech and newTalk plays it, so that it reaches the speaker
    * sooner than the engine's own playback.
    */
   private int ttsSpeak(
@@ -1554,7 +1554,7 @@ public class FailoverTextToSpeech {
             lowLatencyListener);
     lowLatencyStreams.put(utteranceId, stream);
     lowLatencyRequests.put(utteranceId, Pair.create(text, bundle));
-    // The engine speaks as usual but at no volume, and Backtalk plays the copy of its audio that
+    // The engine speaks as usual but at no volume, and newTalk plays the copy of its audio that
     // Android gives it. As the engine is still playing audio, Android and phone makers' battery
     // savers keep it running, which they do not do for an engine only making audio for an app.
     Bundle silent = new Bundle(bundle);
@@ -1577,7 +1577,7 @@ public class FailoverTextToSpeech {
 
   /**
    * Notes the time if the audio mode changed since it was last seen. A change that happened while
-   * Backtalk wasn't looking counts from now.
+   * newTalk wasn't looking counts from now.
    */
   private void checkAudioMode() {
     int mode = audioManager.getMode();
@@ -1687,7 +1687,7 @@ public class FailoverTextToSpeech {
 
   /**
    * Carries on held speech from exactly where it stopped, if {@code utteranceId} is the held
-   * utterance and {@code text} is the rest of its text, as Backtalk resumes it. Returns whether it
+   * utterance and {@code text} is the rest of its text, as newTalk resumes it. Returns whether it
    * did.
    */
   private boolean resumeHeldSpeech(@Nullable String utteranceId, CharSequence text) {
@@ -1700,7 +1700,7 @@ public class FailoverTextToSpeech {
       return false;
     }
     int offset = fullText.length() - text.length();
-    // Word positions are reported from the start of the rest of the text, which Backtalk now holds.
+    // Word positions are reported from the start of the rest of the text, which newTalk now holds.
     // Pieces are already moved by the offset of any earlier resume.
     @Nullable Integer earlier = resumeOffsets.put(held, offset);
     int moved = offset - (earlier == null ? 0 : earlier);
@@ -1886,7 +1886,7 @@ public class FailoverTextToSpeech {
 
         @Override
         public void onNoAudio(String id) {
-          // The engine may play its own audio rather than give it to Backtalk, so it was heard
+          // The engine may play its own audio rather than give it to newTalk, so it was heard
           // already. But an utterance with nothing to say, such as a pause, has no audio either, so
           // only several in a row mean that the engine plays its own. Then speak the usual way
           // with this engine from now on.
@@ -2401,7 +2401,7 @@ public class FailoverTextToSpeech {
     }
     if (usableSpeechCache() == null) {
       // Nothing is cached while a voice profile is in use. Reported as a failure, as when the
-      // engine isn't ready, so that it's cached again once Backtalk default is back.
+      // engine isn't ready, so that it's cached again once newTalk default is back.
       resultNotifier.onFinished(
           new SpeechInfo(text, /* utteranceId= */ null, /* locale= */ null, pitch, rate), false);
       return;

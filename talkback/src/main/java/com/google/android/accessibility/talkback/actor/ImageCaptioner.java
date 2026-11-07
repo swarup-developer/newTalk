@@ -1817,7 +1817,7 @@ public class ImageCaptioner extends Handler
         manualTrigger);
     @Nullable CaptionResult captionResult = captionResults.getCaptionResult(requestId);
     if (captionResult == null) {
-      // The caption ended before its description came, such as when Backtalk paused. Like any
+      // The caption ended before its description came, such as when newTalk paused. Like any
       // result that comes after its request ended, the description is ignored.
       LogUtils.w(TAG, "Ignore the description of a caption that has ended, id = %d", requestId);
       return true;
