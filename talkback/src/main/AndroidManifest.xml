@@ -41,6 +41,7 @@
 
     <!-- Used by the updater to install new development builds. -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION" />
 
     <!-- Used by the status readout for the Wi-Fi state, signal, and network name. Android shows
     the network name only with location permission. The braille display declares location only

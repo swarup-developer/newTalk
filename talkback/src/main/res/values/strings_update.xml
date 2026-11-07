@@ -34,4 +34,6 @@
     <string name="update_install_canceled">Update canceled</string>
     <!-- Toast shown with the settings screen where the user allows newTalk to install apps. [CHAR LIMIT=NONE] -->
     <string name="update_allow_install">Allow newTalk to install apps, then try the update again</string>
+    <!-- Toast shown when an update has been installed successfully. [CHAR LIMIT=NONE] -->
+    <string name="update_installed_successfully">newTalk was updated successfully</string>
 </resources>

@@ -119,4 +119,23 @@ class UpdateCheckerTest {
   fun theBuildWithoutPlayServicesNeverTakesThePhoneBuild() {
     UpdateChecker.parseRelease(release(11), 10, "", UpdateChecker.NO_PLAY_SERVICES_APK_NAME)
   }
+
+  @Test
+  fun buildNumberCanBeExtractedFromTagName() {
+    val json = JSONObject()
+      .put("tag_name", "dev-15")
+      .put("body", "Release notes without explicit build prefix")
+      .put(
+        "assets",
+        JSONArray().put(
+          JSONObject()
+            .put("name", "newtalk.apk")
+            .put("browser_download_url", "https://example.com/newtalk.apk")
+        ),
+      )
+      .toString()
+    val update = UpdateChecker.parseRelease(json, 10, "")
+    assertEquals(15, update!!.build)
+    assertEquals("https://example.com/newtalk.apk", update.downloadUrl)
+  }
 }

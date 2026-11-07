@@ -392,6 +392,12 @@ object Updater {
     val params =
       PackageInstaller.SessionParams(PackageInstaller.SessionParams.MODE_FULL_INSTALL).apply {
         setAppPackageName(apkPackage)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+          setRequireUserAction(PackageInstaller.SessionParams.USER_ACTION_NOT_REQUIRED)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+          setPackageSource(PackageInstaller.PACKAGE_SOURCE_DOWNLOADED_FILE)
+        }
       }
     val sessionId = installer.createSession(params)
     try {
@@ -475,6 +481,9 @@ object Updater {
         val installed = intent.getStringExtra(UpdateReceiver.EXTRA_INSTALLED_PACKAGE)
         if (installed != null && installed != appContext.packageName) {
           onMoved(appContext, installed)
+        } else {
+          LogUtils.i(TAG, "Update installed successfully: %s", installed)
+          mainHandler.post { toast(appContext, R.string.update_installed_successfully) }
         }
       }
       PackageInstaller.STATUS_FAILURE_ABORTED -> toast(appContext, R.string.update_install_canceled)

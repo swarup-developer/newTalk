@@ -27,6 +27,7 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -43,11 +44,11 @@ data class UpdateInfo(
 )
 
 /**
- * Checks a rolling pre-release on GitHub for a newer development build.
+ * Checks GitHub releases for a newer development build.
  *
- * newTalk builds are on the "dev" pre-release of github.com/swarup-developer/newTalk. A build
- * running under the old app ID [AppIdMove.OLD_PACKAGE] checks "latest" for its own updates, and is
- * offered the move to newTalk whenever "dev" exists.
+ * newTalk builds are on the GitHub releases of the configured repository ([BuildConfig.GITHUB_REPO]).
+ * A build running under the old app ID [AppIdMove.OLD_PACKAGE] checks "latest" for its own updates,
+ * and is offered the move to newTalk whenever "dev" exists.
  *
  * CI writes the release notes as a line "build: <commit count>", then one line per commit as "-
  * <7-character hash> <subject>", newest first. A release is newer only when its commit count is
@@ -55,7 +56,12 @@ data class UpdateInfo(
  */
 object UpdateChecker {
   private const val TAG = "UpdateChecker"
-  private const val RELEASES_URL = "https://api.github.com/repos/swarup-developer/newTalk/releases/tags/"
+
+  @VisibleForTesting
+  var releasesBaseUrlOverride: String? = null
+
+  private val releasesBaseUrl: String
+    get() = releasesBaseUrlOverride ?: "https://api.github.com/repos/${BuildConfig.GITHUB_REPO}/releases"
 
   /** The pre-release for the old app ID com.android.talkback. */
   const val OLD_CHANNEL = "latest"
@@ -77,12 +83,12 @@ object UpdateChecker {
   private const val TIMEOUT_MS = 30_000
 
   private val BUILD_LINE = Regex("""build:\s*(\d+)""")
+  private val TAG_BUILD_REGEX = Regex("""\b(\d+)\b""")
 
   /**
    * Returns the newer build, or null if this build is current. This blocks on the network.
    *
    * @throws IOException if GitHub cannot be reached or returns an error.
-   * @throws JSONException if the release is not in the expected format.
    */
   @WorkerThread
   fun check(context: Context): UpdateInfo? {
@@ -95,8 +101,13 @@ object UpdateChecker {
       } else {
         NEW_CHANNEL
       }
-    val json = fetchRelease(context, channel) ?: throw IOException("GitHub has no $channel release")
-    return parseRelease(json, BuildConfig.COMMIT_COUNT, BuildConfig.COMMIT_HASH, apkName())
+    val json = fetchReleaseWithFallback(context, channel) ?: return null
+    return try {
+      parseRelease(json, BuildConfig.COMMIT_COUNT, BuildConfig.COMMIT_HASH, apkName())
+    } catch (e: JSONException) {
+      LogUtils.w(TAG, "Release JSON cannot be used: %s", e)
+      null
+    }
   }
 
   /**
@@ -115,8 +126,48 @@ object UpdateChecker {
 
   /** Returns the release with the [tag] as JSON, or null if GitHub has no such release. */
   @WorkerThread
-  private fun fetchRelease(context: Context, tag: String): String? {
-    val connection = openConnection(context, RELEASES_URL + tag)
+  fun fetchRelease(context: Context, tag: String): String? =
+    fetchReleaseWithFallback(context, tag)
+
+  /**
+   * Queries releases with fallback:
+   * 1. /tags/$tag
+   * 2. /latest
+   * 3. /releases (taking the first release in the repository)
+   * Returns null if no release exists.
+   */
+  @WorkerThread
+  fun fetchReleaseWithFallback(context: Context, tag: String): String? {
+    // 1. Try specific tag: /tags/$tag
+    val tagUrl = "$releasesBaseUrl/tags/$tag"
+    val tagJson = fetchUrl(context, tagUrl)
+    if (tagJson != null) {
+      return tagJson
+    }
+    // 2. Try latest release: /latest
+    val latestUrl = "$releasesBaseUrl/latest"
+    val latestJson = fetchUrl(context, latestUrl)
+    if (latestJson != null) {
+      return latestJson
+    }
+    // 3. Try releases list
+    val listJson = fetchUrl(context, releasesBaseUrl)
+    if (listJson != null) {
+      try {
+        val array = JSONArray(listJson)
+        if (array.length() > 0) {
+          return array.getJSONObject(0).toString()
+        }
+      } catch (e: Exception) {
+        LogUtils.w(TAG, "Cannot parse releases list: %s", e)
+      }
+    }
+    return null
+  }
+
+  @WorkerThread
+  fun fetchUrl(context: Context, url: String): String? {
+    val connection = openConnection(context, url)
     try {
       connection.setRequestProperty("Accept", "application/vnd.github+json")
       val code = connection.responseCode
@@ -124,7 +175,7 @@ object UpdateChecker {
         return null
       }
       if (code != HttpURLConnection.HTTP_OK) {
-        throw IOException("GitHub returned HTTP $code")
+        throw IOException("GitHub returned HTTP $code for $url")
       }
       return connection.inputStream.bufferedReader().use { it.readText() }
     } finally {
@@ -173,6 +224,7 @@ object UpdateChecker {
     val lines = release.optString("body").lines().map { it.trim() }
     val build =
       lines.firstNotNullOfOrNull { BUILD_LINE.matchEntire(it)?.groupValues?.get(1)?.toIntOrNull() }
+        ?: extractBuildFromTag(release.optString("tag_name"))
         ?: throw JSONException("The release has no build number")
     if (build <= currentBuild) {
       return null
@@ -201,6 +253,11 @@ object UpdateChecker {
         commits.take((build - currentBuild).coerceAtMost(MAX_CHANGES))
       }
     return UpdateInfo(build, downloadUrl, newCommits.map { it.substringAfter(' ') })
+  }
+
+  private fun extractBuildFromTag(tag: String?): Int? {
+    if (tag.isNullOrEmpty()) return null
+    return TAG_BUILD_REGEX.find(tag)?.groupValues?.get(1)?.toIntOrNull()
   }
 
   private fun versionName(context: Context): String =
