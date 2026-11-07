@@ -3,7 +3,7 @@ export const manifest = {
   name: 'Example plugin',
   version: '1.0',
   author: 'newTalk',
-  homepage: 'https://github.com/swarup-developer/newTalk/blob/master/docs/scripting/examples/example-plugin.js',
+  homepage: 'https://github.com/swarup-developer/newTalk/blob/main/docs/scripting/examples/example-plugin.js',
   description: 'Says the name of each app you switch to, and counts how often you open each one.',
   // screen: a script for all apps is told which app is in front. speech: newtalk.speak.
   permissions: ['screen', 'speech'],
