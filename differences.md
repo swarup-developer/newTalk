@@ -438,6 +438,14 @@ To change the items, go to **newTalk menu**, under **Controls** in newTalk setti
 
 **Add last spoken phrase to clipboard** adds what newTalk last said to the text it copied, on a new line, so that you can copy several phrases into one block. Copy the first phrase with **Copy last spoken phrase**, then add each of the others. It's an item you can turn on in the newTalk menu, a gesture action, and a keyboard shortcut. From Android 10, Android doesn't let newTalk read the clipboard, so the phrase is added to what newTalk last copied, not to anything you copied in another app.
 
+### Clipboard history
+
+**Clipboard history** keeps the last 20 things that newTalk copied, newest first, so that you can paste one you copied before the last. It holds what you copy or cut with newTalk's edit options and gestures, **Copy last spoken phrase** and **Add last spoken phrase to clipboard**, and the text of image descriptions. From Android 10, Android doesn't let newTalk read the clipboard, so it doesn't hold what you copy with another app's own copy button. On Android 8 and 9, it holds that too.
+
+It only pastes, so it works in a text box. In the newTalk menu, **Clipboard history** lists the copies when a text box has focus, and choosing one pastes it there. Anywhere else, it says "No text box found". It's on in the newTalk menu by default, and you can turn it off in **newTalk menu** settings. **Clipboard history** is also a gesture action, under **Text editing**, which opens the list in a text box and says "No text box found" elsewhere. It isn't a reading control.
+
+**Clear clipboard history**, at the end of the list, forgets every copy. The history stays on the device, isn't in settings backups, and can't be read until you first unlock the device after it starts.
+
 ### Clear text
 
 When a text field with text in it has focus, the edit options in the newTalk menu have **Clear text**, which deletes all of its text at once.

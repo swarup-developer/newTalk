@@ -646,6 +646,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
     APPEND_LAST_SPOKEN_UTTERANCE(
         R.string.shortcut_value_append_last_spoken_phrase,
         R.string.title_append_last_spoken_phrase),
+    CLIPBOARD_HISTORY(R.string.shortcut_value_clipboard_history, R.string.title_clipboard_history),
     BRAILLE_KEYBOARD(R.string.shortcut_value_braille_keyboard, R.string.shortcut_braille_keyboard),
 
     // Special features.

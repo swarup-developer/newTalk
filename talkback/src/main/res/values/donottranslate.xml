@@ -1220,6 +1220,7 @@
         <item>@android:string/paste</item>
         <item>@string/title_copy_last_spoken_phrase</item>
         <item>@string/title_append_last_spoken_phrase</item>
+        <item>@string/title_clipboard_history</item>
     </string-array>
 
     <!-- Shortcut preference value of text editing -->
@@ -1234,6 +1235,7 @@
         <item>@string/shortcut_value_paste</item>
         <item>@string/shortcut_value_copy_last_spoken_phrase</item>
         <item>@string/shortcut_value_append_last_spoken_phrase</item>
+        <item>@string/shortcut_value_clipboard_history</item>
     </string-array>
 
   <!-- The shortcut of unsupported gestures -->
@@ -2171,6 +2173,14 @@
   <bool name="pref_show_context_menu_voice_profile_default">false</bool>
   <item type="id" name="group_voice_profile" />
   <item type="id" name="voice_profile_menu" />
+
+  <!-- Clipboard history menu. -->
+  <string name="pref_show_context_menu_clipboard_history_setting_key" translatable="false">pref_clipboard_history_menu_setting_key</string>
+  <bool name="pref_show_context_menu_clipboard_history_default">true</bool>
+  <item type="id" name="clipboard_history_menu" />
+  <item type="id" name="group_clipboard_history" />
+  <item type="id" name="clipboard_history_clear" />
+  <string name="shortcut_value_clipboard_history" translatable="false">CLIPBOARD_HISTORY</string>
   <string name="pref_restore_focus_on_back_key">pref_restore_focus_on_back</string>
   <string name="pref_scroll_to_restore_previous_focus_key">pref_scroll_to_restore_previous_focus</string>
 </resources>

@@ -27,6 +27,7 @@ import static com.google.android.accessibility.talkback.Feedback.Speech.Action.S
 import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CONTEXT;
 import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CUSTOM_ACTION;
 import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.LANGUAGE;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CLIPBOARD_HISTORY;
 import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.VOICE_PROFILE;
 import static com.google.android.accessibility.talkback.eventprocessor.EventState.EVENT_SKIP_FOCUS_SYNC_FROM_VIEW_FOCUSED;
 
@@ -133,6 +134,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
     CUSTOM_ACTION,
     LANGUAGE,
     VOICE_PROFILE,
+    CLIPBOARD_HISTORY,
   }
 
   public ListMenuManager(
@@ -175,6 +177,29 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
   @CanIgnoreReturnValue
   public boolean showMenu(MenuId menuId, EventId eventId) {
     return showMenu(menuId, eventId, INVALID_RES_ID);
+  }
+
+  /**
+   * Shows the copies to paste into the focused text box, or says that there is no text box or
+   * nothing copied.
+   */
+  @CanIgnoreReturnValue
+  public boolean showClipboardHistory(EventId eventId) {
+    AccessibilityNodeInfoCompat node =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    String reason = ClipboardHistoryMenuProcessor.unavailableReason(service, node);
+    if (reason != null) {
+      pipeline.returnFeedback(
+          eventId,
+          Feedback.speech(
+              reason,
+              SpeakOptions.create()
+                  .setQueueMode(SpeechController.QUEUE_MODE_FLUSH_ALL)
+                  .setFlags(
+                      FeedbackItem.FLAG_NO_HISTORY | FeedbackItem.FLAG_FORCE_FEEDBACK_ALL)));
+      return false;
+    }
+    return showMenu(MenuId.CLIPBOARD_HISTORY, eventId);
   }
 
   @CanIgnoreReturnValue
@@ -310,6 +335,9 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
     } else if (menuId == VOICE_PROFILE) {
       VoiceProfileMenuProcessor.prepareVoiceProfileMenu(service, pipeline, menu);
       menu.setTitle(service.getString(R.string.title_selector_voice_profile));
+    } else if (menuId == CLIPBOARD_HISTORY) {
+      ClipboardHistoryMenuProcessor.prepareMenu(service, pipeline, currentNode, menu);
+      menu.setTitle(service.getString(R.string.title_clipboard_history));
     }
   }
 

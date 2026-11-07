@@ -440,6 +440,8 @@ public class GestureController {
       result = menuManager.showMenu(CUSTOM_ACTION, eventId);
     } else if (action.equals(service.getString(R.string.shortcut_value_show_language_options))) {
       result = menuManager.showMenu(LANGUAGE, eventId);
+    } else if (action.equals(service.getString(R.string.shortcut_value_clipboard_history))) {
+      result = menuManager.showClipboardHistory(eventId);
     } else if (action.equals(service.getString(R.string.shortcut_value_voice_profiles))) {
       result = menuManager.showMenu(VOICE_PROFILE, eventId, R.string.no_voice_profiles);
     } else if (action.equals(service.getString(R.string.shortcut_value_previous_voice_profile))) {

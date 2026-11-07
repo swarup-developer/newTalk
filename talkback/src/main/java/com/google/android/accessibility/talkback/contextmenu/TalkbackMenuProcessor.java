@@ -81,6 +81,8 @@ public class TalkbackMenuProcessor {
   public static final int ORDER_SUMMARIZE_VIEW = 6;
   public static final int ORDER_IMAGE_CAPTION = 6;
   private static final int ORDER_NAVIGATION = 7;
+  // After Copy last spoken phrase and Append last spoken phrase, which share this order.
+  private static final int ORDER_CLIPBOARD_HISTORY = 10;
   public static final int ORDER_TEXT_FORMATTING = 13;
   private static final int ORDER_LANGUAGES = 14;
   private static final int ORDER_EMOJI = 15;
@@ -173,6 +175,8 @@ public class TalkbackMenuProcessor {
     addEmojiMenuIfValid(menu);
     // Voice profile
     addVoiceProfileMenuIfValid(menu);
+    // Clipboard history
+    addClipboardHistoryMenuIfValid(menu);
     // System Action
     addWindowActionMenu(menu);
     addScriptCommands(menu);
@@ -493,6 +497,25 @@ public class TalkbackMenuProcessor {
     if (!VoiceProfileMenuProcessor.prepareVoiceProfileSubMenu(service, pipeline, subMenu)) {
       menu.removeItem(R.id.voice_profile_menu);
     }
+  }
+
+  /** Adds the copies newTalk kept, newest first, which paste into the focused text box. */
+  private void addClipboardHistoryMenuIfValid(ContextMenu menu) {
+    menu.removeItem(R.id.clipboard_history_menu);
+
+    if (!showMenuItem(
+        R.string.pref_show_context_menu_clipboard_history_setting_key,
+        R.bool.pref_show_context_menu_clipboard_history_default)) {
+      return;
+    }
+
+    ClipboardHistoryMenuProcessor.addToMenu(
+        service,
+        pipeline,
+        currentNode,
+        menu,
+        R.id.clipboard_history_menu,
+        ORDER_CLIPBOARD_HISTORY);
   }
 
   /** Adds a sub menu to choose how emoji are read, titled with the current choice. */

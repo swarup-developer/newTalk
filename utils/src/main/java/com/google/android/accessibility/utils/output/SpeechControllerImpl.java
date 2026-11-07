@@ -51,6 +51,7 @@ import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.utils.BuildVersionUtils;
+import com.google.android.accessibility.utils.ClipboardHistory;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Logger;
@@ -824,6 +825,7 @@ public class SpeechControllerImpl implements SpeechController {
     ClipData clip = ClipData.newPlainText(null, copyableText);
     clipboard.setPrimaryClip(clip);
     textCopied = copyableText;
+    ClipboardHistory.record(mContext, copyableText);
 
     // Verify that we actually have the utterance on the clipboard
     if (FeatureSupport.supportReadClipboard()) {

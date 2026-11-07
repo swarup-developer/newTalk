@@ -25,6 +25,7 @@ import android.os.Looper
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import com.google.android.accessibility.talkback.R
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils
+import com.google.android.accessibility.utils.ClipboardHistory
 import java.util.concurrent.Executors
 import java.util.function.Consumer
 import org.json.JSONArray
@@ -133,6 +134,9 @@ object ItemInspector {
     )
 }
 
-fun Context.copyToClipboard(label: CharSequence, text: CharSequence): Boolean =
+fun Context.copyToClipboard(label: CharSequence, text: CharSequence): Boolean {
   getSystemService(ClipboardManager::class.java)
-    ?.setPrimaryClip(ClipData.newPlainText(label, text)) != null
+    ?.setPrimaryClip(ClipData.newPlainText(label, text)) ?: return false
+  ClipboardHistory.record(this, text)
+  return true
+}

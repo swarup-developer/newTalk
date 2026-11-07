@@ -260,6 +260,7 @@ import com.google.android.accessibility.talkback.utils.SpeechRecognizerPerformer
 import com.google.android.accessibility.talkback.utils.TalkbackFeatureSupport;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
+import com.google.android.accessibility.utils.ClipboardHistory;
 import com.google.android.accessibility.utils.monitor.RecentUserInput;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -1013,6 +1014,7 @@ public class TalkBackService extends AccessibilityServiceCompat
     }
     SpeechControl.detach();
     NotificationListService.onBacktalkStopped();
+    ClipboardHistory.stop();
 
     if (audioDeviceRouter != null) {
       audioDeviceRouter.shutdown();
@@ -4414,6 +4416,7 @@ public class TalkBackService extends AccessibilityServiceCompat
     if (pipeline != null && speechController != null) {
       SpeechControl.attach(this, pipeline.getFeedbackReturner(), speechController);
       NotificationListService.onBacktalkStarted(this);
+      ClipboardHistory.start(this);
     }
     if (scriptHost != null || pipeline == null || !UserManagerCompat.isUserUnlocked(this)) {
       return;

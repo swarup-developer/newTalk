@@ -48,6 +48,7 @@ import com.google.android.accessibility.talkback.flags.FeatureFlagReader;
 import com.google.android.accessibility.talkback.monitor.InputMethodMonitor;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.SpellingSuggestion;
+import com.google.android.accessibility.utils.ClipboardHistory;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.PackageManagerUtils;
@@ -491,6 +492,9 @@ public class TextEditActor implements VoiceDictationDelegate {
       copyData = selectedNodeText;
       result =
           PerformActionUtils.performAction(node, AccessibilityNodeInfoCompat.ACTION_COPY, eventId);
+      if (result) {
+        ClipboardHistory.record(copyData);
+      }
     } else if (!TextUtils.isEmpty(nodeText)) {
       copyData = nodeText;
       return copyToClipboard(clipboard, copyData);
@@ -518,6 +522,9 @@ public class TextEditActor implements VoiceDictationDelegate {
     editTextActionHistory.beforeCut();
     boolean result =
         PerformActionUtils.performAction(node, AccessibilityNodeInfoCompat.ACTION_CUT, eventId);
+    if (result) {
+      ClipboardHistory.record(cutData);
+    }
     turnOffSelectionMode(node, eventId, /* clearSelection= */ false);
     editTextActionHistory.afterCut();
     boolean textCleared =
